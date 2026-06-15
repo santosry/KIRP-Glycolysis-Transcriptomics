@@ -110,7 +110,7 @@ Não são executadas análises de Kaplan-Meier, sobrevida, enriquecimento funcio
 
 ## Contato
 
-Ryan de Paulo Santos.
+ryan.paulo@gsuite.iff.edu.br
 
 ## Como citar
 
