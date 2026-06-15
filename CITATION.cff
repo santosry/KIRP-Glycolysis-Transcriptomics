@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it using the metadata below."
+title: "KIRP Glycolysis Transcriptomics"
+type: software
+authors:
+  - family-names: "Santos"
+    given-names: "Ryan de Paulo"
+  - family-names: "Freitas"
+    given-names: "Letícia Maria Dias"
+year: 2026
+license: MIT
+repository-code: "https://github.com/REPLACE_WITH_USERNAME/KIRP_Glycolysis_Transcriptomics"
+abstract: "Reproducible R pipeline for differential expression and PPI analysis of glycolysis/gluconeogenesis pathway genes in papillary renal cell carcinoma."
+keywords:
+  - transcriptomics
+  - KIRP
+  - glycolysis
+  - gluconeogenesis
+  - limma
+  - STRING
