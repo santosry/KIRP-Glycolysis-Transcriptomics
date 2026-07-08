@@ -1,31 +1,43 @@
-required_packages <- c(
-  "KEGGREST", "dplyr", "stringr", "tibble", "rio", "limma",
-  "ggplot2", "ggrepel", "STRINGdb", "igraph", "ggraph", "umap"
+# run_pipeline.R
+# 🍌 KIRP Glycolysis Transcriptomics — Pipeline completo
+# Dois eixos independentes: (1) Transcriptoma global, (2) Via hsa00010
+
+# ── Environment check ──
+source("scripts/00_environment.R", local = new.env(parent = globalenv()))
+
+# ── Pipeline scripts in order ──
+pipeline_scripts <- c(
+  "01_data_provenance.R",           # SHA256, scale check, gene IDs
+  "02_prepare_data.R",              # Sample flow, metadata, expression matrix
+  "03_sample_qc.R",                 # Boxplots, density, correlation
+  "04_pca_umap.R",                  # PCA + UMAP + confounding audit
+  "05_differential_expression_global.R",  # EIXO 1: DEG global + sensitivity
+  "06_hsa00010_targeted_analysis.R",      # EIXO 2: KEGG hsa00010 audit + heatmap
+  "07_ora_kegg.R",                  # ORA KEGG Up + Down
+  "08_ora_reactome.R",              # ORA Reactome Up + Down
+  "10_string_network.R",            # STRING + communities + centrality
+  "11_integrative_analysis.R",      # Integration table
+  "12_flowchart.R"                  # 🍌 Nano banana flowchart
 )
 
-missing_packages <- required_packages[!vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)]
-if (length(missing_packages) > 0L) {
-  stop("Install missing packages before running the pipeline: ", paste(missing_packages, collapse = ", "))
-}
-
-scripts <- c(
-  "01_download_data.R",
-  "02_prepare_data.R",
-  "02b_pca.R",
-  "03_differential_expression.R",
-  "04_volcano_plot.R",
-  "05_ppi_network.R",
-  "06_pathway_enrichment.R"
-)
-
-for (script in scripts) {
+for (script in pipeline_scripts) {
   script_path <- file.path("scripts", script)
   if (!file.exists(script_path)) {
-    message("Skipping ", script, " (file not found)")
+    message("⚠ Skipping ", script, " (not found)")
     next
   }
-  message("\n>>> Running ", script)
-  source(script_path, local = new.env(parent = globalenv()))
+  message("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+  message("🍌 Running ", script)
+  message("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+  
+  tryCatch({
+    source(script_path, local = new.env(parent = globalenv()))
+  }, error = function(e) {
+    message("❌ ERROR in ", script, ": ", e$message)
+    message("Continuing with next script...")
+  })
 }
 
-message("\nPipeline finished.")
+message("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+message("🍌 PIPELINE COMPLETE! 🍌")
+message("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
