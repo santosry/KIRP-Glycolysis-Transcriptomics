@@ -20,6 +20,21 @@ message("Imported: ", nrow(kidney), " rows × ", ncol(kidney), " cols")
 # ── Required columns ──
 required_cols <- c("sample", "primary_site", "sample_type", "study", "TCGA_GTEX_main_category")
 missing_cols <- setdiff(required_cols, colnames(kidney))
+
+# Check underscore-prefixed variants
+if (length(missing_cols) > 0) {
+  alt_cols <- paste0("_", missing_cols)
+  alt_present <- intersect(alt_cols, colnames(kidney))
+  if (length(alt_present) > 0) {
+    message("Columns have underscore prefix. Renaming: ", paste(alt_present, collapse = ", "))
+    for (ac in alt_present) {
+      new_name <- sub("^_", "", ac)
+      colnames(kidney)[colnames(kidney) == ac] <- new_name
+    }
+    missing_cols <- setdiff(required_cols, colnames(kidney))
+  }
+}
+
 if (length(missing_cols) > 0L) stop("Missing columns: ", paste(missing_cols, collapse = ", "))
 
 # ── Deduplicate ──
@@ -67,16 +82,14 @@ class_audit <- kidney |>
       TCGA_GTEX_main_category == "GTEX Kidney" ~ "Normal_GTEx",
       TCGA_GTEX_main_category == "TCGA Kidney Papillary Cell Carcinoma" &
         grepl("Primary|Tumor", sample_type, ignore.case = TRUE) ~ "KIRP",
-      TCGA_GTEX_main_category == "TCGA Kidney Papillary Cell Carcinoma" &
-        grepl("Solid Tissue Normal|Normal", sample_type, ignore.case = TRUE) ~ "TCGA_Normal",
+      study == "TCGA" & grepl("Solid Tissue Normal|Normal", sample_type, ignore.case = TRUE) ~ "TCGA_Normal",
       TRUE ~ "UNCLASSIFIED"
     ),
     reason = case_when(
       TCGA_GTEX_main_category == "GTEX Kidney" ~ "GTEx normal kidney",
       TCGA_GTEX_main_category == "TCGA Kidney Papillary Cell Carcinoma" &
         grepl("Primary|Tumor", sample_type, ignore.case = TRUE) ~ "TCGA-KIRP primary tumor",
-      TCGA_GTEX_main_category == "TCGA Kidney Papillary Cell Carcinoma" &
-        grepl("Solid Tissue Normal|Normal", sample_type, ignore.case = TRUE) ~ "TCGA-KIRP adjacent normal",
+      study == "TCGA" & grepl("Solid Tissue Normal|Normal", sample_type, ignore.case = TRUE) ~ "TCGA-KIRP adjacent normal",
       TRUE ~ "Unknown classification"
     )
   )
@@ -88,6 +101,10 @@ print(as.data.frame(class_audit))
 # ── Separate metadata and expression ──
 meta <- kidney[, required_cols, drop = FALSE]
 gene_cols <- setdiff(colnames(kidney), required_cols)
+# Remove clinical/metadata columns from gene list
+non_gene_cols <- c("OS", "OS.time", "samples", "sample", "primary_site", "sample_type", "study", "TCGA_GTEX_main_category")
+gene_cols <- setdiff(gene_cols, non_gene_cols)
+message("Gene columns after cleaning: ", length(gene_cols))
 expr <- as.matrix(kidney[, gene_cols, drop = FALSE])
 storage.mode(expr) <- "numeric"
 
@@ -145,12 +162,10 @@ if (length(intersect(studies_kirp, studies_normal)) == 0) {
 # ── Save main analysis data ──
 main_expr <- expr[match(main_meta$sample, meta$sample), , drop = FALSE]
 
-# Remove zero-variance genes
-gene_vars <- apply(main_expr, 2, var, na.rm = TRUE)
-zero_var <- which(gene_vars == 0)
-if (length(zero_var) > 0) {
-  message("Removing ", length(zero_var), " zero-variance genes")
-  main_expr <- main_expr[, -zero_var, drop = FALSE]
+# ── Scale: log2 transform (data is in linear scale per provenance audit) ──
+if (max(main_expr, na.rm = TRUE) > 100) {
+  message("Data appears linear (max = ", round(max(main_expr, na.rm = TRUE), 1), "). Applying log2(x + 1)...")
+  main_expr <- log2(main_expr + 1)
 }
 
 saveRDS(main_meta, file.path(repo_root, "data", "processed", "metadata.rds"))

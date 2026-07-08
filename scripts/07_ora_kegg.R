@@ -1,9 +1,15 @@
 # 07_ora_kegg.R — ORA KEGG com mapeamento SYMBOL→ENTREZ unificado
 
 suppressPackageStartupMessages({
-  library(clusterProfiler); library(org.Hs.eg.db); library(enrichplot)
-  library(dplyr); library(tibble); library(rio); library(ggplot2)
+  library(clusterProfiler)
+  library(org.Hs.eg.db)  # provides AnnotationDbi::select for OrgDb queries
+  library(enrichplot)
+  library(dplyr)
+  library(tibble)
+  library(rio)
+  library(ggplot2)
 })
+# org.Hs.eg.db masks dplyr::select — use dplyr::select for data frames
 
 repo_root <- normalizePath(file.path(getwd()), winslash = "/", mustWork = TRUE)
 deg_file <- file.path(repo_root, "results", "differential_expression", "DEG_global.csv")
@@ -24,7 +30,7 @@ universe_genes <- unique(universe_df$gene_id)
 all_keys <- keys(org.Hs.eg.db, keytype = "SYMBOL")
 valid_symbols <- intersect(universe_genes, all_keys)
 
-map_raw <- select(org.Hs.eg.db, keys = valid_symbols, columns = "ENTREZID", keytype = "SYMBOL")
+map_raw <- AnnotationDbi::select(org.Hs.eg.db, keys = valid_symbols, columns = "ENTREZID", keytype = "SYMBOL")
 map_raw <- map_raw[!is.na(map_raw$ENTREZID), ]
 
 # Audit mappings
@@ -36,7 +42,7 @@ map_summary <- map_counts |>
 map_1to1 <- map_raw |> filter(SYMBOL %in% map_summary$SYMBOL[map_summary$mapping_status == "1:1"])
 map_1ton <- map_raw |> filter(SYMBOL %in% map_summary$SYMBOL[map_summary$mapping_status == "1:n"]) |>
   group_by(SYMBOL) |> slice(1) |> ungroup()
-gene_map <- bind_rows(map_1to1, map_1ton) |> select(gene_symbol = SYMBOL, ENTREZID)
+gene_map <- bind_rows(map_1to1, map_1ton) |> dplyr::select(gene_symbol = SYMBOL, ENTREZID)
 rio::export(gene_map, file.path(repo_root, "results", "tables", "gene_id_mapping.csv"))
 
 unmapped_symbols <- setdiff(universe_genes, gene_map$gene_symbol)

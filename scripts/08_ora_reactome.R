@@ -26,7 +26,7 @@ all_keys <- keys(org.Hs.eg.db, keytype = "SYMBOL")
 all_genes <- unique(deg_all$gene_id)
 valid_genes <- intersect(all_genes, all_keys)
 
-symbol2entrez <- select(org.Hs.eg.db, keys = valid_genes,
+symbol2entrez <- AnnotationDbi::select(org.Hs.eg.db, keys = valid_genes,
                          columns = "ENTREZID", keytype = "SYMBOL")
 symbol2entrez <- symbol2entrez[!is.na(symbol2entrez$ENTREZID), ]
 symbol2entrez <- symbol2entrez[!duplicated(symbol2entrez$SYMBOL), ]

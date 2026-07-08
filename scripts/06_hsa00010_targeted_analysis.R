@@ -4,6 +4,7 @@
 suppressPackageStartupMessages({
   library(KEGGREST)
   library(dplyr)
+  library(stringr)
   library(tibble)
   library(rio)
   library(ggplot2)

@@ -20,10 +20,10 @@ deg_all <- rio::import(deg_file)
 mapping <- rio::import(mapping_file)
 
 # Build ranked list: moderated t-statistic, ENTREZID
-# Map gene_id → ENTREZID using the unified mapping
+# Map gene_id → ENTREZID using the mapping
+# mapping contains gene_symbol + ENTREZID (already cleaned)
 deg_mapped <- deg_all |>
-  inner_join(mapping |> filter(mapping_status == "1:1") |> select(gene_symbol, ENTREZID),
-             by = c("gene_id" = "gene_symbol"))
+  inner_join(mapping, by = c("gene_id" = "gene_symbol"))
 
 # Use moderated t (t column from limma) as ranking statistic
 ranked_list <- deg_mapped$t
@@ -70,8 +70,7 @@ if (!is.null(gsea_kegg) && nrow(gsea_kegg) > 0) {
 gsea_reactome <- gsePathway(
   geneList = ranked_list,
   organism = "human",
-  pvalueCutoff = 1,
-  eps = 0
+  pvalueCutoff = 1
 )
 
 if (!is.null(gsea_reactome) && nrow(gsea_reactome) > 0) {
