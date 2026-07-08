@@ -44,8 +44,7 @@ rio::export(loadings, file.path(repo_root, "results", "tables", "pca_loadings.cs
 top_pc1 <- head(loadings[order(-abs(loadings$PC1)), c("gene", "PC1")], 10)
 message("Top PC1 genes: ", paste(top_pc1$gene, collapse = ", "))
 
-# ── PCA plots (nano banana palette) ──
-bn_bg    <- "#FFF8DC"; bn_panel <- "#FFFAF0"; bn_grid <- "#E8D5A3"
+# ── PCA plots ──
 blue_n   <- "#1F5BFF"; purple_k <- "#8A2BE2"
 
 p_pca <- ggplot(pca_scores, aes(PC1, PC2, color = condition)) +
@@ -54,10 +53,8 @@ p_pca <- ggplot(pca_scores, aes(PC1, PC2, color = condition)) +
   labs(title = "PCA — Global Transcriptome",
        subtitle = paste0("PC1 (", var_pct[1], "%) vs PC2 (", var_pct[2], "%) | ", n_genes_pca, " genes"),
        x = paste0("PC1 (", var_pct[1], "%)"), y = paste0("PC2 (", var_pct[2], "%)")) +
-  theme_minimal(base_size = 14) +
-  theme(plot.background = element_rect(fill = bn_bg, color = NA),
-        panel.background = element_rect(fill = bn_panel),
-        panel.grid = element_line(color = bn_grid, linewidth = 0.3))
+  theme_classic(base_size = 14)
+
 ggsave(file.path(repo_root, "results", "figures", "PCA_PC1_PC2.png"), p_pca, width = 8, height = 6, dpi = 300)
 
 # PCA by study
@@ -65,10 +62,7 @@ p_pca_s <- ggplot(pca_scores, aes(PC1, PC2, color = study)) +
   geom_point(size = 2.5, alpha = 0.75) + scale_color_brewer(palette = "Set1") +
   labs(title = "PCA — Colored by Study Cohort", x = paste0("PC1 (", var_pct[1], "%)"),
        y = paste0("PC2 (", var_pct[2], "%)")) +
-  theme_minimal(base_size = 14) +
-  theme(plot.background = element_rect(fill = bn_bg, color = NA),
-        panel.background = element_rect(fill = bn_panel),
-        panel.grid = element_line(color = bn_grid, linewidth = 0.3))
+  theme_classic(base_size = 14)
 ggsave(file.path(repo_root, "results", "figures", "PCA_by_study.png"), p_pca_s, width = 8, height = 6, dpi = 300)
 
 # Scree
