@@ -529,6 +529,6 @@ Instituto Federal de Educação, Ciência e Tecnologia Fluminense — *Campus* C
 
 Use o arquivo [CITATION.cff](CITATION.cff) para citação automática pelo GitHub.
 
-**Formato sugerido (APA):**
+**Formato sugerido (Vancouver):**
 
-> Loureiro, K. C., Santos, R. P., Freitas, L. M. D., Ivine, & Pecly, M. E. (2026). *KIRP Glycolysis Transcriptomics* [Software]. GitHub. https://github.com/santosry/KIRP-Glycolysis-Transcriptomics
+> Loureiro KC, Santos RP, Freitas LMD, Ivine, Pecly ME. KIRP Glycolysis Transcriptomics [software]. GitHub; 2026 [citado 2026 jul 8]. Disponível em: https://github.com/santosry/KIRP-Glycolysis-Transcriptomics.
