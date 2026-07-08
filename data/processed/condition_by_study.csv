@@ -1,0 +1,5 @@
+condition,study,n
+Normal_GTEx,GTEX,28
+KIRP,GTEX,0
+Normal_GTEx,TCGA,0
+KIRP,TCGA,288

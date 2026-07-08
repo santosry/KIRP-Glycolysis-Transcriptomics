@@ -1,0 +1,7 @@
+metric,value
+n_pcs_input,50
+n_neighbors,15
+min_dist,0.1
+procrustes_r12,0.7033
+procrustes_r13,0.8033
+procrustes_r23,0.9259

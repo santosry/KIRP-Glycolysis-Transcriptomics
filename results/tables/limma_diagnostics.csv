@@ -1,0 +1,8 @@
+metric,value
+n_genes_tested,66
+n_DEG_trend_Up,19
+n_DEG_trend_Down,12
+n_DEG_notrend_Up,19
+n_DEG_notrend_Down,12
+logFC_correlation,1
+directional_agreement,1

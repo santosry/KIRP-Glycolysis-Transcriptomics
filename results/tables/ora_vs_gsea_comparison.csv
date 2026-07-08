@@ -1,0 +1,4 @@
+method,hsa00010_present
+ORA_Up,TRUE
+ORA_Down,TRUE
+GSEA,FALSE
