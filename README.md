@@ -72,8 +72,9 @@ A via KEGG `hsa00010` (glicólise/gliconeogênese) foi escolhida como objeto de 
 1. **É uma via metabólica central**, evolutivamente conservada e bem anotada;
 2. **Contém 65 genes humanos** com funções enzimáticas e regulatórias bem caracterizadas;
 3. **Permite leitura em nível de sistemas**: os genes não são independentes, mas organizam-se em módulos funcionais (fase preparatória, fase de pagamento, gliconeogênese, metabolismo de aldeídos);
-4. **Conecta-se a fenótipos clinicamente relevantes**: alterações glicolíticas em tumores renais já foram associadas a prognóstico, resposta terapêutica e plasticidade metabólica;
-5. **Oferece um modelo pedagógico** para alfabetização genômica: os conceitos de *upregulation*, *downregulation*, modularidade de rede e limitações do *bulk RNA-seq* podem ser ilustrados a partir de genes concretos.
+4. **Conecta-se ao efeito Warburg**: a reprogramação glicolítica é uma *hallmark* do câncer. No efeito Warburg, células tumorais mantêm elevada taxa glicolítica mesmo em presença de oxigênio (glicólise aeróbica), desviando o piruvato para lactato em vez de oxidá-lo no ciclo do ácido tricarboxílico. Esse desvio metabólico — aparentemente paradoxal, dado o menor rendimento de ATP por glicose (2 ATP *vs.* ~36 ATP na fosforilação oxidativa) — é compensado pela alta velocidade da glicólise e, sobretudo, pelo fornecimento de intermediários biossintéticos essenciais à proliferação celular: ribose-5-fosfato (via pentose-fosfato), serina e glicina (via 3-fosfoglicerato), e equivalentes redox (NADH, NADPH). No carcinoma renal, a reprogramação glicolítica é particularmente relevante porque se sobrepõe a alterações genéticas condutoras específicas do subtipo tumoral. A via `hsa00010` captura tanto as enzimas glicolíticas canônicas quanto enzimas da gliconeogênese e do metabolismo de aldeídos/álcoois, oferecendo uma visão integrada das alterações transcriptômicas;
+5. **Conecta-se a fenótipos clinicamente relevantes**: alterações glicolíticas em tumores renais já foram associadas a prognóstico, resposta terapêutica e plasticidade metabólica;
+6. **Oferece um modelo pedagógico** para alfabetização genômica: os conceitos de *upregulation*, *downregulation*, modularidade de rede e limitações do *bulk RNA-seq* podem ser ilustrados a partir de genes concretos.
 
 ### Questão de pesquisa
 
