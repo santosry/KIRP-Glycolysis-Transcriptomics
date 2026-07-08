@@ -96,6 +96,7 @@ pipeline_scripts <- c(
   "06_hsa00010_targeted_analysis.R",
   "07_ora_kegg.R",
   "08_ora_reactome.R",
+  "05b_threshold_robustness.R",
   "09_rank_based_enrichment.R",
   "10_string_network.R",
   "11_integrative_analysis.R",
