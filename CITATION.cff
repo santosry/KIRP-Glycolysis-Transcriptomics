@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it using the metadata below."
-title: "Transcriptômica da glicólise no carcinoma renal papilar: subsídios moleculares para a prática do enfermeiro em genética, genômica e saúde de precisão"
+title: "KIRP Glycolysis Transcriptomics"
 type: software
 authors:
   - family-names: "Loureiro"
@@ -12,10 +12,16 @@ authors:
   - family-names: "Freitas"
     given-names: "Letícia Maria Dias"
     affiliation: "Escola Técnica Estadual João Barcelos Martins"
+  - family-names: ""
+    given-names: "Ivine"
+    affiliation: "Universidade Federal do Rio de Janeiro, Campus Macaé"
+  - family-names: "Pecly"
+    given-names: "Maria Eduarda"
+    affiliation: "Instituto Federal de Educação, Ciência e Tecnologia Fluminense Campus Campos Guarus"
 year: 2026
 license: MIT
 repository-code: "https://github.com/santosry/KIRP-Glycolysis-Transcriptomics"
-abstract: "Reproducible R pipeline for differential expression and PPI analysis of glycolysis/gluconeogenesis pathway genes in papillary renal cell carcinoma (KIRP), with translational discussion for nursing practice in genetics, genomics, and precision health."
+abstract: "Reproducible R pipeline for differential expression and PPI analysis of glycolysis/gluconeogenesis pathway genes (KEGG hsa00010) in papillary renal cell carcinoma (KIRP), using TCGA/GTEx data integrated via UCSC Xena."
 keywords:
   - transcriptomics
   - KIRP
@@ -25,4 +31,4 @@ keywords:
   - STRING
   - genomic nursing
   - precision health
-  - oncology nursing
+  - reproducible research
