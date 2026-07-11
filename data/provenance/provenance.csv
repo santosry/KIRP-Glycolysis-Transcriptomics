@@ -3,20 +3,19 @@ file,kidney.tsv
 sha256,c7ae7ed3a4bfe3111239a6bd2c7b6cc1a085b2e19fd180900bb9c25a03fd39ca
 size_bytes,220320
 size_mb,0.2
-last_modified,2026-07-08 18:51:01.384489
+last_modified,2026-07-08 20:20:29.297739
 n_rows_total,445
-n_gene_cols,68
-n_meta_cols,2
+n_gene_cols,66
+n_meta_cols,8
 expression_min,0
-expression_q25,4.911
-expression_median,10.75
-expression_q75,12.76
-expression_max,5925
-pct_integer_like,12.6
+expression_q25,5.12125
+expression_median,10.76
+expression_q75,12.69
+expression_max,20.1
+pct_zero,9.6
 n_zero_var_genes,0
-n_missing_cells,58
-n_inf_cells,0
-scale_assessment,unknown
+n_missing_gene_cells,0
+scale_assessment,log2-scale
 gene_id_type,HGNC_symbols
-access_date,2026-07-08
+access_date,2026-07-11
 source_url,UCSC Xena (https://xenabrowser.net/)
