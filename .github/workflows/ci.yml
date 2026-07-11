@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main, audit-*]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: rocker/r-ver:4.4.0
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          apt-get update && apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
+
+      - name: Install R packages
+        run: |
+          R -e 'install.packages(c("dplyr","tibble","stringr","rio","digest","ggplot2","ggrepel","pheatmap","RColorBrewer","tidyr","testthat","umap"), repos="https://cloud.r-project.org")'
+          R -e 'if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager"); BiocManager::install(c("limma","edgeR","clusterProfiler","org.Hs.eg.db","ReactomePA","enrichplot","STRINGdb","igraph","ggraph","KEGGREST"), ask=FALSE)'
+
+      - name: Check environment
+        run: |
+          R -e 'source("scripts/00_environment.R")'
+
+      - name: Run tests
+        run: |
+          R -e 'testthat::test_dir("tests/testthat")'
+
+      - name: Check no manuscript files tracked
+        run: |
+          if git ls-files | grep -qE '\.(Rmd|pdf|docx|tex|qmd)$'; then
+            echo "ERROR: Manuscript files detected in tracking!"
+            git ls-files | grep -E '\.(Rmd|pdf|docx|tex|qmd)$'
+            exit 1
+          fi
+          echo "No manuscript files tracked ✓"
+
+      - name: Check no secrets exposed
+        run: |
+          if git ls-files | grep -qE '(\.env|credentials|token|secret|password|\.pem|id_rsa)'; then
+            echo "ERROR: Potential secrets detected!"
+            exit 1
+          fi
+          echo "No secrets detected ✓"
