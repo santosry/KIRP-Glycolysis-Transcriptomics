@@ -1,0 +1,13 @@
+metric,value
+total_genes_transcriptome,31633
+standard_DEGs,6248
+treat_DEGs,21156
+both_DEG,4955
+standard_only,1293
+treat_only,16201
+pathway_standard_DEG,35
+pathway_treat_DEG,99
+pathway_both,33
+pathway_lost_by_treat,2
+pathway_gained_by_treat,66
+lost_genes,FBP2;LDHAL6A

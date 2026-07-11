@@ -1,0 +1,667 @@
+{
+  "count": 110,
+  "timestamp": "2026-07-11T18:19:51.206885",
+  "sha256": "fe08c8213908bdfff26c7d447d3ae67febef2e286e68ffb750363e09b92ff106",
+  "commands": [
+    {
+      "position": 1788,
+      "end": 1802,
+      "command": "\textit{Campus}",
+      "type": "textit"
+    },
+    {
+      "position": 2019,
+      "end": 2033,
+      "command": "\textit{Campus}",
+      "type": "textit"
+    },
+    {
+      "position": 2626,
+      "end": 2641,
+      "command": "\textit{dataset}",
+      "type": "textit"
+    },
+    {
+      "position": 2714,
+      "end": 2727,
+      "command": "\textit{limma}",
+      "type": "textit"
+    },
+    {
+      "position": 2822,
+      "end": 2836,
+      "command": "\textit{eBayes}",
+      "type": "textit"
+    },
+    {
+      "position": 2920,
+      "end": 2931,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 3002,
+      "end": 3013,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 3121,
+      "end": 3141,
+      "command": "\textit{a posteriori}",
+      "type": "textit"
+    },
+    {
+      "position": 3404,
+      "end": 3424,
+      "command": "\textit{Bland-Altman}",
+      "type": "textit"
+    },
+    {
+      "position": 3552,
+      "end": 3566,
+      "command": "\textit{camera}",
+      "type": "textit"
+    },
+    {
+      "position": 3885,
+      "end": 3898,
+      "command": "\textit{ALDOB}",
+      "type": "textit"
+    },
+    {
+      "position": 3943,
+      "end": 3954,
+      "command": "\textit{HK2}",
+      "type": "textit"
+    },
+    {
+      "position": 4117,
+      "end": 4128,
+      "command": "\textit{TKT}",
+      "type": "textit"
+    },
+    {
+      "position": 4139,
+      "end": 4151,
+      "command": "\textit{G6PD}",
+      "type": "textit"
+    },
+    {
+      "position": 4222,
+      "end": 4234,
+      "command": "\textit{PCK1}",
+      "type": "textit"
+    },
+    {
+      "position": 4244,
+      "end": 4256,
+      "command": "\textit{PCK2}",
+      "type": "textit"
+    },
+    {
+      "position": 4266,
+      "end": 4278,
+      "command": "\textit{IDH2}",
+      "type": "textit"
+    },
+    {
+      "position": 4289,
+      "end": 4299,
+      "command": "\textit{PC}",
+      "type": "textit"
+    },
+    {
+      "position": 4317,
+      "end": 4331,
+      "command": "\textit{camera}",
+      "type": "textit"
+    },
+    {
+      "position": 4485,
+      "end": 4496,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 5062,
+      "end": 5073,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 5762,
+      "end": 5807,
+      "command": "\textit{Kidney Renal Papillary Cell Carcinoma}",
+      "type": "textit"
+    },
+    {
+      "position": 8913,
+      "end": 8930,
+      "command": "\textit{in silico}",
+      "type": "textit"
+    },
+    {
+      "position": 9042,
+      "end": 9057,
+      "command": "\textit{dataset}",
+      "type": "textit"
+    },
+    {
+      "position": 9267,
+      "end": 9283,
+      "command": "\textit{pipeline}",
+      "type": "textit"
+    },
+    {
+      "position": 9328,
+      "end": 9339,
+      "command": "\textit{hub}",
+      "type": "textit"
+    },
+    {
+      "position": 9492,
+      "end": 9508,
+      "command": "\textit{download}",
+      "type": "textit"
+    },
+    {
+      "position": 9545,
+      "end": 9559,
+      "command": "\textit{script}",
+      "type": "textit"
+    },
+    {
+      "position": 10092,
+      "end": 10113,
+      "command": "\textit{Primary Tumor}",
+      "type": "textit"
+    },
+    {
+      "position": 10175,
+      "end": 10196,
+      "command": "\textit{Kidney Cortex}",
+      "type": "textit"
+    },
+    {
+      "position": 10246,
+      "end": 10273,
+      "command": "\textit{Solid Tissue Normal}",
+      "type": "textit"
+    },
+    {
+      "position": 10776,
+      "end": 10789,
+      "command": "\textit{limma}",
+      "type": "textit"
+    },
+    {
+      "position": 11541,
+      "end": 11552,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 11697,
+      "end": 11708,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 11884,
+      "end": 11899,
+      "command": "\textit{release}",
+      "type": "textit"
+    },
+    {
+      "position": 12052,
+      "end": 12065,
+      "command": "\textit{G6PC1}",
+      "type": "textit"
+    },
+    {
+      "position": 12067,
+      "end": 12082,
+      "command": "\textit{PRPS1L1}",
+      "type": "textit"
+    },
+    {
+      "position": 12084,
+      "end": 12097,
+      "command": "\textit{RPEL1}",
+      "type": "textit"
+    },
+    {
+      "position": 12099,
+      "end": 12113,
+      "command": "\textit{SUCLA2}",
+      "type": "textit"
+    },
+    {
+      "position": 12153,
+      "end": 12173,
+      "command": "\textit{a posteriori}",
+      "type": "textit"
+    },
+    {
+      "position": 12693,
+      "end": 12707,
+      "command": "\textit{camera}",
+      "type": "textit"
+    },
+    {
+      "position": 12865,
+      "end": 12876,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 12935,
+      "end": 12962,
+      "command": "\texttt{inter.gene.cor=0.01}",
+      "type": "texttt"
+    },
+    {
+      "position": 13019,
+      "end": 13044,
+      "command": "\texttt{inter.gene.cor=NA}",
+      "type": "texttt"
+    },
+    {
+      "position": 13983,
+      "end": 14003,
+      "command": "\textit{Bland-Altman}",
+      "type": "textit"
+    },
+    {
+      "position": 14495,
+      "end": 14511,
+      "command": "\textit{pipeline}",
+      "type": "textit"
+    },
+    {
+      "position": 14555,
+      "end": 14574,
+      "command": "\textit{sessionInfo}",
+      "type": "textit"
+    },
+    {
+      "position": 14659,
+      "end": 14674,
+      "command": "\textit{release}",
+      "type": "textit"
+    },
+    {
+      "position": 15244,
+      "end": 15257,
+      "command": "\textit{ALDOB}",
+      "type": "textit"
+    },
+    {
+      "position": 15373,
+      "end": 15384,
+      "command": "\textit{HK2}",
+      "type": "textit"
+    },
+    {
+      "position": 16137,
+      "end": 16150,
+      "command": "\textit{ALDOB}",
+      "type": "textit"
+    },
+    {
+      "position": 16215,
+      "end": 16228,
+      "command": "\textit{ADH1C}",
+      "type": "textit"
+    },
+    {
+      "position": 16293,
+      "end": 16308,
+      "command": "\textit{ALDH3B2}",
+      "type": "textit"
+    },
+    {
+      "position": 16373,
+      "end": 16386,
+      "command": "\textit{PGAM2}",
+      "type": "textit"
+    },
+    {
+      "position": 16451,
+      "end": 16463,
+      "command": "\textit{PCK1}",
+      "type": "textit"
+    },
+    {
+      "position": 16527,
+      "end": 16540,
+      "command": "\textit{ADH1B}",
+      "type": "textit"
+    },
+    {
+      "position": 16605,
+      "end": 16616,
+      "command": "\textit{HK2}",
+      "type": "textit"
+    },
+    {
+      "position": 16679,
+      "end": 16691,
+      "command": "\textit{FBP1}",
+      "type": "textit"
+    },
+    {
+      "position": 16755,
+      "end": 16767,
+      "command": "\textit{LDHC}",
+      "type": "textit"
+    },
+    {
+      "position": 16832,
+      "end": 16844,
+      "command": "\textit{ADH4}",
+      "type": "textit"
+    },
+    {
+      "position": 16909,
+      "end": 16921,
+      "command": "\textit{ENO2}",
+      "type": "textit"
+    },
+    {
+      "position": 16983,
+      "end": 16994,
+      "command": "\textit{HK3}",
+      "type": "textit"
+    },
+    {
+      "position": 17144,
+      "end": 17155,
+      "command": "\textit{TKT}",
+      "type": "textit"
+    },
+    {
+      "position": 17244,
+      "end": 17256,
+      "command": "\textit{G6PD}",
+      "type": "textit"
+    },
+    {
+      "position": 17601,
+      "end": 17613,
+      "command": "\textit{PCK1}",
+      "type": "textit"
+    },
+    {
+      "position": 17623,
+      "end": 17635,
+      "command": "\textit{PCK2}",
+      "type": "textit"
+    },
+    {
+      "position": 17645,
+      "end": 17657,
+      "command": "\textit{IDH2}",
+      "type": "textit"
+    },
+    {
+      "position": 17668,
+      "end": 17678,
+      "command": "\textit{PC}",
+      "type": "textit"
+    },
+    {
+      "position": 17908,
+      "end": 17918,
+      "command": "\textit{CS}",
+      "type": "textit"
+    },
+    {
+      "position": 17920,
+      "end": 17932,
+      "command": "\textit{ACO2}",
+      "type": "textit"
+    },
+    {
+      "position": 17934,
+      "end": 17951,
+      "command": "\textit{IDH3A/B/G}",
+      "type": "textit"
+    },
+    {
+      "position": 17953,
+      "end": 17965,
+      "command": "\textit{OGDH}",
+      "type": "textit"
+    },
+    {
+      "position": 17967,
+      "end": 17979,
+      "command": "\textit{DLST}",
+      "type": "textit"
+    },
+    {
+      "position": 17981,
+      "end": 17997,
+      "command": "\textit{SUCLG1/2}",
+      "type": "textit"
+    },
+    {
+      "position": 17999,
+      "end": 18013,
+      "command": "\textit{SDHA-D}",
+      "type": "textit"
+    },
+    {
+      "position": 18015,
+      "end": 18025,
+      "command": "\textit{FH}",
+      "type": "textit"
+    },
+    {
+      "position": 18028,
+      "end": 18040,
+      "command": "\textit{MDH2}",
+      "type": "textit"
+    },
+    {
+      "position": 18588,
+      "end": 18602,
+      "command": "\textit{camera}",
+      "type": "textit"
+    },
+    {
+      "position": 19041,
+      "end": 19066,
+      "command": "\texttt{inter.gene.cor=NA}",
+      "type": "texttt"
+    },
+    {
+      "position": 19413,
+      "end": 19424,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 20408,
+      "end": 20428,
+      "command": "\textit{Bland-Altman}",
+      "type": "textit"
+    },
+    {
+      "position": 20778,
+      "end": 20789,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 20820,
+      "end": 20831,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 21788,
+      "end": 21799,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 21904,
+      "end": 21917,
+      "command": "\textit{ALDOB}",
+      "type": "textit"
+    },
+    {
+      "position": 21939,
+      "end": 21951,
+      "command": "\textit{FBP1}",
+      "type": "textit"
+    },
+    {
+      "position": 21989,
+      "end": 22001,
+      "command": "\textit{PCK1}",
+      "type": "textit"
+    },
+    {
+      "position": 22032,
+      "end": 22044,
+      "command": "\textit{PCK2}",
+      "type": "textit"
+    },
+    {
+      "position": 22442,
+      "end": 22453,
+      "command": "\textit{HK2}",
+      "type": "textit"
+    },
+    {
+      "position": 22461,
+      "end": 22472,
+      "command": "\textit{HK3}",
+      "type": "textit"
+    },
+    {
+      "position": 22480,
+      "end": 22493,
+      "command": "\textit{HKDC1}",
+      "type": "textit"
+    },
+    {
+      "position": 22622,
+      "end": 22635,
+      "command": "\textit{ALDOA}",
+      "type": "textit"
+    },
+    {
+      "position": 22646,
+      "end": 22659,
+      "command": "\textit{ALDOB}",
+      "type": "textit"
+    },
+    {
+      "position": 22862,
+      "end": 22876,
+      "command": "\textit{versus}",
+      "type": "textit"
+    },
+    {
+      "position": 22922,
+      "end": 22934,
+      "command": "\textit{G6PD}",
+      "type": "textit"
+    },
+    {
+      "position": 22945,
+      "end": 22956,
+      "command": "\textit{TKT}",
+      "type": "textit"
+    },
+    {
+      "position": 23416,
+      "end": 23428,
+      "command": "\textit{IDH2}",
+      "type": "textit"
+    },
+    {
+      "position": 23481,
+      "end": 23495,
+      "command": "\textit{camera}",
+      "type": "textit"
+    },
+    {
+      "position": 25767,
+      "end": 25787,
+      "command": "\textit{Bland-Altman}",
+      "type": "textit"
+    },
+    {
+      "position": 25975,
+      "end": 25987,
+      "command": "\textit{bulk}",
+      "type": "textit"
+    },
+    {
+      "position": 26056,
+      "end": 26069,
+      "command": "\textit{ALDOB}",
+      "type": "textit"
+    },
+    {
+      "position": 26072,
+      "end": 26084,
+      "command": "\textit{FBP1}",
+      "type": "textit"
+    },
+    {
+      "position": 27027,
+      "end": 27038,
+      "command": "\textit{vs.}",
+      "type": "textit"
+    },
+    {
+      "position": 27103,
+      "end": 27117,
+      "command": "\textit{camera}",
+      "type": "textit"
+    },
+    {
+      "position": 28046,
+      "end": 28065,
+      "command": "\textit{sessionInfo}",
+      "type": "textit"
+    },
+    {
+      "position": 28150,
+      "end": 28165,
+      "command": "\textit{release}",
+      "type": "textit"
+    },
+    {
+      "position": 28368,
+      "end": 28382,
+      "command": "\textit{OpenAI}",
+      "type": "textit"
+    },
+    {
+      "position": 28392,
+      "end": 28406,
+      "command": "\textit{OpenAI}",
+      "type": "textit"
+    },
+    {
+      "position": 28427,
+      "end": 28476,
+      "command": "\textit{Hangzhou DeepSeek Artificial Intelligence}",
+      "type": "textit"
+    },
+    {
+      "position": 31028,
+      "end": 31040,
+      "command": "\textit{bulk}",
+      "type": "textit"
+    }
+  ]
+}
