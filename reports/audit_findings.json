@@ -1,0 +1,134 @@
+[
+  {
+    "id": "F001",
+    "category": "Data Provenance",
+    "severity": "CRITICAL",
+    "description": "Provenance script incorrectly identified 72 gene columns (actual: 66) and classified data as linear scale due to OS.time contamination",
+    "evidence": "OS.time column (max=5925) treated as gene expression; actual gene max=20.1",
+    "impact": "Manuscript reported wrong column count, scale, and missing value count",
+    "correction": "Fixed metadata column detection in 01_data_provenance.R. Reran provenance.",
+    "file_affected": "scripts/01_data_provenance.R",
+    "status": "FIXED"
+  },
+  {
+    "id": "F002",
+    "category": "Data Integrity",
+    "severity": "CRITICAL",
+    "description": "Expression scale incorrectly reported as linear with log2(x+1) applied; data was already log2",
+    "evidence": "Gene expression values: 0-20.1, median 10.76, 9.6% zeros — classic log2(norm_count+1) signature",
+    "impact": "Manuscript methods section was scientifically incorrect",
+    "correction": "Corrected provenance assessment. No log2 applied (max<100 check prevented double transform). Manuscript corrected.",
+    "file_affected": "manuscrito_kirp_glicolise.Rmd (revised)",
+    "status": "FIXED"
+  },
+  {
+    "id": "F003",
+    "category": "Statistical",
+    "severity": "HIGH",
+    "description": "Condition and cohort perfectly confounded: all KIRP from TCGA, all Normal from GTEx",
+    "evidence": "Design matrix rank=2 < 3 columns. Zero cells in condition×study cross-tabulation.",
+    "impact": "KIRP vs GTEx contrast conflates tumor biology with cohort effects",
+    "correction": "Documented as structural limitation. Added TCGA-only sensitivity analysis.",
+    "file_affected": "scripts/02_prepare_data.R (audit section), scripts/15_tcga_only_sensitivity.R",
+    "status": "DOCUMENTED"
+  },
+  {
+    "id": "F004",
+    "category": "Sensitivity Analysis",
+    "severity": "HIGH",
+    "description": "TCGA-only sensitivity shows 60.6% directional agreement; many glycolytic genes lose significance",
+    "evidence": "PKM: 1.84→0.66 (NS), PFKP: 1.79→0.95 (NS), ENO1: 1.58→0.28 (NS)",
+    "impact": "Upregulation of glycolytic genes may be partially attributable to cohort effects",
+    "correction": "Added TCGA-only analysis and volcano comparison figure",
+    "file_affected": "scripts/15_tcga_only_sensitivity.R",
+    "status": "ADDED"
+  },
+  {
+    "id": "F005",
+    "category": "Figure Accuracy",
+    "severity": "MODERATE",
+    "description": "PCA/UMAP titles said Global Transcriptome for 66-gene panel",
+    "evidence": "Titles: PCA — Global Transcriptome, UMAP — Global Transcriptome",
+    "impact": "Misleading figure titles",
+    "correction": "Changed to 66-Gene Metabolic Panel",
+    "file_affected": "scripts/04_pca_umap.R",
+    "status": "FIXED"
+  },
+  {
+    "id": "F006",
+    "category": "Code Bug",
+    "severity": "MODERATE",
+    "description": "Density plot saved with boxplot variable (p_box instead of p_dens)",
+    "evidence": "ggsave(QC_density.png) used p_box object",
+    "impact": "QC_density.png was identical to QC_boxplot.png",
+    "correction": "Fixed variable reference",
+    "file_affected": "scripts/03_sample_qc.R",
+    "status": "FIXED"
+  },
+  {
+    "id": "F007",
+    "category": "Code Bug",
+    "severity": "MODERATE",
+    "description": "UMAP plots referenced undefined variables bn_bg, bn_panel, bn_grid",
+    "evidence": "Variables not defined in 04_pca_umap.R scope",
+    "impact": "Script would have failed if UMAP was available",
+    "correction": "Replaced custom theme with theme_classic()",
+    "file_affected": "scripts/04_pca_umap.R",
+    "status": "FIXED"
+  },
+  {
+    "id": "F008",
+    "category": "Documentation",
+    "severity": "MODERATE",
+    "description": "58 missing values incorrectly attributed to gene expression data",
+    "evidence": "OS column: 28 NAs (censored), OS.time: 30 NAs; gene columns: 0 NAs",
+    "impact": "Misleading data quality description",
+    "correction": "Corrected in provenance and manuscript",
+    "file_affected": "scripts/01_data_provenance.R, manuscrito",
+    "status": "FIXED"
+  },
+  {
+    "id": "F009",
+    "category": "Biological Accuracy",
+    "severity": "MODERATE",
+    "description": "PKM described as PKM2 isoform; gene-level RNA-seq cannot distinguish PKM1/PKM2",
+    "evidence": "Gene symbol is PKM; PKM2 is one of two splice isoforms from the PKM gene",
+    "impact": "Incorrect biological inference about isoform-specific functions",
+    "correction": "Corrected in manuscript: Piruvato quinase M2 → Piruvato quinase",
+    "file_affected": "manuscrito_kirp_glicolise.Rmd (revised)",
+    "status": "CORRECTED IN MANUSCRIPT"
+  },
+  {
+    "id": "F010",
+    "category": "Methodology",
+    "severity": "MODERATE",
+    "description": "GSEA run on 66 genes against 352 KEGG gene sets; 287 pathways had uncalculated P-values",
+    "evidence": "GSEA warnings: P-values were not calculated properly due to unbalanced gene-level statistic values",
+    "impact": "GSEA results unreliable for most gene sets",
+    "correction": "Documented limitation. GSEA described as panel-restricted analysis.",
+    "file_affected": "scripts/09_rank_based_enrichment.R",
+    "status": "DOCUMENTED"
+  },
+  {
+    "id": "F011",
+    "category": "Manuscript",
+    "severity": "MODERATE",
+    "description": "Manuscript results script had column name mismatch (variance_pct vs Variance)",
+    "evidence": "Error: Tibble columns must have compatible sizes",
+    "impact": "Script failed to generate manuscript results",
+    "correction": "Fixed column reference",
+    "file_affected": "scripts/13_generate_manuscript_results.R",
+    "status": "FIXED"
+  },
+  {
+    "id": "F012",
+    "category": "Reproducibility",
+    "severity": "LOW",
+    "description": "UMAP Procrustes stability variable across seeds (0.703-0.926)",
+    "evidence": "Procrustes r12=0.703, r13=0.803, r23=0.926",
+    "impact": "UMAP embeddings not fully reproducible",
+    "correction": "Stability dashboard provided; seeds recorded",
+    "file_affected": "scripts/04_pca_umap.R",
+    "status": "OBSERVED"
+  }
+]
