@@ -50,7 +50,7 @@ blue_n   <- "#1F5BFF"; purple_k <- "#8A2BE2"
 p_pca <- ggplot(pca_scores, aes(PC1, PC2, color = condition)) +
   geom_point(size = 2.5, alpha = 0.75) +
   scale_color_manual(values = c(Normal_GTEx = blue_n, KIRP = purple_k)) +
-  labs(title = "PCA — Global Transcriptome",
+  labs(title = "PCA — 66-Gene Metabolic Panel",
        subtitle = paste0("PC1 (", var_pct[1], "%) vs PC2 (", var_pct[2], "%) | ", n_genes_pca, " genes"),
        x = paste0("PC1 (", var_pct[1], "%)"), y = paste0("PC2 (", var_pct[2], "%)")) +
   theme_classic(base_size = 14)
@@ -127,21 +127,15 @@ if (!requireNamespace("umap", quietly = TRUE)) {
   p_umap <- ggplot(umap_df, aes(UMAP1, UMAP2, color = condition)) +
     geom_point(size = 2.5, alpha = 0.75) +
     scale_color_manual(values = c(Normal_GTEx = blue_n, KIRP = purple_k)) +
-    labs(title = "UMAP — Global Transcriptome", subtitle = paste0(n_pcs_umap, " PCs | n_neighbors=15 min_dist=0.1 | Procrustes r=", round(mean(c(r12,r13,r23)), 3)),
+    labs(title = "UMAP — 66-gene Metabolic Panel", subtitle = paste0(n_pcs_umap, " PCs | n_neighbors=15 min_dist=0.1 | Procrustes r=", round(mean(c(r12,r13,r23)), 3)),
          color = "Group") +
-    theme_minimal(base_size = 14) +
-    theme(plot.background = element_rect(fill = bn_bg, color = NA),
-          panel.background = element_rect(fill = bn_panel),
-          panel.grid = element_line(color = bn_grid, linewidth = 0.3))
+    theme_classic(base_size = 14)
   ggsave(file.path(repo_root, "results", "figures", "UMAP.png"), p_umap, width = 8, height = 6, dpi = 300)
   
   p_umap_s <- ggplot(umap_df, aes(UMAP1, UMAP2, color = study)) +
     geom_point(size = 2.5, alpha = 0.75) + scale_color_brewer(palette = "Set1") +
     labs(title = "UMAP — Colored by Study Cohort") +
-    theme_minimal(base_size = 14) +
-    theme(plot.background = element_rect(fill = bn_bg, color = NA),
-          panel.background = element_rect(fill = bn_panel),
-          panel.grid = element_line(color = bn_grid, linewidth = 0.3))
+    theme_classic(base_size = 14)
   ggsave(file.path(repo_root, "results", "figures", "UMAP_by_study.png"), p_umap_s, width = 8, height = 6, dpi = 300)
   
   # Confounding note

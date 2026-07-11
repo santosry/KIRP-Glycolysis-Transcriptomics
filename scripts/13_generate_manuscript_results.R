@@ -27,8 +27,8 @@ n_up <- sum(deg_df$regulation == "Up"); n_down <- sum(deg_df$regulation == "Down
 
 # ── PCA ──
 pca_df <- read_if(file.path(repo_root, "results", "tables", "pca_variance.csv"))
-pc1 <- if(!is.null(pca_df)) pca_df$variance_pct[1] else NA
-pc2 <- if(!is.null(pca_df)) pca_df$variance_pct[2] else NA
+pc1 <- if(!is.null(pca_df)) pca_df$Variance[1] else NA
+pc2 <- if(!is.null(pca_df)) pca_df$Variance[2] else NA
 
 # ── hsa00010 ──
 hsa_audit <- read_if(file.path(repo_root, "results", "tables", "hsa00010_audit.csv"))
@@ -39,13 +39,13 @@ n_hsa_down   <- if(!is.null(hsa_audit)) sum(hsa_audit$regulation == "Down", na.r
 # ── ORA ──
 kegg_up <- read_if(file.path(repo_root, "results", "enrichment", "KEGG_ORA_Up.csv"))
 kegg_down <- read_if(file.path(repo_root, "results", "enrichment", "KEGG_ORA_Down.csv"))
-top_kegg_up <- if(!is.null(kegg_up)) paste(head(kegg_up$Description[kegg_up$p.adjust < 0.05], 3), collapse = "; ") else ""
-top_kegg_down <- if(!is.null(kegg_down)) paste(head(kegg_down$Description[kegg_down$p.adjust < 0.05], 3), collapse = "; ") else ""
+top_kegg_up <- if(!is.null(kegg_up) && nrow(kegg_up) > 0) paste(head(kegg_up$Description[kegg_up$p.adjust < 0.05], 3), collapse = "; ") else ""
+top_kegg_down <- if(!is.null(kegg_down) && nrow(kegg_down) > 0) paste(head(kegg_down$Description[kegg_down$p.adjust < 0.05], 3), collapse = "; ") else ""
 
 react_up <- read_if(file.path(repo_root, "results", "enrichment", "Reactome_ORA_Up.csv"))
 react_down <- read_if(file.path(repo_root, "results", "enrichment", "Reactome_ORA_Down.csv"))
-top_react_up <- if(!is.null(react_up)) paste(head(react_up$Description[react_up$p.adjust < 0.05], 3), collapse = "; ") else ""
-top_react_down <- if(!is.null(react_down)) paste(head(react_down$Description[react_down$p.adjust < 0.05], 3), collapse = "; ") else ""
+top_react_up <- if(!is.null(react_up) && nrow(react_up) > 0) paste(head(react_up$Description[react_up$p.adjust < 0.05], 3), collapse = "; ") else ""
+top_react_down <- if(!is.null(react_down) && nrow(react_down) > 0) paste(head(react_down$Description[react_down$p.adjust < 0.05], 3), collapse = "; ") else ""
 
 # hsa00010 in ORA
 hsa_kegg_up <- !is.null(kegg_up) && "hsa00010" %in% kegg_up$ID

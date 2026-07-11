@@ -66,7 +66,7 @@ p_dens <- ggplot(expr_long, aes(x = expression, color = condition, group = sampl
   labs(x = "Expression (log2)", y = "Density", color = "Group",
        title = "Density distribution by sample") +
   theme_classic(base_size = 14)
-ggsave(file.path(repo_root, "results", "figures", "QC_density.png"), p_box, width = 8, height = 6, dpi = 200)
+ggsave(file.path(repo_root, "results", "figures", "QC_density.png"), p_dens, width = 8, height = 6, dpi = 200)
 
 # ── Correlation heatmap ──
 top_genes <- order(apply(expr, 2, var, na.rm = TRUE), decreasing = TRUE)[1:min(1000, ncol(expr))]

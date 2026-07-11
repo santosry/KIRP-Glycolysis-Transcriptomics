@@ -162,10 +162,17 @@ if (length(intersect(studies_kirp, studies_normal)) == 0) {
 # ── Save main analysis data ──
 main_expr <- expr[match(main_meta$sample, meta$sample), , drop = FALSE]
 
-# ── Scale: log2 transform (data is in linear scale per provenance audit) ──
-if (max(main_expr, na.rm = TRUE) > 100) {
-  message("Data appears linear (max = ", round(max(main_expr, na.rm = TRUE), 1), "). Applying log2(x + 1)...")
+# ── Scale: check if log2 transformation is needed ──
+# UCSC Xena TCGA/GTEx dataset typically provides log2(norm_count+1) values
+# Check actual scale and only transform if truly linear (max > 100)
+expr_max <- max(main_expr, na.rm = TRUE)
+if (expr_max > 100) {
+  message("Data appears linear (max = ", round(expr_max, 1), "). Applying log2(x + 1)...")
   main_expr <- log2(main_expr + 1)
+} else if (expr_max < 30) {
+  message("Data is already log2-transformed (max = ", round(expr_max, 1), "). No log2 applied.")
+} else {
+  message("Data scale ambiguous (max = ", round(expr_max, 1), "). No transformation applied.")
 }
 
 saveRDS(main_meta, file.path(repo_root, "data", "processed", "metadata.rds"))
