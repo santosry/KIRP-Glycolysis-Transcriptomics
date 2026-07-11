@@ -39,8 +39,11 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# pkgdown site
-docs/
+# Output files from R documentation (pkgdown)
+docs/reference/
+docs/articles/
+docs/news/
+docs/authors.
 
 # translation temp files
 po/*~
@@ -48,11 +51,16 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# Manuscript files (not tracked)
+# Manuscript files (NEVER publish on GitHub)
+manuscrito*
+*MANUSCRIPT*
 manuscript/
-*.Rmd
-*.pdf
+!docs/MANUSCRIPT_VERSION_LOG.md
 output/
+
+# Private environment files
+.env
+.env.*
 
 # Compressed data placeholders (actual data in .tsv)
 data/raw/*.gz
