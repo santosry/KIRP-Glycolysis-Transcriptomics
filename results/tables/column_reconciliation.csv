@@ -1,0 +1,75 @@
+column_index,column_name,original_v1_classification,correct_classification,data_type,min_val,max_val,n_na,n_total,v1_impact
+1,sample,metadata,sample_id,character,,,445,445,None
+2,samples,gene,sample_id_duplicate,character,,,445,445,All-NA when coerced → v1 'all-NA gene removed'
+3,TCGA_GTEX_main_category,metadata,category,character,,,445,445,None
+4,_sample_type,gene,sample_type_metadata,character,,,445,445,All-NA when coerced → v1 'all-NA gene removed'
+5,_study,gene,study_metadata,character,,,445,445,All-NA when coerced → v1 'all-NA gene removed'
+6,_primary_site,gene,site_metadata,character,,,445,445,All-NA when coerced → v1 'all-NA gene removed'
+7,OS,gene,survival_status,binary,0,1,28,445,Contributed 28 NAs to v1 'missing gene values'
+8,OS.time,gene,survival_time_days,integer_days,0,5925,30,445,Max=5925 contaminated v1 scale assessment → false 'linear' conclusion
+9,ACSS1,gene,gene_expression,numeric_log2,0,15.18,0,445,None
+10,ACSS2,gene,gene_expression,numeric_log2,0,14.78,0,445,None
+11,ADH1A,gene,gene_expression,numeric_log2,0,6.174,0,445,None
+12,ADH1B,gene,gene_expression,numeric_log2,0,14.66,0,445,None
+13,ADH1C,gene,gene_expression,numeric_log2,0,13.26,0,445,None
+14,ADH4,gene,gene_expression,numeric_log2,0,9,0,445,None
+15,ADH5,gene,gene_expression,numeric_log2,0,14.66,0,445,None
+16,ADH6,gene,gene_expression,numeric_log2,0,12.63,0,445,None
+17,ADH7,gene,gene_expression,numeric_log2,0,5.975,0,445,None
+18,ADPGK,gene,gene_expression,numeric_log2,0,11.9,0,445,None
+19,AKR1A1,gene,gene_expression,numeric_log2,0,15.09,0,445,None
+20,ALDH1B1,gene,gene_expression,numeric_log2,0,15.45,0,445,None
+21,ALDH2,gene,gene_expression,numeric_log2,0,15.65,0,445,None
+22,ALDH3A1,gene,gene_expression,numeric_log2,0,10.56,0,445,None
+23,ALDH3A2,gene,gene_expression,numeric_log2,0,14.42,0,445,None
+24,ALDH3B1,gene,gene_expression,numeric_log2,6.781,14,0,445,None
+25,ALDH3B2,gene,gene_expression,numeric_log2,0,16.24,0,445,None
+26,ALDH7A1,gene,gene_expression,numeric_log2,0,13.79,0,445,None
+27,ALDH9A1,gene,gene_expression,numeric_log2,0,13.95,0,445,None
+28,ALDOA,gene,gene_expression,numeric_log2,0,17.81,0,445,None
+29,ALDOB,gene,gene_expression,numeric_log2,0,20.1,0,445,None
+30,ALDOC,gene,gene_expression,numeric_log2,0,12.35,0,445,None
+31,BPGM,gene,gene_expression,numeric_log2,0,12.76,0,445,None
+32,DLAT,gene,gene_expression,numeric_log2,0,12.72,0,445,None
+33,DLD,gene,gene_expression,numeric_log2,0,13.95,0,445,None
+34,ENO1,gene,gene_expression,numeric_log2,0,17.76,0,445,None
+35,ENO2,gene,gene_expression,numeric_log2,0,14.43,0,445,None
+36,ENO3,gene,gene_expression,numeric_log2,0,13.6,0,445,None
+37,ENO4,gene,gene_expression,numeric_log2,0,7.509,0,445,None
+38,FBP1,gene,gene_expression,numeric_log2,0,15.38,0,445,None
+39,FBP2,gene,gene_expression,numeric_log2,0,6.918,0,445,None
+40,G6PC2,gene,gene_expression,numeric_log2,0,4.642,0,445,None
+41,G6PC3,gene,gene_expression,numeric_log2,0,13.89,0,445,None
+42,GALM,gene,gene_expression,numeric_log2,0,13.39,0,445,None
+43,GAPDH,gene,gene_expression,numeric_log2,0,18.85,0,445,None
+44,GAPDHS,gene,gene_expression,numeric_log2,0,5.458,0,445,None
+45,GCK,gene,gene_expression,numeric_log2,0,7.195,0,445,None
+46,GPI,gene,gene_expression,numeric_log2,0,17.57,0,445,None
+47,HK1,gene,gene_expression,numeric_log2,0,14.2,0,445,None
+48,HK2,gene,gene_expression,numeric_log2,0,13.42,0,445,None
+49,HK3,gene,gene_expression,numeric_log2,0,10.54,0,445,None
+50,HKDC1,gene,gene_expression,numeric_log2,0,13.41,0,445,None
+51,LDHA,gene,gene_expression,numeric_log2,0,16.7,0,445,None
+52,LDHAL6A,gene,gene_expression,numeric_log2,0,7.227,0,445,None
+53,LDHAL6B,gene,gene_expression,numeric_log2,0,4.402,0,445,None
+54,LDHB,gene,gene_expression,numeric_log2,0,17.49,0,445,None
+55,LDHC,gene,gene_expression,numeric_log2,0,8.633,0,445,None
+56,MINPP1,gene,gene_expression,numeric_log2,0,10.91,0,445,None
+57,PCK1,gene,gene_expression,numeric_log2,0,17.6,0,445,None
+58,PCK2,gene,gene_expression,numeric_log2,0,15.21,0,445,None
+59,PDHA1,gene,gene_expression,numeric_log2,0,14.62,0,445,None
+60,PDHA2,gene,gene_expression,numeric_log2,0,2.122,0,445,None
+61,PDHB,gene,gene_expression,numeric_log2,0,12.68,0,445,None
+62,PFKL,gene,gene_expression,numeric_log2,10.84,15.31,0,445,None
+63,PFKM,gene,gene_expression,numeric_log2,0,14.04,0,445,None
+64,PFKP,gene,gene_expression,numeric_log2,0,15.18,0,445,None
+65,PGAM1,gene,gene_expression,numeric_log2,0,15.32,0,445,None
+66,PGAM2,gene,gene_expression,numeric_log2,0,10.6,0,445,None
+67,PGAM4,gene,gene_expression,numeric_log2,0,4.405,0,445,None
+68,PGK1,gene,gene_expression,numeric_log2,0,16.31,0,445,None
+69,PGK2,gene,gene_expression,numeric_log2,0,4.008,0,445,None
+70,PGM1,gene,gene_expression,numeric_log2,0,13.25,0,445,None
+71,PGM2,gene,gene_expression,numeric_log2,0,12.02,0,445,None
+72,PKLR,gene,gene_expression,numeric_log2,0,13.8,0,445,None
+73,PKM,gene,gene_expression,numeric_log2,0,18.01,0,445,None
+74,TPI1,gene,gene_expression,numeric_log2,0,16.34,0,445,None
