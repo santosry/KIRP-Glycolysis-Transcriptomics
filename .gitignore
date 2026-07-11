@@ -53,3 +53,6 @@ manuscript/
 *.Rmd
 *.pdf
 output/
+
+# Compressed data placeholders (actual data in .tsv)
+data/raw/*.gz
