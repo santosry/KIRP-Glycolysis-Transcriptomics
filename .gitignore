@@ -64,3 +64,6 @@ output/
 
 # Compressed data placeholders (actual data in .tsv)
 data/raw/*.gz
+data/raw/kidney_transcriptome.tsv
+data/raw/kidney_full.tsv
+data/raw/kidney_full.tsv.gz
