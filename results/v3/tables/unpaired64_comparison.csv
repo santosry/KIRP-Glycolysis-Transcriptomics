@@ -1,0 +1,12 @@
+metric,value
+CCC,1
+Pearson_r,1
+MAE,8.3817151161151e-16
+Bias_signed,-3.65621291680023e-16
+Abs_mag_diff,-7.91029950100705e-16
+Slope,1.00000000000001
+Intercept,1.59801188297962e-15
+N_genes,31633
+N_pathway,106
+CCC_pathway,1
+Dir_agree_pathway,1

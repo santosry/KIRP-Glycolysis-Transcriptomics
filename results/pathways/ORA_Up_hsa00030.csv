@@ -1,6 +1,0 @@
-category,subcategory,ID,Description,GeneRatio,BgRatio,RichFactor,FoldEnrichment,zScore,pvalue,p.adjust,qvalue,geneID,Count
-Metabolism,Carbohydrate metabolism,hsa00010,Glycolysis / Gluconeogenesis,4/8,11/31,0.363636363636364,1.40909090909091,0.980037911664847,0.281423804226919,1,1,5236/2821/226/5214,4
-Metabolism,Global and overview maps,hsa01230,Biosynthesis of amino acids,4/8,16/31,0.25,0.96875,-0.104257207028537,0.696823631195155,1,1,7086/6888/226/5214,4
-Metabolism,Global and overview maps,hsa01200,Carbon metabolism,6/8,26/31,0.230769230769231,0.894230769230769,-0.779117071672312,0.906810035842294,1,1,2539/7086/2821/6888/226/5214,6
-Metabolism,Carbohydrate metabolism,hsa00030,Pentose phosphate pathway,8/8,31/31,0.258064516129032,1,,1,1,1,51071/2539/5236/7086/2821/6888/226/5214,8
-Metabolism,Global and overview maps,hsa01100,Metabolic pathways,8/8,31/31,0.258064516129032,1,,1,1,1,51071/2539/5236/7086/2821/6888/226/5214,8
