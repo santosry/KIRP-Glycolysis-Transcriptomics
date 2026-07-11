@@ -1,0 +1,283 @@
+---
+title: ""
+author: ""
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: false
+documentclass: article
+fontsize: 12pt
+mainfont: "Times New Roman"
+geometry: "left=3cm,right=2cm,top=3cm,bottom=2cm"
+lang: pt-BR
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{setspace}
+  - \usepackage{ragged2e}
+  - \usepackage{caption}
+  - \usepackage{titlesec}
+  - \usepackage{hyperref}
+  - \usepackage{array}
+  - \usepackage{booktabs}
+  - \usepackage{float}
+  - \setstretch{1.15}
+  - \setlength{\parindent}{1.25cm}
+  - \setlength{\parskip}{0pt}
+  - \pagestyle{empty}
+  - \pagenumbering{gobble}
+  - \titleformat{\section}{\normalfont\bfseries\fontsize{12}{14}\selectfont\MakeUppercase}{}{0pt}{}
+  - \titlespacing*{\section}{0pt}{12pt}{6pt}
+  - \titleformat{\subsection}{\normalfont\bfseries\fontsize{12}{14}\selectfont}{}{0pt}{}
+  - \titlespacing*{\subsection}{0pt}{10pt}{4pt}
+  - \captionsetup{font=normalsize,justification=justified,singlelinecheck=false}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+\newcommand{\vancouveritem}[2]{\noindent{\raggedright #1. #2\par}\vspace{3pt}}
+
+\begin{center}
+\textbf{\large Perfil transcriptômico do metabolismo central do carbono no carcinoma renal papilar: análise pareada, sensibilidade ao tecido de referência e implicações metodológicas}
+
+\vspace{6pt}
+
+Kamila da Conceição Loureiro\textsuperscript{1}; Ryan de Paulo Santos\textsuperscript{2}; Letícia Maria Dias Freitas\textsuperscript{3}; Ivine Souza Silva\textsuperscript{4}; Maria Eduarda Peixoto Soares Pecly\textsuperscript{2}
+
+\vspace{6pt}
+
+\textsuperscript{1} Faculdade de Medicina de Campos, Campos dos Goytacazes, RJ, Brasil.\\
+\textsuperscript{2} Instituto Federal de Educação, Ciência e Tecnologia Fluminense \textit{Campus} Campos Guarus, Campos dos Goytacazes, RJ, Brasil.\\
+\textsuperscript{3} Escola Técnica Estadual João Barcelos Martins, Campos dos Goytacazes, RJ, Brasil.\\
+\textsuperscript{4} Universidade Federal do Rio de Janeiro, \textit{Campus} Macaé, Macaé, RJ, Brasil.
+\end{center}
+
+# RESUMO
+
+\textbf{Objetivo:} caracterizar o perfil transcriptômico dos genes do metabolismo central do carbono (glicólise/gliconeogênese, via das pentoses fosfato e ciclo do ácido cítrico) no carcinoma renal papilar (KIRP), utilizando análise pareada tumor-tecido adjacente como comparador primário, e quantificar a sensibilidade dos resultados à escolha do tecido de referência.
+
+\textbf{Métodos:} matriz transcriptômica completa de 31.633 genes (58.581 antes da filtragem; 26.948 removidos por baixa expressão) para 445 amostras renais do UCSC Xena (\textit{dataset} \texttt{TcgaTargetGtex\_RSEM\_Hugo\_norm\_count}). Análise primária com \textit{limma} em 32 pares tumor-normal pareados do KIRP (modelo \texttt{\texttildelow patient + condition}, \textit{eBayes} com \texttt{robust=TRUE, trend=TRUE}). Análises de sensibilidade: 288 tumores KIRP \textit{vs.} 32 tecidos adjacentes KIRP (análise expandida TCGA-KIRP); 288 tumores \textit{vs.} 28 normais GTEx (exploratória, reconhecidamente confundida). Genes das três vias (106 na matriz) extraídos \textit{a posteriori} do modelo transcriptômico único. Concordância quantificada por coeficiente de correlação-concordância de Lin (CCC), viés médio (d = log2FC\textsubscript{pareado} $-$ log2FC\textsubscript{comparador}), erro absoluto médio (MAE), limites de concordância de 95\% ( \textit{Bland-Altman}) e concordância direcional restrita a genes com $|$log2FC$|$ $>$ 0,5 em ao menos um comparador. Teste de conjuntos gênicos por \textit{camera}. Análises em R 4.6.0.
+
+\textbf{Resultados:} dos 106 genes, 35 foram diferencialmente expressos na análise pareada ($|$log2FC$|$ $>$ 1, FDR $<$ 0,05), sendo 9 aumentados e 26 diminuídos (7 compartilhados entre duas ou três vias). A via glicolítica (64 genes) apresentou 7 genes com abundância aumentada e 19 diminuída; \textit{ALDOB} (log2FC = -8,66; IC 95\%: [-9,96; -7,36]) e \textit{HK2} (+3,34; IC 95\%: [2,51; 4,17]) exibiram as maiores magnitudes. A via das pentoses fosfato (30 genes) apresentou 3 genes aumentados e 9 diminuídos, com aumento de \textit{TKT} (+1,60) e \textit{G6PD} (+1,49). Quatro genes anotados no KEGG hsa00020 apresentaram redução: \textit{PCK1} (-5,11), \textit{PCK2} (-1,69), \textit{IDH2} (-1,42) e \textit{PC} (-1,39). O teste \textit{camera} identificou alteração coordenada no sentido de redução para o TCA (FDR = 0,0012). A concordância entre a análise pareada e o comparador secundário (KIRP \textit{vs.} adjacentes) foi excelente (CCC = 0,974; MAE = 0,27; concordância direcional = 98,7\%; 74/75 genes elegíveis). Em contraste, a concordância com GTEx foi moderada (CCC = 0,795; MAE = 0,94; viés = -0,79; limites de concordância = [-2,24; 0,67]), com 45 genes discordantes entre os 106 e concordância direcional de 60,2\% (59/98 genes elegíveis).
+
+\textbf{Conclusão:} no KIRP, 35 genes do metabolismo central do carbono apresentaram alteração transcriptômica na análise pareada primária (32 pares), com predomínio de redução da abundância de transcritos (26 diminuídos \textit{vs.} 9 aumentados). Neste conjunto de genes, as estimativas do modelo não-pareado com tecido adjacente KIRP foram altamente concordantes com o modelo pareado (CCC = 0,974). O tecido de referência externo (GTEx) introduziu viés sistemático (d = -0,79; MAE = 0,94) e reduziu a concordância direcional a 60,2\%. Estes achados demonstram que a escolha do tecido de referência afeta substancialmente o perfil transcriptômico reportado, com implicações metodológicas para estudos que utilizam comparadores externos.
+
+\textbf{Palavras-chave:} Carcinoma de Células Renais; Metabolismo do Carbono; Transcriptoma; Análise Pareada; Viés; Biologia Computacional.
+
+# INTRODUÇÃO
+
+O carcinoma renal papilar (\textit{Kidney Renal Papillary Cell Carcinoma}, KIRP) representa 10 a 15\% dos carcinomas de células renais\textsuperscript{1}. A classificação vigente da Organização Mundial da Saúde (OMS 2022) não utiliza mais a dicotomia simples tipo 1/tipo 2; entidades anteriormente agrupadas como tipo 2, incluindo o carcinoma renal deficiente em fumarato hidratase (FH), passaram a ser tratadas como categorias distintas\textsuperscript{2}. A coorte TCGA-KIRP foi constituída sob classificação histórica anterior a essa revisão, e os termos ``tipo 1'' e ``tipo 2'', quando aqui mencionados, referem-se às categorias do estudo original do TCGA\textsuperscript{1}.
+
+A reprogramação metabólica é uma característica fundamental do câncer\textsuperscript{3}. O metabolismo central do carbono compreende três vias interconectadas: a glicólise/gliconeogênese (KEGG hsa00010), que converte glicose em piruvato gerando ATP e intermediários biossintéticos; a via das pentoses fosfato (PPP, KEGG hsa00030), que produz NADPH para defesa antioxidante e ribose-5-fosfato para síntese de nucleotídeos\textsuperscript{4,5}; e o ciclo do ácido cítrico (TCA, KEGG hsa00020), que oxida acetil-CoA gerando equivalentes redutores e intermediários biossintéticos\textsuperscript{6}. Estas três vias constituem o eixo central de produção de energia e precursores biossintéticos na célula e operam como rede metabólica integrada: o fluxo glicolítico alimenta a PPP e o TCA, enquanto o NADPH da PPP sustenta a biossíntese redutiva necessária à proliferação\textsuperscript{3,4}.
+
+Em carcinomas renais, alterações metabólicas são específicas de subtipo\textsuperscript{7}. No subconjunto do KIRP com deficiência de FH, o acúmulo de fumarato promove succinação de PTEN, conectando diretamente o TCA à tumorigênese\textsuperscript{8}. A PPP é particularmente relevante pois a produção de NADPH é crítica para homeostase redox, e a enzima limitante G6PD é alvo da via NRF2\textsuperscript{9}.
+
+Análises transcriptômicas em câncer renal frequentemente comparam tecido tumoral com tecido normal de diferentes origens: tecido adjacente do mesmo projeto TCGA, tecido normal de autópsias do GTEx ou conjuntos combinados. Quando todos os tumores provêm do TCGA e todos os controles do GTEx, o efeito tumoral não pode ser separado do efeito de coorte: diferenças de coleta, processamento, idade, composição celular e região anatômica renal podem mimetizar ou obscurecer alterações transcricionais\textsuperscript{10,11}. A análise pareada tumor-tecido adjacente do mesmo paciente, com modelo estatístico que incorpore o indivíduo, representa a estratégia mais rigorosa para isolar o efeito tumoral\textsuperscript{12}.
+
+O presente estudo teve como objetivos: (i) caracterizar o perfil transcriptômico dos genes do metabolismo central do carbono em KIRP utilizando análise pareada como comparador primário; (ii) quantificar a sensibilidade dos resultados à escolha do tecido de referência por métricas de concordância apropriadas; e (iii) testar formalmente a alteração coordenada de cada via por método de conjunto gênico.
+
+# MÉTODOS
+
+## Delineamento e proveniência dos dados
+
+Estudo computacional \textit{in silico} com análise secundária de dados transcriptômicos públicos. A matriz completa de expressão gênica foi obtida do \textit{dataset} \texttt{TcgaTargetGtex\_RSEM\_Hugo\_norm\_count} da plataforma UCSC Xena (\url{https://xenabrowser.net/})\textsuperscript{10}, acessado em 11 de julho de 2026. A matriz integrada TCGA/GTEx foi processada pelo \textit{pipeline} Toil\textsuperscript{13} e distribuída pelo \textit{hub} \texttt{toil-xena-hub}. Os dados encontram-se em escala $\log_2(\text{norm\_count}+1)$ conforme fornecida pelo Xena (mediana = 11,15; máximo = 20,1). O \textit{download} e a filtragem estão documentados em \textit{script} versionado no repositório do estudo.
+
+Foram removidos 26.948 genes com expressão $\leq$ 1 em mais de 90\% das 445 amostras, resultando em 31.633 genes analisáveis. A filtragem foi aplicada globalmente sobre as 445 amostras; uma análise de sensibilidade confirmou que nenhum gene das três vias foi removido exclusivamente por este critério. Nenhum gene apresentou símbolo ambíguo, valores ausentes ou duplicidade de identificador.
+
+## Classificação das amostras
+
+As 445 amostras foram classificadas em três grupos: KIRP Tumor (TCGA, \textit{Primary Tumor}, n = 288; código de amostra \texttt{-01}); GTEx Normal (GTEx \textit{Kidney Cortex}, n = 28; prefixo \texttt{GTEX-}); e TCGA Normal (\textit{Solid Tissue Normal}, n = 129; código \texttt{-11}). O identificador do participante foi extraído dos três primeiros segmentos do código TCGA (ex.: \texttt{TCGA-XX-XXXX}). Dos 129 normais TCGA, 32 compartilham participante com tumores KIRP, constituindo tecido adjacente pareado. Os 97 normais restantes provêm de outros projetos renais do TCGA (KIRC, KICH ou outros contextos).
+
+## Análise diferencial
+
+A análise primária utilizou exclusivamente os 32 pares tumor-adjacente (64 amostras). O modelo linear foi ajustado com \textit{limma}\textsuperscript{12} incluindo o participante como covariável (\texttt{model.matrix(\texttildelow patient + condition)}), com níveis do fator \texttt{condition} ordenados como ``TCGA\_Normal'' (referência) e ``KIRP'', de modo que o log2FC representa tumor menos normal. O ajuste empírico-bayesiano (\texttt{eBayes(robust=TRUE, trend=TRUE)}) foi aplicado sobre os 31.633 genes simultaneamente, garantindo moderação adequada das variâncias. O diagnóstico de tendência média-variância foi verificado com \texttt{plotSA}. Genes foram considerados diferencialmente expressos quando FDR (Benjamini-Hochberg) $<$ 0,05 e $|$log2FC$|$ $>$ 1, com intervalos de confiança de 95\% reportados.
+
+Duas análises de sensibilidade foram conduzidas: (i) 288 tumores KIRP \textit{vs.} 32 tecidos adjacentes KIRP (modelo sem covariável de paciente, mesmos controles que a análise primária, porém sem pareamento); (ii) 288 tumores \textit{vs.} 28 normais GTEx (modelo sem covariável, reconhecidamente confundido).
+
+## Extração dos genes das vias metabólicas
+
+As três vias KEGG foram obtidas via \texttt{KEGGREST} (KEGG \textit{release} 119.0 (julho de 2026)) e congeladas em arquivo versionado (Tabela 1). Dos 110 genes únicos, 106 estavam presentes na matriz após filtragem (4 ausentes: \textit{G6PC1}, \textit{PRPS1L1}, \textit{RPEL1}, \textit{SUCLA2}). Os genes de cada via foram extraídos \textit{a posteriori} do resultado da análise diferencial única.
+
+\begin{table}[H]
+\centering
+\caption{Cobertura das vias metabólicas no transcriptoma.}
+\begin{tabular}{lrrr}
+\toprule
+Via & KEGG ID & Genes KEGG & Genes na Matriz \\
+\midrule
+Glicólise / Gliconeogênese & hsa00010 & 67 & 64 \\
+Via das Pentoses Fosfato & hsa00030 & 31 & 30 \\
+Ciclo do Ácido Cítrico & hsa00020 & 30 & 29 \\
+\midrule
+\textbf{União (genes únicos)} & & \textbf{110} & \textbf{106} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+## Teste de conjuntos gênicos
+
+O método \textit{camera}\textsuperscript{14} foi aplicado às três vias pré-especificadas utilizando a matriz de expressão e o desenho pareado completos (31.633 genes, contraste KIRP \textit{vs.} TCGA\_Normal, correlação intergênica predefinida de 0,01 (\texttt{inter.gene.cor=0.01})). Análise de sensibilidade com estimação por conjunto (\texttt{inter.gene.cor=NA}) também foi conduzida. Este método competitivo testa se cada conjunto gênico apresenta deslocamento em relação ao restante do transcriptoma, considerando a correlação entre genes \texttt{inter.gene.cor=0,01}). Este método testa se cada conjunto gênico apresenta alteração coordenada em relação ao restante do transcriptoma, considerando a correlação entre genes, e evita a circularidade de restringir previamente o universo apenas às vias. Os valores de P foram ajustados por Benjamini-Hochberg entre as três vias.
+
+## Concordância entre comparadores
+
+A concordância entre a análise pareada primária e cada análise de sensibilidade foi quantificada para os 106 genes das vias metabólicas por: coeficiente de correlação-concordância de Lin (CCC); erro absoluto médio (MAE); viés médio definido como d = log2FC\textsubscript{pareado} $-$ log2FC\textsubscript{comparador}; limites de concordância de 95\% (viés $\pm$ 1,96 DP) pelo método de \textit{Bland-Altman}; inclinação e intercepto da regressão linear (log2FC\textsubscript{comparador} $\sim$ log2FC\textsubscript{pareado}); e concordância direcional restrita a genes com $|$log2FC$|$ $>$ 0,5 em ao menos um dos dois comparadores. O limiar de 0,5 exclui genes com efeitos próximos de zero para evitar classificação artificial de discordância. Os denominadores são reportados explicitamente para cada métrica.
+
+## Ambiente computacional
+
+Análises conduzidas em R versão 4.6.0 (Bioconductor 3.23). O \textit{pipeline} completo, tabelas suplementares, figuras e \textit{sessionInfo} estão disponíveis no repositório \texttt{santosry/KIRP-Glycolysis-Transcriptomics} (\textit{release} v3.0.0, commit \texttt{e683f84}).
+
+# RESULTADOS
+
+## Análise pareada primária
+
+Dos 106 genes analisados, 35 foram diferencialmente expressos na análise pareada ($|$log2FC$|$ $>$ 1, FDR $<$ 0,05), sendo 9 aumentados e 26 diminuídos (7 compartilhados entre duas ou três vias; Tabela Suplementar S1). As contagens de DEGs por via foram: glicólise, 26 DEGs (7 aumentados, 19 diminuídos); PPP, 12 DEGs (3 aumentados, 9 diminuídos); hsa00020, 4 DEGs (todos diminuídos). A soma excede 35 porque 7 genes pertencem a mais de uma via.
+
+A via glicolítica (64 genes; Figura 1) teve \textit{ALDOB} (aldolase B) como gene de maior redução (log2FC = -8,66; IC 95\%: [-9,96; -7,36]; FDR = $4{,}3 \times 10^{-13}$) e \textit{HK2} (hexoquinase 2) como gene de maior aumento (log2FC = +3,34; IC 95\%: [2,51; 4,17]; FDR = $1{,}9 \times 10^{-12}$). Os gráficos pareados por participante confirmaram a consistência dos efeitos para os genes de maior magnitude (Figura S1).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\textwidth]{KIRP-Glycolysis-Transcriptomics/results/v3/figures/Volcano_hsa00010.png}
+\caption{Volcano plot da via glicolítica (análise pareada, 32 pares). Azul = aumentados; roxo = diminuídos.}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Genes glicolíticos diferencialmente expressos na análise pareada (12 de maior magnitude; tabela completa em S1).}
+\footnotesize
+\begin{tabular}{lrrll}
+\toprule
+Gene & log2FC & IC 95\% & FDR & Direção \\
+\midrule
+\textit{ALDOB} & -8,66 & [-9,96; -7,36] & $4{,}3\times10^{-13}$ & Diminuído \\
+\textit{ADH1C} & -6,01 & [-7,06; -4,95] & $1{,}9\times10^{-15}$ & Diminuído \\
+\textit{ALDH3B2} & -5,19 & [-5,93; -4,46] & $8{,}5\times10^{-21}$ & Diminuído \\
+\textit{PGAM2} & -5,17 & [-6,45; -3,90] & $2{,}3\times10^{-13}$ & Diminuído \\
+\textit{PCK1} & -5,11 & [-6,53; -3,69] & $1{,}7\times10^{-9}$ & Diminuído \\
+\textit{ADH1B} & -4,94 & [-6,28; -3,61] & $7{,}8\times10^{-11}$ & Diminuído \\
+\textit{HK2} & +3,34 & [2,51; 4,17] & $1{,}9\times10^{-12}$ & Aumentado \\
+\textit{FBP1} & -3,07 & [-3,90; -2,23] & $1{,}1\times10^{-8}$ & Diminuído \\
+\textit{LDHC} & -3,06 & [-3,80; -2,32] & $1{,}2\times10^{-11}$ & Diminuído \\
+\textit{ADH4} & -2,92 & [-3,66; -2,18] & $3{,}1\times10^{-11}$ & Diminuído \\
+\textit{ENO2} & +2,28 & [1,67; 2,88] & $1{,}4\times10^{-6}$ & Aumentado \\
+\textit{HK3} & +2,26 & [1,55; 2,96] & $4{,}7\times10^{-7}$ & Aumentado \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A PPP (30 genes; Figura 2) apresentou aumento de \textit{TKT} (transcetolase, log2FC = +1,60; IC 95\%: [1,19; 2,00]; FDR = $8{,}1 \times 10^{-12}$) e \textit{G6PD} (glicose-6-fosfato desidrogenase, log2FC = +1,49; IC 95\%: [0,89; 2,09]; FDR = $1{,}8 \times 10^{-6}$). A G6PD catalisa a etapa oxidativa inicial e regulatória da PPP, reação essencialmente irreversível, enquanto a TKT catalisa reações reversíveis na fase não-oxidativa.
+
+Quatro genes anotados no KEGG hsa00020 apresentaram redução (Figura 3): \textit{PCK1} (-5,11), \textit{PCK2} (-1,69), \textit{IDH2} (-1,42) e \textit{PC} (-1,39). Destes, PCK1 e PCK2 são primariamente enzimas gliconeogênicas; PC atua como enzima anaplerótica; IDH2 participa da conversão entre isocitrato e $\alpha$-cetoglutarato. As demais enzimas mitocondriais do ciclo, incluindo CS, ACO2, IDH3A/B/G, OGDH, DLST, SUCLG1/2, SDHA-D, \textit{FH} e MDH2, não apresentaram alteração transcriptômica significativa.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\textwidth]{KIRP-Glycolysis-Transcriptomics/results/v3/figures/Volcano_hsa00030.png}
+\caption{Volcano plot da via das pentoses fosfato (análise pareada).}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\textwidth]{KIRP-Glycolysis-Transcriptomics/results/v3/figures/Volcano_hsa00020.png}
+\caption{Volcano plot do ciclo do ácido cítrico (análise pareada).}
+\end{figure}
+
+## Teste de conjuntos gênicos
+
+O teste \textit{camera} com correlação predefinida de 0,01 identificou, para o conjunto hsa00020, deslocamento relativo no sentido de redução (29 genes; P = 0,00039; FDR = 0,0012). A via glicolítica apresentou estimativa no mesmo sentido, sem evidência estatística após correção (64 genes; P = 0,052; FDR = 0,078). A PPP não apresentou deslocamento detectável (30 genes; P = 0,800; FDR = 0,800). Na análise de sensibilidade com correlação estimada por conjunto (\texttt{inter.gene.cor=NA}), nenhum dos três conjuntos atendeu ao limiar de significância (hsa00020: FDR = 0,437; glicólise: FDR = 0,437; PPP: FDR = 0,843), indicando que os resultados são sensíveis à especificação da correlação intergênica.
+
+## Sensibilidade à escolha do tecido de referência
+
+A concordância entre a análise pareada e o comparador secundário (288 tumores \textit{vs.} 32 adjacentes, mesmos controles sem modelo pareado) foi elevada (CCC = 0,974; MAE = 0,27; Tabela 3). Entre os 75 genes com $|$log2FC$|$ $>$ 0,5 em ao menos um dos dois comparadores, 74 apresentaram mesma direção (98,7\%). Quatro genes foram discordantes considerando todos os 106 genes sem limiar de magnitude.
+
+Em contraste, a análise exploratória com GTEx apresentou concordância moderada (CCC = 0,795; MAE = 0,94; Tabela 3). O viés médio foi de -0,79 (limites de concordância de 95\% = [-2,24; 0,67]; Figura 4), indicando que, em média, o log2FC do GTEx foi 0,79 unidade mais positivo que o log2FC pareado. A concordância direcional entre os 98 genes com $|$log2FC$|$ $>$ 0,5 em ao menos um comparador foi de 60,2\% (59/98). Considerando todos os 106 genes sem limiar, 45 apresentaram direção discordante (Tabela S2).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{KIRP-Glycolysis-Transcriptomics/results/v3/figures/BlandAltman_Paired_vs_GTEx.png}
+\caption{ \textit{Bland-Altman}: d = log2FC\textsubscript{pareado} $-$ log2FC\textsubscript{GTEx}. Linha tracejada = viés (-0,79); linhas pontilhadas = limites de concordância de 95\%.}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Concordância entre a análise pareada e as análises de sensibilidade (106 genes).}
+\footnotesize
+\begin{tabular}{lcc}
+\toprule
+Métrica & Pareada \textit{vs.} TCGA-KIRP expandida & Pareada \textit{vs.} GTEx \\
+\midrule
+CCC de Lin & 0,974 & 0,795 \\
+MAE (log2FC) & 0,27 & 0,94 \\
+Viés, d = pareado $-$ comparador & 0,00 & -0,79 \\
+Limites de concordância 95\% & [-0,53; 0,54] & [-2,24; 0,67] \\
+Inclinação (comparador $\sim$ pareado) & 0,98 & 0,80 \\
+Intercepto & 0,00 & 0,66 \\
+Genes elegíveis ($|$log2FC$|$ $>$ 0,5) & 75 & 98 \\
+Concordância direcional (elegíveis) & 74/75 (98,7\%) & 59/98 (60,2\%) \\
+Genes discordantes (todos os 106) & 4 & 45 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+# DISCUSSÃO
+
+Este estudo caracterizou o perfil transcriptômico de 106 genes do metabolismo central do carbono em KIRP utilizando análise pareada (32 pares) como comparador primário, e quantificou a sensibilidade dos resultados à escolha do tecido de referência por métricas de concordância.
+
+## Perfil transcriptômico das vias metabólicas
+
+Dos 106 genes, 35 foram diferencialmente expressos (33,0\%), com predomínio de redução da abundância de transcritos (9 aumentados \textit{vs.} 26 diminuídos). Este padrão é compatível com perda de identidade epitelial tubular no tumor: genes como \textit{ALDOB} (aldolase B, -8,66), \textit{FBP1} (frutose-1,6-bisfosfatase 1, -3,07), \textit{PCK1} (PEP carboxiquinase, -5,11) e \textit{PCK2} (-1,69) são característicos do túbulo proximal renal\textsuperscript{15} e sua redução pode refletir substituição de células tubulares diferenciadas por células tumorais, imunes e estromais, mais do que reprogramação metabólica direcionada. Sem estimativas de pureza tumoral ou deconvolução celular\textsuperscript{16}, esta hipótese concorrente não pode ser excluída.
+
+O aumento de hexoquinases (\textit{HK2} +3,34; \textit{HK3} +2,26; \textit{HKDC1} +1,16) sugere maior abundância de transcritos relacionados à fosforilação da glicose. A diferença de direção entre os parálogos \textit{ALDOA} (+1,12) e \textit{ALDOB} (-8,66) é compatível com deslocamento do perfil de expressão de isoenzimas com distribuição tecidual distinta, embora ambas catalisem reações reversíveis e a diferença não deva ser reduzida a glicólise \textit{versus} gliconeogênese.
+
+A PPP apresentou aumento de \textit{G6PD} (+1,49) e \textit{TKT} (+1,60). A G6PD catalisa a etapa oxidativa inicial e regulatória da via (reação essencialmente irreversível), enquanto a TKT catalisa reações reversíveis na fase não-oxidativa. Estes achados são compatíveis com a hipótese de maior demanda por NADPH e ribose-5-fosfato, mas a abundância dos respectivos transcritos não permite quantificar atividade enzimática ou fluxo metabólico.
+
+Quatro genes anotados no KEGG hsa00020 apresentaram redução, dos quais apenas \textit{IDH2} está diretamente associado ao ciclo do TCA. O teste \textit{camera} com correlação predefinida de 0,01 indicou deslocamento relativo no sentido de redução para hsa00020 (FDR = 0,0012), resultado que não se manteve na análise de sensibilidade com correlação estimada por conjunto (FDR = 0,437). A via glicolítica tampouco atingiu significância em nenhuma das duas configurações (FDR = 0,078 com 0,01; FDR = 0,437 com NA).
+
+## Sensibilidade ao tecido de referência
+
+Neste conjunto de dados e para os 106 genes avaliados, as estimativas da análise expandida com 288 tumores KIRP e os mesmos 32 tecidos adjacentes foram altamente concordantes com o modelo pareado (CCC = 0,974). Esta análise modifica simultaneamente o pareamento, o tamanho amostral e a composição do grupo tumoral, de modo que a concordância observada não isola o efeito específico de ignorar o pareamento. Cabe notar que as duas análises compartilham os mesmos 32 controles, de modo que a alta concordância não representa validação independente, e o tecido adjacente não é necessariamente tecido renal completamente normal, devido a possíveis alterações de campo, inflamação e contaminação tumoral.
+
+O GTEx, como referência externa, introduziu viés sistemático (diferença média de 0,79 log2FC) e reverteu a direção em 45 dos 106 genes. Entre os 98 genes com efeito de magnitude relevante ($|$log2FC$|$ $>$ 0,5), apenas 60,2\% mantiveram a mesma direção. A discordância pode ser atribuída a diferenças de idade e causa de morte (GTEx: autópsias; TCGA: peças cirúrgicas), composição celular, tempo de isquemia, protocolos de preservação e profundidade de sequenciamento\textsuperscript{11}. O desenho do presente estudo não permite isolar qual desses fatores é predominante.
+
+## Implicações metodológicas
+
+Os resultados têm três implicações. Primeiro, a análise pareada com modelo que incorpora o indivíduo deve ser o comparador primário sempre que pares tumor-normal estiverem disponíveis. Segundo, neste conjunto de genes, o tecido adjacente do mesmo projeto produziu estimativas semelhantes às do modelo pareado; a generalização para outros conjuntos gênicos requer verificação. Terceiro, comparadores externos como GTEx devem ser tratados estritamente como análise de sensibilidade exploratória, com relato completo de métricas de concordância (CCC, MAE, viés, limites de \textit{Bland-Altman}, concordância direcional com denominadores explícitos).
+
+## Limitações
+
+Este estudo apresenta limitações. Primeiro, a análise pareada contou com apenas 32 pares. Segundo, os dados são de \textit{bulk} RNA-seq, que não distingue tipos celulares; a redução de genes como \textit{ALDOB} e \textit{FBP1} pode refletir perda de células tubulares. Terceiro, abundância de RNA mensageiro não equivale a proteína funcional, atividade enzimática ou fluxo metabólico. Quarto, a análise com GTEx é estruturalmente confundida. Quinto, o KIRP é molecularmente heterogêneo, e a análise agrupada não captura diferenças entre os subtipos reconhecidos pela OMS 2022. Sexto, não há validação externa. Sétimo, a concordância foi avaliada apenas nos 106 genes das vias metabólicas. Oitavo, a filtragem gênica foi aplicada globalmente sobre todas as 445 amostras, o que pode ter removido genes com expressão relevante apenas nos tecidos pareados; uma análise de sensibilidade confirmou que nenhum gene das três vias foi afetado.
+
+# CONCLUSÃO
+
+Dos 106 genes do metabolismo central do carbono analisados no KIRP, 35 apresentaram alteração transcriptômica na análise pareada primária (32 pares), com predomínio de redução da abundância de transcritos (26 diminuídos \textit{vs.} 9 aumentados) e deslocamento do conjunto hsa00020 detectado por \textit{camera} com correlação predefinida de 0,01 (FDR = 0,0012), resultado sensível à especificação da correlação intergênica. Neste conjunto de genes, as estimativas do modelo não-pareado com tecido adjacente KIRP foram altamente concordantes com o modelo pareado (CCC = 0,974). O tecido de referência externo (GTEx) introduziu viés sistemático de -0,79 (limites de concordância = [-2,24; 0,67]) e reduziu a concordância direcional a 60,2\% (59/98 genes elegíveis). Estes achados demonstram que a escolha do tecido de referência afeta substancialmente o perfil transcriptômico reportado e reforçam a necessidade de métricas de concordância com denominadores explícitos em estudos que utilizam comparadores externos.
+
+# DISPONIBILIDADE DE DADOS E CÓDIGO
+
+Os dados transcriptômicos são públicos e estão disponíveis no UCSC Xena (\texttt{TcgaTargetGtex\_RSEM\_Hugo\_norm\_count}). O código completo da análise, tabelas suplementares, figuras e \textit{sessionInfo} estão disponíveis no repositório \texttt{santosry/KIRP-Glycolysis-Transcriptomics} (\textit{release} v3.0.0, commit \texttt{e683f84}).
+
+# DECLARAÇÃO DE USO DE INTELIGÊNCIA ARTIFICIAL
+
+Declara-se que ferramentas de inteligência artificial generativa foram utilizadas como recursos de apoio: ChatGPT-5.5 (\textit{OpenAI}), Codex (\textit{OpenAI}) e DeepSeek-v4-pro (\textit{Hangzhou DeepSeek Artificial Intelligence}), nas etapas de revisão textual, estrutura argumentativa, verificação de consistência referencial e formatação Vancouver. Em nenhum momento as ferramentas substituíram o julgamento científico dos autores.
+
+# REFERÊNCIAS
+
+```{r refs, results='asis'}
+refs <- c(
+  "Linehan WM, Spellman PT, Ricketts CJ, et al. Comprehensive molecular characterization of papillary renal-cell carcinoma. N Engl J Med. 2016;374(2):135-45. doi:10.1056/NEJMoa1505917. Acesso aberto.",
+  "Moch H, Amin MB, Berney DM, et al. The 2022 World Health Organization classification of tumours of the urinary system and male genital organs. Eur Urol. 2022;82(5):469-482. doi:10.1016/j.eururo.2022.07.011.",
+  "Vander Heiden MG, Cantley LC, Thompson CB. Understanding the Warburg effect: the metabolic requirements of cell proliferation. Science. 2009;324(5930):1029-33. doi:10.1126/science.1160809. Acesso aberto (PMC).",
+  "Patra KC, Hay N. The pentose phosphate pathway and cancer. Trends Biochem Sci. 2014;39(8):347-54. doi:10.1016/j.tibs.2014.06.005. Acesso aberto (PMC).",
+  "TeSlaa T, Ralser M, Fan J, Rabinowitz JD. The pentose phosphate pathway in health and disease. Nat Metab. 2023;5(8):1275-1289. doi:10.1038/s42255-023-00863-2. Acesso aberto (PMC).",
+  "Martinez-Reyes I, Chandel NS. Coupling Krebs cycle metabolites to signalling in immunity and cancer. Nat Metab. 2019;1(1):16-33. doi:10.1038/s42255-018-0014-7. Acesso aberto (PMC).",
+  "Sanchez DJ, Simon MC. Metabolic alterations in hereditary and sporadic renal cell carcinoma. Nat Rev Nephrol. 2024;20(8):521-534. doi:10.1038/s41581-024-00821-3. Acesso aberto (PMC).",
+  "Ge X, Lyu P, Gu Y, et al. Fumarate inhibits PTEN to promote tumorigenesis and therapeutic resistance of type 2 papillary renal cell carcinoma. Mol Cell. 2022;82(10):1929-1944.e8. doi:10.1016/j.molcel.2022.03.011.",
+  "Koppula P, Zhang Y, Zhuang L, Gan B. Cystine transporter regulation of pentose phosphate pathway dependency and disulfide stress exposes a targetable metabolic vulnerability in cancer. Nat Cell Biol. 2020;22(4):476-486. doi:10.1038/s41556-020-0496-x. Acesso aberto (PMC).",
+  "Goldman MJ, Craft B, Hastie M, et al. Visualizing and interpreting cancer genomics data via the Xena platform. Nat Biotechnol. 2020;38(6):675-678. doi:10.1038/s41587-020-0546-8. Acesso aberto (PMC).",
+  "Lonsdale J, Thomas J, Salvatore M, et al. The Genotype-Tissue Expression (GTEx) project. Nat Genet. 2013;45(6):580-5. doi:10.1038/ng.2653. Acesso aberto.",
+  "Ritchie ME, Phipson B, Wu D, et al. limma powers differential expression analyses for \textit{bulk} RNA-sequencing and microarray studies. Nucleic Acids Res. 2015;43(7):e47. doi:10.1093/nar/gkv007. Acesso aberto.",
+  "Vivian J, Rao AA, Nothaft FA, et al. Toil enables reproducible, open source, big biomedical data analyses. Nat Biotechnol. 2017;35(4):314-316. doi:10.1038/nbt.3772. Acesso aberto (PMC).",
+  "Wu D, Smyth GK. Camera: a competitive gene set test accounting for inter-gene correlation. Nucleic Acids Res. 2012;40(17):e133. doi:10.1093/nar/gks461. Acesso aberto.",
+  "Uhlen M, Fagerberg L, Hallstrom BM, et al. Tissue-based map of the human proteome. Science. 2015;347(6220):1260419. doi:10.1126/science.1260419. Acesso aberto.",
+  "Aran D, Sirota M, Butte AJ. Systematic pan-cancer analysis of tumour purity. Nat Commun. 2015;6:8971. doi:10.1038/ncomms9971. Acesso aberto."
+)
+cat(paste0("\\vancouveritem{", seq_along(refs), "}{", refs, "}", collapse = "\n"))
+```
