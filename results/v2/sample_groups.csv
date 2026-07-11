@@ -1,0 +1,446 @@
+sample,TCGA_GTEX_main_category,sample_type,study,group,participant,matched_kirp
+TCGA-IA-A83V-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A83V,TRUE
+TCGA-IA-A83T-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A83T,TRUE
+TCGA-UZ-A9PQ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PQ,TRUE
+TCGA-IA-A83S-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A83S,TRUE
+TCGA-AL-3468-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,3468,TRUE
+TCGA-IA-A83W-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A83W,TRUE
+TCGA-2Z-A9J3-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9J3,TRUE
+TCGA-DZ-6133-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6133,TRUE
+TCGA-B9-4113-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,4113,TRUE
+TCGA-5P-A9JY-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JY,TRUE
+TCGA-AL-3471-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,3471,TRUE
+TCGA-AL-A5DJ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5DJ,TRUE
+TCGA-BQ-7045-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7045,TRUE
+TCGA-BQ-7049-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7049,TRUE
+TCGA-BQ-5880-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5880,TRUE
+TCGA-P4-A5E8-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5E8,TRUE
+TCGA-UZ-A9PN-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PN,TRUE
+TCGA-A4-7585-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7585,TRUE
+TCGA-UZ-A9PU-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PU,TRUE
+TCGA-UZ-A9PJ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PJ,TRUE
+TCGA-BQ-5879-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5879,TRUE
+TCGA-BQ-5882-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5882,TRUE
+TCGA-G7-7501-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7501,TRUE
+TCGA-A4-7287-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7287,TRUE
+TCGA-5P-A9K9-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9K9,TRUE
+TCGA-G7-A8LD-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8LD,TRUE
+TCGA-SX-A7SP-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7SP,TRUE
+TCGA-2Z-A9JS-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JS,TRUE
+TCGA-P4-AAVL-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,AAVL,TRUE
+TCGA-5P-A9K3-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9K3,TRUE
+TCGA-A4-A5Y1-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5Y1,TRUE
+TCGA-SX-A7SM-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7SM,TRUE
+TCGA-BQ-7058-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7058,TRUE
+TCGA-G7-6793-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6793,TRUE
+TCGA-BQ-5889-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5889,TRUE
+TCGA-F9-A4JJ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A4JJ,TRUE
+TCGA-J7-8537-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8537,TRUE
+TCGA-AL-3466-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,3466,TRUE
+TCGA-BQ-5877-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5877,TRUE
+TCGA-A4-A57E-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A57E,TRUE
+TCGA-BQ-5893-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5893,TRUE
+TCGA-P4-A5EA-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5EA,TRUE
+TCGA-2Z-A9J7-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9J7,TRUE
+TCGA-G7-6789-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6789,TRUE
+TCGA-GL-6846-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6846,TRUE
+TCGA-DW-7834-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7834,TRUE
+TCGA-UZ-A9PM-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PM,TRUE
+TCGA-BQ-7044-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7044,TRUE
+TCGA-UZ-A9PK-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PK,TRUE
+TCGA-UZ-A9Q0-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9Q0,TRUE
+TCGA-5P-A9JW-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JW,TRUE
+TCGA-UZ-A9PL-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PL,TRUE
+TCGA-2Z-A9J5-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9J5,TRUE
+TCGA-P4-A5E6-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5E6,TRUE
+TCGA-P4-A5EB-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5EB,TRUE
+TCGA-UZ-A9PP-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PP,TRUE
+TCGA-BQ-7046-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7046,TRUE
+TCGA-BQ-7048-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7048,TRUE
+TCGA-P4-A5ED-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5ED,TRUE
+TCGA-2Z-A9J8-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9J8,TRUE
+TCGA-G7-6792-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6792,TRUE
+TCGA-5P-A9JZ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JZ,TRUE
+TCGA-P4-A5E7-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5E7,TRUE
+TCGA-BQ-5875-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5875,TRUE
+TCGA-UZ-A9PR-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PR,TRUE
+TCGA-HE-A5NF-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5NF,TRUE
+TCGA-HE-7129-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7129,TRUE
+TCGA-DZ-6132-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6132,TRUE
+TCGA-G7-A8LE-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8LE,TRUE
+TCGA-DZ-6131-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6131,TRUE
+TCGA-P4-AAVO-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,AAVO,TRUE
+TCGA-5P-A9K2-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9K2,TRUE
+TCGA-2Z-A9J1-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9J1,TRUE
+TCGA-2Z-A9J9-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9J9,TRUE
+TCGA-DZ-6135-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6135,TRUE
+TCGA-HE-A5NK-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5NK,TRUE
+TCGA-5P-A9K4-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9K4,TRUE
+TCGA-G7-6796-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6796,TRUE
+TCGA-UZ-A9PS-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PS,TRUE
+TCGA-AL-3467-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,3467,TRUE
+TCGA-AL-7173-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7173,TRUE
+TCGA-5P-A9KH-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9KH,TRUE
+TCGA-5P-A9JV-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JV,TRUE
+TCGA-AL-3472-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,3472,TRUE
+TCGA-UZ-A9PX-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PX,TRUE
+TCGA-BQ-5878-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5878,TRUE
+TCGA-5P-A9K6-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9K6,TRUE
+TCGA-UZ-A9PO-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PO,TRUE
+TCGA-AL-3473-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,3473,TRUE
+TCGA-BQ-7050-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7050,TRUE
+TCGA-A4-7288-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7288,TRUE
+TCGA-DZ-6134-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6134,TRUE
+TCGA-2Z-A9J2-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9J2,TRUE
+TCGA-HE-7130-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7130,TRUE
+TCGA-2Z-A9J6-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9J6,TRUE
+TCGA-2Z-A9JE-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JE,TRUE
+TCGA-HE-A5NJ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5NJ,TRUE
+TCGA-2Z-A9JG-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JG,TRUE
+TCGA-SX-A7SS-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7SS,TRUE
+TCGA-P4-AAVK-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,AAVK,TRUE
+TCGA-G7-6790-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6790,TRUE
+TCGA-2Z-A9JI-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JI,TRUE
+TCGA-UZ-A9Q1-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9Q1,TRUE
+TCGA-P4-AAVM-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,AAVM,TRUE
+TCGA-BQ-7051-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7051,TRUE
+TCGA-BQ-7053-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7053,TRUE
+TCGA-SX-A71S-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A71S,TRUE
+TCGA-DW-5560-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5560,TRUE
+TCGA-SX-A71R-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A71R,TRUE
+TCGA-BQ-5881-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5881,TRUE
+TCGA-UZ-A9PV-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PV,TRUE
+TCGA-SX-A71U-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A71U,TRUE
+TCGA-B9-5156-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5156,TRUE
+TCGA-SX-A7SU-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7SU,TRUE
+TCGA-5P-A9K8-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9K8,TRUE
+TCGA-SX-A7SQ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7SQ,TRUE
+TCGA-SX-A7SO-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7SO,TRUE
+TCGA-B1-5398-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5398,TRUE
+TCGA-BQ-5883-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5883,TRUE
+TCGA-DW-7963-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7963,TRUE
+TCGA-2Z-A9JJ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JJ,TRUE
+TCGA-G7-6795-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6795,TRUE
+TCGA-WN-AB4C-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,AB4C,TRUE
+TCGA-2Z-A9JK-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JK,TRUE
+TCGA-DW-7837-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7837,TRUE
+TCGA-B1-7332-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7332,TRUE
+TCGA-B1-A47N-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A47N,TRUE
+TCGA-DW-7836-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7836,TRUE
+TCGA-SX-A71W-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A71W,TRUE
+TCGA-2Z-A9JD-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JD,TRUE
+TCGA-B3-4104-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,4104,TRUE
+TCGA-MH-A55W-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A55W,TRUE
+TCGA-EV-5901-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5901,TRUE
+TCGA-B3-3925-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,3925,TRUE
+TCGA-2Z-A9JL-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JL,TRUE
+TCGA-V9-A7HT-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7HT,TRUE
+TCGA-2Z-A9JO-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JO,TRUE
+TCGA-MH-A856-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A856,TRUE
+TCGA-2Z-A9JM-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JM,TRUE
+TCGA-B3-4103-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,4103,TRUE
+TCGA-A4-7997-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7997,TRUE
+TCGA-MH-A560-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A560,TRUE
+TCGA-BQ-5885-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5885,TRUE
+TCGA-A4-8098-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8098,TRUE
+TCGA-2Z-A9JP-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JP,TRUE
+TCGA-MH-A857-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A857,TRUE
+TCGA-KV-A6GE-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A6GE,TRUE
+TCGA-B3-3926-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,3926,TRUE
+TCGA-SX-A71V-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A71V,TRUE
+TCGA-B9-4114-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,4114,TRUE
+TCGA-MH-A55Z-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A55Z,TRUE
+TCGA-5P-A9KF-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9KF,TRUE
+TCGA-B1-A47O-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A47O,TRUE
+TCGA-MH-A561-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A561,TRUE
+TCGA-GL-8500-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8500,TRUE
+TCGA-5P-A9KE-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9KE,TRUE
+TCGA-SX-A7SL-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7SL,TRUE
+TCGA-SX-A7SR-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7SR,TRUE
+TCGA-B9-4115-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,4115,TRUE
+TCGA-BQ-7055-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7055,TRUE
+TCGA-BQ-5884-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5884,TRUE
+TCGA-BQ-5886-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5886,TRUE
+TCGA-WN-A9G9-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9G9,TRUE
+TCGA-HE-A5NH-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5NH,TRUE
+TCGA-G7-7502-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7502,TRUE
+TCGA-A4-8310-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8310,TRUE
+TCGA-2Z-A9JQ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JQ,TRUE
+TCGA-BQ-5887-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5887,TRUE
+TCGA-Y8-A8RY-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8RY,TRUE
+TCGA-G7-A4TM-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A4TM,TRUE
+TCGA-HE-A5NL-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5NL,TRUE
+TCGA-G7-6797-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6797,TRUE
+TCGA-EV-5903-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5903,TRUE
+TCGA-DW-7838-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7838,TRUE
+TCGA-2Z-A9JN-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JN,TRUE
+TCGA-A4-8311-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8311,TRUE
+TCGA-A4-8515-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8515,TRUE
+TCGA-A4-8312-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8312,TRUE
+TCGA-G7-A8LC-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8LC,TRUE
+TCGA-2Z-A9JT-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JT,TRUE
+TCGA-IZ-8195-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8195,TRUE
+TCGA-5P-A9K0-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9K0,TRUE
+TCGA-B9-7268-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7268,TRUE
+TCGA-B9-5155-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5155,TRUE
+TCGA-B1-A47M-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A47M,TRUE
+TCGA-UZ-A9PZ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9PZ,TRUE
+TCGA-A4-7584-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7584,TRUE
+TCGA-IZ-8196-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8196,TRUE
+TCGA-B1-A657-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A657,TRUE
+TCGA-B9-4116-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,4116,TRUE
+TCGA-B1-A656-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A656,TRUE
+TCGA-B1-A654-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A654,TRUE
+TCGA-MH-A562-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A562,TRUE
+TCGA-BQ-7056-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7056,TRUE
+TCGA-IA-A40X-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A40X,TRUE
+TCGA-PJ-A5Z8-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5Z8,TRUE
+TCGA-A4-8517-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8517,TRUE
+TCGA-BQ-5876-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5876,TRUE
+TCGA-B9-A5W7-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5W7,TRUE
+TCGA-A4-7732-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7732,TRUE
+TCGA-EV-5902-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5902,TRUE
+TCGA-SX-A7SN-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7SN,TRUE
+TCGA-Y8-A894-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A894,TRUE
+TCGA-Y8-A896-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A896,TRUE
+TCGA-KV-A6GD-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A6GD,TRUE
+TCGA-A4-7286-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7286,TRUE
+TCGA-Y8-A897-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A897,TRUE
+TCGA-UN-AAZ9-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,AAZ9,TRUE
+TCGA-G7-A8LB-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8LB,TRUE
+TCGA-GL-A59T-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A59T,TRUE
+TCGA-PJ-A5Z9-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5Z9,TRUE
+TCGA-MH-A854-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A854,TRUE
+TCGA-B9-A8YH-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8YH,TRUE
+TCGA-B9-A5W8-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5W8,TRUE
+TCGA-A4-A4ZT-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A4ZT,TRUE
+TCGA-IA-A40U-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A40U,TRUE
+TCGA-B1-A655-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A655,TRUE
+TCGA-IZ-A6M8-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A6M8,TRUE
+TCGA-GL-A9DE-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9DE,TRUE
+TCGA-A4-A5DU-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5DU,TRUE
+TCGA-Y8-A895-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A895,TRUE
+TCGA-A4-A5XZ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5XZ,TRUE
+TCGA-Y8-A898-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A898,TRUE
+TCGA-O9-A75Z-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A75Z,TRUE
+TCGA-B9-A69E-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A69E,TRUE
+TCGA-DW-7841-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7841,TRUE
+TCGA-A4-8630-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8630,TRUE
+TCGA-Q2-A5QZ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5QZ,TRUE
+TCGA-DW-7839-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7839,TRUE
+TCGA-DW-5561-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5561,TRUE
+TCGA-Y8-A8S1-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8S1,TRUE
+TCGA-BQ-5888-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5888,TRUE
+TCGA-F9-A7Q0-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7Q0,TRUE
+TCGA-5P-A9KA-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9KA,TRUE
+TCGA-GL-7773-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7773,TRUE
+TCGA-GL-A9DC-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9DC,TRUE
+TCGA-4A-A93X-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A93X,TRUE
+TCGA-J7-6720-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,6720,TRUE
+TCGA-A4-A6HP-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A6HP,TRUE
+TCGA-B3-8121-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8121,TRUE
+TCGA-A4-A48D-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A48D,TRUE
+TCGA-GL-A59R-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A59R,TRUE
+TCGA-5P-A9KC-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9KC,TRUE
+TCGA-IZ-A6M9-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A6M9,TRUE
+TCGA-B9-A8YI-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8YI,TRUE
+TCGA-5P-A9JU-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JU,TRUE
+TCGA-MH-A855-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A855,TRUE
+TCGA-BQ-5892-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5892,TRUE
+TCGA-B9-A44B-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A44B,TRUE
+TCGA-HE-A5NI-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5NI,TRUE
+TCGA-4A-A93Y-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A93Y,TRUE
+TCGA-KV-A74V-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A74V,TRUE
+TCGA-GL-A9DD-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9DD,TRUE
+TCGA-B3-A6W5-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A6W5,TRUE
+TCGA-J7-A8I2-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8I2,TRUE
+TCGA-A4-A5Y0-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5Y0,TRUE
+TCGA-A4-7828-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7828,TRUE
+TCGA-BQ-5890-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5890,TRUE
+TCGA-BQ-7059-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7059,TRUE
+TCGA-BQ-7061-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7061,TRUE
+TCGA-2K-A9WE-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9WE,TRUE
+TCGA-BQ-7060-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7060,TRUE
+TCGA-Y8-A8RZ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8RZ,TRUE
+TCGA-Y8-A8S0-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8S0,TRUE
+TCGA-2Z-A9JR-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A9JR,TRUE
+TCGA-BQ-7062-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7062,TRUE
+TCGA-DW-7840-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7840,TRUE
+TCGA-GL-7966-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7966,TRUE
+TCGA-DW-7842-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7842,TRUE
+TCGA-BQ-5894-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5894,TRUE
+TCGA-F9-A7VF-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7VF,TRUE
+TCGA-AT-A5NU-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5NU,TRUE
+TCGA-IA-A40Y-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A40Y,TRUE
+TCGA-F9-A8NY-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A8NY,TRUE
+TCGA-B9-4617-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,4617,TRUE
+TCGA-GL-A4EM-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A4EM,TRUE
+TCGA-BQ-5891-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,5891,TRUE
+TCGA-A4-7734-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7734,TRUE
+TCGA-A4-8516-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,8516,TRUE
+TCGA-B9-4117-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,4117,TRUE
+TCGA-F9-A97G-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A97G,TRUE
+TCGA-A4-7915-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7915,TRUE
+TCGA-B9-A5W9-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A5W9,TRUE
+TCGA-4A-A93W-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A93W,TRUE
+TCGA-A4-7583-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7583,TRUE
+TCGA-A4-A772-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A772,TRUE
+TCGA-A4-A7UZ-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,A7UZ,TRUE
+TCGA-HE-7128-01,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,TCGA,KIRP_Tumor,7128,TRUE
+GTEX-ZYFD-1526-SM-5NQ7T,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1526,FALSE
+GTEX-ZC5H-1726-SM-5HL7X,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1726,FALSE
+GTEX-T5JC-1526-SM-4DM68,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1526,FALSE
+GTEX-13112-2126-SM-5GCO4,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,2126,FALSE
+GTEX-ZYT6-2226-SM-5GIC9,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,2226,FALSE
+GTEX-Y5V6-2026-SM-5IFHO,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,2026,FALSE
+GTEX-WI4N-2026-SM-4OOS7,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,2026,FALSE
+GTEX-ZDXO-0226-SM-4WKH7,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,0226,FALSE
+GTEX-11OF3-1326-SM-5N9FJ,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1326,FALSE
+GTEX-ZYFG-1626-SM-5GZYY,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1626,FALSE
+GTEX-N7MS-1626-SM-3LK5F,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1626,FALSE
+GTEX-XPVG-0526-SM-4B65N,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,0526,FALSE
+GTEX-13NYB-1726-SM-5N9G2,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1726,FALSE
+GTEX-11PRG-2226-SM-5GU5R,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,2226,FALSE
+GTEX-12WSG-0826-SM-5EQ5A,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,0826,FALSE
+GTEX-13OW6-1826-SM-5N9F9,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1826,FALSE
+GTEX-13RTJ-2226-SM-5S2Q1,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,2226,FALSE
+GTEX-12696-0926-SM-5FQTV,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,0926,FALSE
+GTEX-145MN-0326-SM-5QGQI,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,0326,FALSE
+GTEX-1399S-0526-SM-5IJG8,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,0526,FALSE
+GTEX-QLQW-1626-SM-4R1K1,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1626,FALSE
+GTEX-ZLFU-0926-SM-5P9F8,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,0926,FALSE
+GTEX-1497J-0826-SM-5NQAJ,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,0826,FALSE
+GTEX-147F4-2626-SM-5Q5CS,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,2626,FALSE
+GTEX-NPJ8-2226-SM-3TW8D,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,2226,FALSE
+GTEX-ZE9C-1426-SM-4WKGM,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1426,FALSE
+GTEX-13O1R-2526-SM-5N9FW,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,2526,FALSE
+GTEX-T6MN-1826-SM-5CHQB,GTEX Kidney,Normal Tissue,GTEX,GTEx_Normal,1826,FALSE
+TCGA-CZ-4864-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,4864,FALSE
+TCGA-CZ-5465-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5465,FALSE
+TCGA-CZ-5453-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5453,FALSE
+TCGA-CJ-6030-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,6030,FALSE
+TCGA-CJ-5672-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5672,FALSE
+TCGA-B0-4700-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,4700,FALSE
+TCGA-CW-5580-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5580,FALSE
+TCGA-CJ-5689-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5689,FALSE
+TCGA-KN-8428-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8428,FALSE
+TCGA-DZ-6133-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,6133,TRUE
+TCGA-BQ-7045-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,7045,TRUE
+TCGA-B0-4712-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,4712,FALSE
+TCGA-P4-A5E8-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,A5E8,TRUE
+TCGA-CZ-5469-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5469,FALSE
+TCGA-KL-8336-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8336,FALSE
+TCGA-KL-8339-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8339,FALSE
+TCGA-CJ-5677-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5677,FALSE
+TCGA-CJ-5680-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5680,FALSE
+TCGA-CZ-5454-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5454,FALSE
+TCGA-BQ-5879-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5879,TRUE
+TCGA-CJ-5679-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5679,FALSE
+TCGA-BQ-5882-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5882,TRUE
+TCGA-CJ-5678-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5678,FALSE
+TCGA-CZ-5455-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5455,FALSE
+TCGA-CJ-5681-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5681,FALSE
+TCGA-B0-5694-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5694,FALSE
+TCGA-CZ-5987-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5987,FALSE
+TCGA-CZ-5461-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5461,FALSE
+TCGA-CZ-5462-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5462,FALSE
+TCGA-BQ-5877-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5877,TRUE
+TCGA-A4-A57E-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,A57E,TRUE
+TCGA-CJ-6033-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,6033,FALSE
+TCGA-CZ-4865-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,4865,FALSE
+TCGA-CW-5584-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5584,FALSE
+TCGA-CZ-5467-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5467,FALSE
+TCGA-CZ-5468-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5468,FALSE
+TCGA-CW-6087-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,6087,FALSE
+TCGA-KN-8430-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8430,FALSE
+TCGA-GL-6846-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,6846,TRUE
+TCGA-KL-8324-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8324,FALSE
+TCGA-B0-5705-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5705,FALSE
+TCGA-CJ-5676-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5676,FALSE
+TCGA-B0-5711-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5711,FALSE
+TCGA-B0-5709-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5709,FALSE
+TCGA-B0-5699-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5699,FALSE
+TCGA-BQ-7044-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,7044,TRUE
+TCGA-KN-8435-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8435,FALSE
+TCGA-B0-5691-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5691,FALSE
+TCGA-B0-5690-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5690,FALSE
+TCGA-KL-8326-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8326,FALSE
+TCGA-CW-6088-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,6088,FALSE
+TCGA-KO-8403-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8403,FALSE
+TCGA-B0-5706-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5706,FALSE
+TCGA-KN-8425-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8425,FALSE
+TCGA-KN-8437-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8437,FALSE
+TCGA-BQ-7046-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,7046,TRUE
+TCGA-KO-8415-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8415,FALSE
+TCGA-P4-A5ED-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,A5ED,TRUE
+TCGA-CW-5581-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5581,FALSE
+TCGA-CZ-5458-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5458,FALSE
+TCGA-CZ-5457-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5457,FALSE
+TCGA-KL-8329-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8329,FALSE
+TCGA-B0-5712-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5712,FALSE
+TCGA-KN-8429-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8429,FALSE
+TCGA-BQ-5875-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5875,TRUE
+TCGA-B0-5697-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5697,FALSE
+TCGA-B0-5696-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5696,FALSE
+TCGA-CW-5585-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5585,FALSE
+TCGA-KL-8332-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8332,FALSE
+TCGA-CW-6090-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,6090,FALSE
+TCGA-B0-5701-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5701,FALSE
+TCGA-DZ-6132-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,6132,TRUE
+TCGA-CZ-5982-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5982,FALSE
+TCGA-DZ-6131-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,6131,TRUE
+TCGA-CZ-5456-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5456,FALSE
+TCGA-CW-5589-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5589,FALSE
+TCGA-CW-5591-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5591,FALSE
+TCGA-B0-5703-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5703,FALSE
+TCGA-CW-5587-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5587,FALSE
+TCGA-CZ-5984-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5984,FALSE
+TCGA-CZ-5985-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5985,FALSE
+TCGA-KN-8424-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8424,FALSE
+TCGA-BQ-5878-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5878,TRUE
+TCGA-CZ-5451-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5451,FALSE
+TCGA-CZ-4863-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,4863,FALSE
+TCGA-CZ-5989-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5989,FALSE
+TCGA-DZ-6134-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,6134,TRUE
+TCGA-KN-8434-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8434,FALSE
+TCGA-CZ-5452-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5452,FALSE
+TCGA-BQ-7051-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,7051,TRUE
+TCGA-B8-4622-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,4622,FALSE
+TCGA-A3-3358-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,3358,FALSE
+TCGA-B0-5402-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5402,FALSE
+TCGA-KN-8436-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8436,FALSE
+TCGA-B8-5552-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5552,FALSE
+TCGA-B2-5636-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5636,FALSE
+TCGA-B9-4115-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,4115,TRUE
+TCGA-BQ-7055-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,7055,TRUE
+TCGA-BQ-5884-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5884,TRUE
+TCGA-KN-8423-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8423,FALSE
+TCGA-B8-4620-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,4620,FALSE
+TCGA-KN-8422-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8422,FALSE
+TCGA-BQ-5887-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5887,TRUE
+TCGA-Y8-A8RY-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,A8RY,TRUE
+TCGA-KN-8419-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8419,FALSE
+TCGA-CZ-5988-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5988,FALSE
+TCGA-CZ-5466-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5466,FALSE
+TCGA-CZ-5463-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5463,FALSE
+TCGA-B2-5641-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5641,FALSE
+TCGA-A3-3387-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,3387,FALSE
+TCGA-KN-8431-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8431,FALSE
+TCGA-B8-4619-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,4619,FALSE
+TCGA-A4-A4ZT-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,A4ZT,TRUE
+TCGA-GL-A9DE-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,A9DE,TRUE
+TCGA-BQ-5888-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5888,TRUE
+TCGA-CZ-5470-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5470,FALSE
+TCGA-GL-A59R-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,A59R,TRUE
+TCGA-CZ-5986-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5986,FALSE
+TCGA-KN-8433-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8433,FALSE
+TCGA-BQ-5890-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5890,TRUE
+TCGA-BQ-7059-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,7059,TRUE
+TCGA-BQ-7061-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,7061,TRUE
+TCGA-B8-5549-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,5549,FALSE
+TCGA-GL-7966-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,7966,TRUE
+TCGA-KN-8426-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8426,FALSE
+TCGA-BQ-5894-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5894,TRUE
+TCGA-KN-8432-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8432,FALSE
+TCGA-KN-8427-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_Other,8427,FALSE
+TCGA-BQ-5891-11,"",Solid Tissue Normal,TCGA,TCGA_Normal_KIRP,5891,TRUE

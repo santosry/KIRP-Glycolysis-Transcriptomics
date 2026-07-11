@@ -1,0 +1,4 @@
+Comparison,Jaccard,Shared,Total_Union
+Paired vs GTEx,0.425,17,40
+Paired vs TCGA,0.821428571428571,23,28
+GTEx vs TCGA,0.473684210526316,18,38
