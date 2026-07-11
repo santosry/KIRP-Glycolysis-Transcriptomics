@@ -1,192 +1,192 @@
 database,direction,pathway_id,pathway_name,pathway_fdr,ENTREZID,gene_symbol
-KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,2026,ENO2
-KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,2597,GAPDH
-KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,5214,PFKP
-KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,226,ALDOA
-KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,2023,ENO1
 KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,5315,PKM
-KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,7167,TPI1
+KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,5214,PFKP
 KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,5223,PGAM1
 KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,387712,ENO4
-KEGG,Up,hsa01200,Carbon metabolism,1,2821,GPI
-KEGG,Up,hsa01200,Carbon metabolism,1,2026,ENO2
-KEGG,Up,hsa01200,Carbon metabolism,1,2597,GAPDH
-KEGG,Up,hsa01200,Carbon metabolism,1,5214,PFKP
-KEGG,Up,hsa01200,Carbon metabolism,1,226,ALDOA
-KEGG,Up,hsa01200,Carbon metabolism,1,2023,ENO1
-KEGG,Up,hsa01200,Carbon metabolism,1,1738,DLD
+KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,2026,ENO2
+KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,2597,GAPDH
+KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,226,ALDOA
+KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,2023,ENO1
+KEGG,Up,hsa01230,Biosynthesis of amino acids,0.656915305964576,7167,TPI1
+KEGG,Up,hsa01200,Carbon metabolism,1,3099,HK2
 KEGG,Up,hsa01200,Carbon metabolism,1,5315,PKM
-KEGG,Up,hsa01200,Carbon metabolism,1,7167,TPI1
+KEGG,Up,hsa01200,Carbon metabolism,1,5214,PFKP
+KEGG,Up,hsa01200,Carbon metabolism,1,1738,DLD
 KEGG,Up,hsa01200,Carbon metabolism,1,5223,PGAM1
 KEGG,Up,hsa01200,Carbon metabolism,1,55902,ACSS2
 KEGG,Up,hsa01200,Carbon metabolism,1,387712,ENO4
-KEGG,Up,hsa01200,Carbon metabolism,1,3099,HK2
+KEGG,Up,hsa01200,Carbon metabolism,1,2026,ENO2
+KEGG,Up,hsa01200,Carbon metabolism,1,2597,GAPDH
+KEGG,Up,hsa01200,Carbon metabolism,1,2821,GPI
+KEGG,Up,hsa01200,Carbon metabolism,1,226,ALDOA
+KEGG,Up,hsa01200,Carbon metabolism,1,2023,ENO1
+KEGG,Up,hsa01200,Carbon metabolism,1,7167,TPI1
+KEGG,Up,hsa00500,Starch and sucrose metabolism,1,3099,HK2
+KEGG,Up,hsa00500,Starch and sucrose metabolism,1,5236,PGM1
 KEGG,Up,hsa00500,Starch and sucrose metabolism,1,2821,GPI
 KEGG,Up,hsa00500,Starch and sucrose metabolism,1,92579,G6PC3
-KEGG,Up,hsa00500,Starch and sucrose metabolism,1,5236,PGM1
-KEGG,Up,hsa00500,Starch and sucrose metabolism,1,3099,HK2
-KEGG,Up,hsa00030,Pentose phosphate pathway,1,2821,GPI
-KEGG,Up,hsa00030,Pentose phosphate pathway,1,5214,PFKP
-KEGG,Up,hsa00030,Pentose phosphate pathway,1,226,ALDOA
 KEGG,Up,hsa00030,Pentose phosphate pathway,1,5236,PGM1
+KEGG,Up,hsa00030,Pentose phosphate pathway,1,5214,PFKP
+KEGG,Up,hsa00030,Pentose phosphate pathway,1,2821,GPI
+KEGG,Up,hsa00030,Pentose phosphate pathway,1,226,ALDOA
+KEGG,Up,hsa00051,Fructose and mannose metabolism,1,3099,HK2
 KEGG,Up,hsa00051,Fructose and mannose metabolism,1,5214,PFKP
 KEGG,Up,hsa00051,Fructose and mannose metabolism,1,226,ALDOA
 KEGG,Up,hsa00051,Fructose and mannose metabolism,1,7167,TPI1
-KEGG,Up,hsa00051,Fructose and mannose metabolism,1,3099,HK2
+KEGG,Up,hsa00052,Galactose metabolism,1,3099,HK2
+KEGG,Up,hsa00052,Galactose metabolism,1,5236,PGM1
 KEGG,Up,hsa00052,Galactose metabolism,1,5214,PFKP
 KEGG,Up,hsa00052,Galactose metabolism,1,92579,G6PC3
-KEGG,Up,hsa00052,Galactose metabolism,1,5236,PGM1
-KEGG,Up,hsa00052,Galactose metabolism,1,3099,HK2
+KEGG,Up,hsa04066,HIF-1 signaling pathway,1,3099,HK2
+KEGG,Up,hsa04066,HIF-1 signaling pathway,1,5214,PFKP
 KEGG,Up,hsa04066,HIF-1 signaling pathway,1,2026,ENO2
 KEGG,Up,hsa04066,HIF-1 signaling pathway,1,2597,GAPDH
-KEGG,Up,hsa04066,HIF-1 signaling pathway,1,5214,PFKP
 KEGG,Up,hsa04066,HIF-1 signaling pathway,1,226,ALDOA
 KEGG,Up,hsa04066,HIF-1 signaling pathway,1,2023,ENO1
-KEGG,Up,hsa04066,HIF-1 signaling pathway,1,3099,HK2
-KEGG,Up,hsa00350,Tyrosine metabolism,1,218,ALDH3A1
 KEGG,Up,hsa00350,Tyrosine metabolism,1,221,ALDH3B1
-KEGG,Up,hsa00980,Metabolism of xenobiotics by cytochrome P450,1,218,ALDH3A1
+KEGG,Up,hsa00350,Tyrosine metabolism,1,218,ALDH3A1
 KEGG,Up,hsa00980,Metabolism of xenobiotics by cytochrome P450,1,221,ALDH3B1
-KEGG,Up,hsa00982,Drug metabolism - cytochrome P450,1,218,ALDH3A1
+KEGG,Up,hsa00980,Metabolism of xenobiotics by cytochrome P450,1,218,ALDH3A1
 KEGG,Up,hsa00982,Drug metabolism - cytochrome P450,1,221,ALDH3B1
-KEGG,Up,hsa05230,Central carbon metabolism in cancer,1,5214,PFKP
-KEGG,Up,hsa05230,Central carbon metabolism in cancer,1,5315,PKM
-KEGG,Up,hsa05230,Central carbon metabolism in cancer,1,5223,PGAM1
+KEGG,Up,hsa00982,Drug metabolism - cytochrome P450,1,218,ALDH3A1
 KEGG,Up,hsa05230,Central carbon metabolism in cancer,1,3099,HK2
-KEGG,Up,hsa00071,Fatty acid degradation,1,224,ALDH3A2
+KEGG,Up,hsa05230,Central carbon metabolism in cancer,1,5315,PKM
+KEGG,Up,hsa05230,Central carbon metabolism in cancer,1,5214,PFKP
+KEGG,Up,hsa05230,Central carbon metabolism in cancer,1,5223,PGAM1
 KEGG,Up,hsa00071,Fatty acid degradation,1,217,ALDH2
-KEGG,Up,hsa04910,Insulin signaling pathway,1,92579,G6PC3
+KEGG,Up,hsa00071,Fatty acid degradation,1,224,ALDH3A2
 KEGG,Up,hsa04910,Insulin signaling pathway,1,3099,HK2
-KEGG,Up,hsa04936,Alcoholic liver disease,1,224,ALDH3A2
+KEGG,Up,hsa04910,Insulin signaling pathway,1,92579,G6PC3
 KEGG,Up,hsa04936,Alcoholic liver disease,1,217,ALDH2
-KEGG,Up,hsa04922,Glucagon signaling pathway,1,5214,PFKP
-KEGG,Up,hsa04922,Glucagon signaling pathway,1,92579,G6PC3
+KEGG,Up,hsa04936,Alcoholic liver disease,1,224,ALDH3A2
 KEGG,Up,hsa04922,Glucagon signaling pathway,1,5315,PKM
+KEGG,Up,hsa04922,Glucagon signaling pathway,1,5214,PFKP
 KEGG,Up,hsa04922,Glucagon signaling pathway,1,5223,PGAM1
-KEGG,Up,hsa00620,Pyruvate metabolism,1,1738,DLD
-KEGG,Up,hsa00620,Pyruvate metabolism,1,224,ALDH3A2
-KEGG,Up,hsa00620,Pyruvate metabolism,1,217,ALDH2
+KEGG,Up,hsa04922,Glucagon signaling pathway,1,92579,G6PC3
 KEGG,Up,hsa00620,Pyruvate metabolism,1,5315,PKM
+KEGG,Up,hsa00620,Pyruvate metabolism,1,1738,DLD
 KEGG,Up,hsa00620,Pyruvate metabolism,1,55902,ACSS2
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,2821,GPI
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,2026,ENO2
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,2597,GAPDH
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,5214,PFKP
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,226,ALDOA
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,2023,ENO1
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,218,ALDH3A1
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,1738,DLD
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,92579,G6PC3
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,224,ALDH3A2
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,217,ALDH2
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,5315,PKM
+KEGG,Up,hsa00620,Pyruvate metabolism,1,217,ALDH2
+KEGG,Up,hsa00620,Pyruvate metabolism,1,224,ALDH3A2
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,3099,HK2
 KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,5236,PGM1
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,7167,TPI1
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,5315,PKM
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,5214,PFKP
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,1738,DLD
 KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,5223,PGAM1
 KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,55902,ACSS2
 KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,221,ALDH3B1
 KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,387712,ENO4
-KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,3099,HK2
-KEGG,Up,hsa01100,Metabolic pathways,1,2821,GPI
-KEGG,Up,hsa01100,Metabolic pathways,1,2026,ENO2
-KEGG,Up,hsa01100,Metabolic pathways,1,2597,GAPDH
-KEGG,Up,hsa01100,Metabolic pathways,1,5214,PFKP
-KEGG,Up,hsa01100,Metabolic pathways,1,226,ALDOA
-KEGG,Up,hsa01100,Metabolic pathways,1,2023,ENO1
-KEGG,Up,hsa01100,Metabolic pathways,1,218,ALDH3A1
-KEGG,Up,hsa01100,Metabolic pathways,1,1738,DLD
-KEGG,Up,hsa01100,Metabolic pathways,1,92579,G6PC3
-KEGG,Up,hsa01100,Metabolic pathways,1,224,ALDH3A2
-KEGG,Up,hsa01100,Metabolic pathways,1,217,ALDH2
-KEGG,Up,hsa01100,Metabolic pathways,1,5315,PKM
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,2026,ENO2
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,2597,GAPDH
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,2821,GPI
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,217,ALDH2
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,92579,G6PC3
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,224,ALDH3A2
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,226,ALDOA
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,2023,ENO1
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,218,ALDH3A1
+KEGG,Up,hsa00010,Glycolysis / Gluconeogenesis,1,7167,TPI1
+KEGG,Up,hsa01100,Metabolic pathways,1,3099,HK2
 KEGG,Up,hsa01100,Metabolic pathways,1,5236,PGM1
-KEGG,Up,hsa01100,Metabolic pathways,1,7167,TPI1
+KEGG,Up,hsa01100,Metabolic pathways,1,5315,PKM
+KEGG,Up,hsa01100,Metabolic pathways,1,5214,PFKP
+KEGG,Up,hsa01100,Metabolic pathways,1,1738,DLD
 KEGG,Up,hsa01100,Metabolic pathways,1,5223,PGAM1
 KEGG,Up,hsa01100,Metabolic pathways,1,55902,ACSS2
 KEGG,Up,hsa01100,Metabolic pathways,1,221,ALDH3B1
 KEGG,Up,hsa01100,Metabolic pathways,1,387712,ENO4
-KEGG,Up,hsa01100,Metabolic pathways,1,3099,HK2
-KEGG,Down,hsa00350,Tyrosine metabolism,0.0088893782153871,130,ADH6
-KEGG,Down,hsa00350,Tyrosine metabolism,0.0088893782153871,127,ADH4
+KEGG,Up,hsa01100,Metabolic pathways,1,2026,ENO2
+KEGG,Up,hsa01100,Metabolic pathways,1,2597,GAPDH
+KEGG,Up,hsa01100,Metabolic pathways,1,2821,GPI
+KEGG,Up,hsa01100,Metabolic pathways,1,217,ALDH2
+KEGG,Up,hsa01100,Metabolic pathways,1,92579,G6PC3
+KEGG,Up,hsa01100,Metabolic pathways,1,224,ALDH3A2
+KEGG,Up,hsa01100,Metabolic pathways,1,226,ALDOA
+KEGG,Up,hsa01100,Metabolic pathways,1,2023,ENO1
+KEGG,Up,hsa01100,Metabolic pathways,1,218,ALDH3A1
+KEGG,Up,hsa01100,Metabolic pathways,1,7167,TPI1
 KEGG,Down,hsa00350,Tyrosine metabolism,0.0088893782153871,222,ALDH3B2
+KEGG,Down,hsa00350,Tyrosine metabolism,0.0088893782153871,130,ADH6
+KEGG,Down,hsa00350,Tyrosine metabolism,0.0088893782153871,126,ADH1C
+KEGG,Down,hsa00350,Tyrosine metabolism,0.0088893782153871,127,ADH4
 KEGG,Down,hsa00350,Tyrosine metabolism,0.0088893782153871,124,ADH1A
 KEGG,Down,hsa00350,Tyrosine metabolism,0.0088893782153871,125,ADH1B
-KEGG,Down,hsa00350,Tyrosine metabolism,0.0088893782153871,126,ADH1C
-KEGG,Down,hsa00980,Metabolism of xenobiotics by cytochrome P450,0.0088893782153871,130,ADH6
-KEGG,Down,hsa00980,Metabolism of xenobiotics by cytochrome P450,0.0088893782153871,127,ADH4
 KEGG,Down,hsa00980,Metabolism of xenobiotics by cytochrome P450,0.0088893782153871,222,ALDH3B2
+KEGG,Down,hsa00980,Metabolism of xenobiotics by cytochrome P450,0.0088893782153871,130,ADH6
+KEGG,Down,hsa00980,Metabolism of xenobiotics by cytochrome P450,0.0088893782153871,126,ADH1C
+KEGG,Down,hsa00980,Metabolism of xenobiotics by cytochrome P450,0.0088893782153871,127,ADH4
 KEGG,Down,hsa00980,Metabolism of xenobiotics by cytochrome P450,0.0088893782153871,124,ADH1A
 KEGG,Down,hsa00980,Metabolism of xenobiotics by cytochrome P450,0.0088893782153871,125,ADH1B
-KEGG,Down,hsa00980,Metabolism of xenobiotics by cytochrome P450,0.0088893782153871,126,ADH1C
-KEGG,Down,hsa00982,Drug metabolism - cytochrome P450,0.0088893782153871,130,ADH6
-KEGG,Down,hsa00982,Drug metabolism - cytochrome P450,0.0088893782153871,127,ADH4
 KEGG,Down,hsa00982,Drug metabolism - cytochrome P450,0.0088893782153871,222,ALDH3B2
+KEGG,Down,hsa00982,Drug metabolism - cytochrome P450,0.0088893782153871,130,ADH6
+KEGG,Down,hsa00982,Drug metabolism - cytochrome P450,0.0088893782153871,126,ADH1C
+KEGG,Down,hsa00982,Drug metabolism - cytochrome P450,0.0088893782153871,127,ADH4
 KEGG,Down,hsa00982,Drug metabolism - cytochrome P450,0.0088893782153871,124,ADH1A
 KEGG,Down,hsa00982,Drug metabolism - cytochrome P450,0.0088893782153871,125,ADH1B
-KEGG,Down,hsa00982,Drug metabolism - cytochrome P450,0.0088893782153871,126,ADH1C
 KEGG,Down,hsa00071,Fatty acid degradation,0.121973551350601,130,ADH6
+KEGG,Down,hsa00071,Fatty acid degradation,0.121973551350601,126,ADH1C
 KEGG,Down,hsa00071,Fatty acid degradation,0.121973551350601,127,ADH4
 KEGG,Down,hsa00071,Fatty acid degradation,0.121973551350601,124,ADH1A
 KEGG,Down,hsa00071,Fatty acid degradation,0.121973551350601,125,ADH1B
-KEGG,Down,hsa00071,Fatty acid degradation,0.121973551350601,126,ADH1C
 KEGG,Down,hsa04936,Alcoholic liver disease,0.121973551350601,130,ADH6
+KEGG,Down,hsa04936,Alcoholic liver disease,0.121973551350601,126,ADH1C
 KEGG,Down,hsa04936,Alcoholic liver disease,0.121973551350601,127,ADH4
 KEGG,Down,hsa04936,Alcoholic liver disease,0.121973551350601,124,ADH1A
 KEGG,Down,hsa04936,Alcoholic liver disease,0.121973551350601,125,ADH1B
-KEGG,Down,hsa04936,Alcoholic liver disease,0.121973551350601,126,ADH1C
-KEGG,Down,hsa00620,Pyruvate metabolism,0.643710217561848,130,ADH6
 KEGG,Down,hsa00620,Pyruvate metabolism,0.643710217561848,5105,PCK1
-KEGG,Down,hsa00620,Pyruvate metabolism,0.643710217561848,127,ADH4
+KEGG,Down,hsa00620,Pyruvate metabolism,0.643710217561848,130,ADH6
+KEGG,Down,hsa00620,Pyruvate metabolism,0.643710217561848,126,ADH1C
 KEGG,Down,hsa00620,Pyruvate metabolism,0.643710217561848,3948,LDHC
+KEGG,Down,hsa00620,Pyruvate metabolism,0.643710217561848,127,ADH4
 KEGG,Down,hsa00620,Pyruvate metabolism,0.643710217561848,124,ADH1A
 KEGG,Down,hsa00620,Pyruvate metabolism,0.643710217561848,125,ADH1B
-KEGG,Down,hsa00620,Pyruvate metabolism,0.643710217561848,126,ADH1C
-KEGG,Down,hsa04922,Glucagon signaling pathway,0.846351291195138,2645,GCK
 KEGG,Down,hsa04922,Glucagon signaling pathway,0.846351291195138,5105,PCK1
-KEGG,Down,hsa04922,Glucagon signaling pathway,0.846351291195138,5224,PGAM2
 KEGG,Down,hsa04922,Glucagon signaling pathway,0.846351291195138,3948,LDHC
+KEGG,Down,hsa04922,Glucagon signaling pathway,0.846351291195138,5224,PGAM2
 KEGG,Down,hsa04922,Glucagon signaling pathway,0.846351291195138,8789,FBP2
-KEGG,Down,hsa04910,Insulin signaling pathway,0.846351291195138,2645,GCK
+KEGG,Down,hsa04922,Glucagon signaling pathway,0.846351291195138,2645,GCK
 KEGG,Down,hsa04910,Insulin signaling pathway,0.846351291195138,5105,PCK1
 KEGG,Down,hsa04910,Insulin signaling pathway,0.846351291195138,8789,FBP2
+KEGG,Down,hsa04910,Insulin signaling pathway,0.846351291195138,2645,GCK
 KEGG,Down,hsa00030,Pentose phosphate pathway,1,229,ALDOB
 KEGG,Down,hsa00030,Pentose phosphate pathway,1,8789,FBP2
 KEGG,Down,hsa00051,Fructose and mannose metabolism,1,229,ALDOB
 KEGG,Down,hsa00051,Fructose and mannose metabolism,1,8789,FBP2
-KEGG,Down,hsa05230,Central carbon metabolism in cancer,1,2645,GCK
-KEGG,Down,hsa05230,Central carbon metabolism in cancer,1,5224,PGAM2
 KEGG,Down,hsa05230,Central carbon metabolism in cancer,1,3948,LDHC
+KEGG,Down,hsa05230,Central carbon metabolism in cancer,1,5224,PGAM2
+KEGG,Down,hsa05230,Central carbon metabolism in cancer,1,2645,GCK
 KEGG,Down,hsa00500,Starch and sucrose metabolism,1,2645,GCK
-KEGG,Down,hsa01230,Biosynthesis of amino acids,1,229,ALDOB
 KEGG,Down,hsa01230,Biosynthesis of amino acids,1,5224,PGAM2
+KEGG,Down,hsa01230,Biosynthesis of amino acids,1,229,ALDOB
 KEGG,Down,hsa00052,Galactose metabolism,1,2645,GCK
-KEGG,Down,hsa01200,Carbon metabolism,1,2645,GCK
-KEGG,Down,hsa01200,Carbon metabolism,1,229,ALDOB
 KEGG,Down,hsa01200,Carbon metabolism,1,5224,PGAM2
+KEGG,Down,hsa01200,Carbon metabolism,1,229,ALDOB
 KEGG,Down,hsa01200,Carbon metabolism,1,8789,FBP2
-KEGG,Down,hsa04066,HIF-1 signaling pathway,1,229,ALDOB
+KEGG,Down,hsa01200,Carbon metabolism,1,2645,GCK
 KEGG,Down,hsa04066,HIF-1 signaling pathway,1,3948,LDHC
-KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,130,ADH6
-KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,2645,GCK
+KEGG,Down,hsa04066,HIF-1 signaling pathway,1,229,ALDOB
 KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,5105,PCK1
-KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,127,ADH4
-KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,229,ALDOB
 KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,222,ALDH3B2
-KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,5224,PGAM2
+KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,130,ADH6
+KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,126,ADH1C
 KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,3948,LDHC
-KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,8789,FBP2
+KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,5224,PGAM2
+KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,229,ALDOB
+KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,127,ADH4
 KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,124,ADH1A
 KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,125,ADH1B
-KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,126,ADH1C
-KEGG,Down,hsa01100,Metabolic pathways,1,130,ADH6
-KEGG,Down,hsa01100,Metabolic pathways,1,2645,GCK
+KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,8789,FBP2
+KEGG,Down,hsa00010,Glycolysis / Gluconeogenesis,1,2645,GCK
 KEGG,Down,hsa01100,Metabolic pathways,1,5105,PCK1
-KEGG,Down,hsa01100,Metabolic pathways,1,127,ADH4
-KEGG,Down,hsa01100,Metabolic pathways,1,229,ALDOB
 KEGG,Down,hsa01100,Metabolic pathways,1,222,ALDH3B2
-KEGG,Down,hsa01100,Metabolic pathways,1,5224,PGAM2
+KEGG,Down,hsa01100,Metabolic pathways,1,130,ADH6
+KEGG,Down,hsa01100,Metabolic pathways,1,126,ADH1C
 KEGG,Down,hsa01100,Metabolic pathways,1,3948,LDHC
-KEGG,Down,hsa01100,Metabolic pathways,1,8789,FBP2
+KEGG,Down,hsa01100,Metabolic pathways,1,5224,PGAM2
+KEGG,Down,hsa01100,Metabolic pathways,1,229,ALDOB
+KEGG,Down,hsa01100,Metabolic pathways,1,127,ADH4
 KEGG,Down,hsa01100,Metabolic pathways,1,124,ADH1A
 KEGG,Down,hsa01100,Metabolic pathways,1,125,ADH1B
-KEGG,Down,hsa01100,Metabolic pathways,1,126,ADH1C
+KEGG,Down,hsa01100,Metabolic pathways,1,8789,FBP2
+KEGG,Down,hsa01100,Metabolic pathways,1,2645,GCK

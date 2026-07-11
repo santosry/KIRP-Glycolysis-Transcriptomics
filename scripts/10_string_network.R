@@ -76,7 +76,7 @@ comm_l <- cluster_louvain(g_cc)
 comm_ld <- tryCatch(cluster_leiden(g_cc, objective_function = "modularity"), error = function(e) NULL)
 
 mod_l <- modularity(comm_l)
-mod_ld <- if(!is.null(comm_ld)) modularity(comm_ld) else NA
+mod_ld <- if(!is.null(comm_ld)) modularity(g_cc, membership(comm_ld)) else NA
 
 V(g_cc)$community_louvain <- as.character(membership(comm_l))
 if (!is.null(comm_ld)) V(g_cc)$community_leiden <- as.character(membership(comm_ld))
@@ -84,7 +84,7 @@ if (!is.null(comm_ld)) V(g_cc)$community_leiden <- as.character(membership(comm_
 # ARI between Louvain and Leiden
 ari_val <- NA
 if (!is.null(comm_ld)) {
-  ari_val <- aricode::ARI(membership(comm_l), membership(comm_ld))
+  ari_val <- aricode::ARI(as.vector(membership(comm_l)), as.vector(membership(comm_ld)))
   message("ARI (Louvain vs Leiden): ", round(ari_val, 4))
 }
 

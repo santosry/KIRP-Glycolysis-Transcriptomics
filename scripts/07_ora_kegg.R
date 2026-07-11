@@ -1,15 +1,13 @@
 # 07_ora_kegg.R — ORA KEGG com mapeamento SYMBOL→ENTREZ unificado
+# (base R version to avoid dplyr / AnnotationDbi conflicts)
 
 suppressPackageStartupMessages({
   library(clusterProfiler)
-  library(org.Hs.eg.db)  # provides AnnotationDbi::select for OrgDb queries
+  library(org.Hs.eg.db)
   library(enrichplot)
-  library(dplyr)
-  library(tibble)
   library(rio)
   library(ggplot2)
 })
-# org.Hs.eg.db masks dplyr::select — use dplyr::select for data frames
 
 repo_root <- normalizePath(file.path(getwd()), winslash = "/", mustWork = TRUE)
 deg_file <- file.path(repo_root, "results", "differential_expression", "DEG_global.csv")
@@ -25,29 +23,34 @@ universe_df <- rio::import(universe_file)
 universe_genes <- unique(universe_df$gene_id)
 
 # ═══════════════════════════════════════
-# UNIFIED SYMBOL → ENTREZ MAPPING
+# UNIFIED SYMBOL → ENTREZ MAPPING (base R)
 # ═══════════════════════════════════════
 all_keys <- keys(org.Hs.eg.db, keytype = "SYMBOL")
 valid_symbols <- intersect(universe_genes, all_keys)
 
 map_raw <- AnnotationDbi::select(org.Hs.eg.db, keys = valid_symbols, columns = "ENTREZID", keytype = "SYMBOL")
-map_raw <- map_raw[!is.na(map_raw$ENTREZID), ]
+# Force to plain data.frame with plain character columns
+map_raw <- data.frame(
+  SYMBOL = as.character(map_raw$SYMBOL),
+  ENTREZID = as.character(map_raw$ENTREZID),
+  stringsAsFactors = FALSE
+)
+map_raw <- map_raw[!is.na(map_raw$ENTREZID) & map_raw$ENTREZID != "", ]
 
-# Audit mappings
-map_counts <- map_raw |> group_by(SYMBOL) |> summarise(n_entrez = n(), entrez_ids = paste(unique(ENTREZID), collapse = ";"), .groups = "drop")
-map_summary <- map_counts |>
-  mutate(mapping_status = case_when(n_entrez == 1 ~ "1:1", n_entrez > 1 ~ "1:n", TRUE ~ "unmapped"))
+# Audit mappings (base R)
+sym_tab <- table(map_raw$SYMBOL)
+n_1to1 <- sum(sym_tab == 1)
+n_1ton <- sum(sym_tab > 1)
+message(sprintf("Gene mapping: %d 1:1 + %d 1:n = %d mapped", n_1to1, n_1ton, length(sym_tab)))
 
-# Resolve 1:n: keep first Entrez ID (documented rule)
-map_1to1 <- map_raw |> filter(SYMBOL %in% map_summary$SYMBOL[map_summary$mapping_status == "1:1"])
-map_1ton <- map_raw |> filter(SYMBOL %in% map_summary$SYMBOL[map_summary$mapping_status == "1:n"]) |>
-  group_by(SYMBOL) |> slice(1) |> ungroup()
-gene_map <- bind_rows(map_1to1, map_1ton) |> dplyr::select(gene_symbol = SYMBOL, ENTREZID)
+# Resolve 1:n: keep first Entrez ID per symbol
+keep_idx <- !duplicated(map_raw$SYMBOL)
+gene_map <- map_raw[keep_idx, ]
+names(gene_map) <- c("gene_symbol", "ENTREZID")
 rio::export(gene_map, file.path(repo_root, "results", "tables", "gene_id_mapping.csv"))
 
 unmapped_symbols <- setdiff(universe_genes, gene_map$gene_symbol)
-message(sprintf("Gene mapping: %d 1:1 + %d 1:n = %d mapped | %d unmapped",
-                nrow(map_1to1), nrow(map_1ton), nrow(gene_map), length(unmapped_symbols)))
+message(sprintf("%d unmapped symbols", length(unmapped_symbols)))
 
 # Universes for ORA
 universe_entrez <- unique(gene_map$ENTREZID)
@@ -60,14 +63,14 @@ up_symbols <- deg_all$gene_id[deg_all$regulation == "Up"]
 up_entrez <- gene_map$ENTREZID[gene_map$gene_symbol %in% up_symbols]
 message("Up DEGs mapped: ", length(up_entrez), " / ", length(up_symbols))
 
-kegg_up <- NULL; kegg_up_sig <- NULL
+kegg_up <- NULL; kegg_up_df <- NULL; kegg_up_sig <- NULL
 if (length(up_entrez) >= 5) {
   kegg_up <- enrichKEGG(gene = up_entrez, universe = universe_entrez, organism = "hsa",
                          pAdjustMethod = "BH", pvalueCutoff = 1, qvalueCutoff = 1)
   if (!is.null(kegg_up) && nrow(kegg_up) > 0) {
-    kegg_up_df <- as_tibble(kegg_up@result)
+    kegg_up_df <- as.data.frame(kegg_up@result, stringsAsFactors = FALSE)
     rio::export(kegg_up_df, file.path(repo_root, "results", "enrichment", "KEGG_ORA_Up.csv"))
-    kegg_up_sig <- kegg_up_df |> filter(p.adjust < 0.05)
+    kegg_up_sig <- kegg_up_df[kegg_up_df$p.adjust < 0.05, , drop = FALSE]
     message("KEGG Up: ", nrow(kegg_up_sig), " significant / ", nrow(kegg_up_df), " total")
   }
 }
@@ -77,14 +80,14 @@ down_symbols <- deg_all$gene_id[deg_all$regulation == "Down"]
 down_entrez <- gene_map$ENTREZID[gene_map$gene_symbol %in% down_symbols]
 message("Down DEGs mapped: ", length(down_entrez), " / ", length(down_symbols))
 
-kegg_down <- NULL; kegg_down_sig <- NULL
+kegg_down <- NULL; kegg_down_df <- NULL; kegg_down_sig <- NULL
 if (length(down_entrez) >= 5) {
   kegg_down <- enrichKEGG(gene = down_entrez, universe = universe_entrez, organism = "hsa",
                            pAdjustMethod = "BH", pvalueCutoff = 1, qvalueCutoff = 1)
   if (!is.null(kegg_down) && nrow(kegg_down) > 0) {
-    kegg_down_df <- as_tibble(kegg_down@result)
+    kegg_down_df <- as.data.frame(kegg_down@result, stringsAsFactors = FALSE)
     rio::export(kegg_down_df, file.path(repo_root, "results", "enrichment", "KEGG_ORA_Down.csv"))
-    kegg_down_sig <- kegg_down_df |> filter(p.adjust < 0.05)
+    kegg_down_sig <- kegg_down_df[kegg_down_df$p.adjust < 0.05, , drop = FALSE]
     message("KEGG Down: ", nrow(kegg_down_sig), " significant / ", nrow(kegg_down_df), " total")
   }
 }
@@ -94,7 +97,7 @@ plot_ora <- function(df, dir_label) {
   if (is.null(df) || nrow(df) == 0) return(NULL)
   df <- head(df[order(df$p.adjust), ], 20)
   df$Description <- factor(df$Description, levels = rev(df$Description))
-  ggplot(df, aes(Count, Description, size = Count, color = p.adjust)) +
+  ggplot(df, aes_string("Count", "Description", size = "Count", color = "p.adjust")) +
     geom_point() + scale_color_gradient(low = "#8A2BE2", high = "#FFE135", trans = "log10", name = "FDR") +
     labs(title = paste0("KEGG ORA — ", dir_label), x = "Gene Count") +
     theme_minimal(12) + theme(plot.background = element_rect(fill = "#FFF8DC", color = NA))
@@ -114,26 +117,29 @@ for (dir_label in c("Up", "Down")) {
 build_pw_table <- function(ora_df, db, dir_label) {
   if (is.null(ora_df) || nrow(ora_df) == 0 || !("geneID" %in% colnames(ora_df))) return(NULL)
   rows <- list()
-  for (i in 1:nrow(ora_df)) {
+  for (i in seq_len(nrow(ora_df))) {
     entrez_ids <- strsplit(ora_df$geneID[i], "/")[[1]]
     symbols <- gene_map$gene_symbol[match(entrez_ids, gene_map$ENTREZID)]
     symbols <- symbols[!is.na(symbols)]
     if (length(symbols) > 0) {
-      rows[[length(rows) + 1]] <- tibble(
+      rows[[length(rows) + 1]] <- data.frame(
         database = db, direction = dir_label,
         pathway_id = ora_df$ID[i], pathway_name = ora_df$Description[i],
         pathway_fdr = ora_df$p.adjust[i], ENTREZID = entrez_ids,
-        gene_symbol = symbols
+        gene_symbol = symbols,
+        stringsAsFactors = FALSE
       )
     }
   }
-  if (length(rows) > 0) return(bind_rows(rows)) else return(NULL)
+  if (length(rows) > 0) return(do.call(rbind, rows)) else return(NULL)
 }
 
 pw_kegg_up <- build_pw_table(kegg_up_df, "KEGG", "Up")
 pw_kegg_down <- build_pw_table(kegg_down_df, "KEGG", "Down")
-pw_all <- bind_rows(pw_kegg_up, pw_kegg_down)
-if (!is.null(pw_all) && nrow(pw_all) > 0) {
+pw_list <- list(pw_kegg_up, pw_kegg_down)
+pw_list <- pw_list[!sapply(pw_list, is.null)]
+if (length(pw_list) > 0) {
+  pw_all <- do.call(rbind, pw_list)
   rio::export(pw_all, file.path(repo_root, "results", "tables", "pathway_gene_membership_KEGG.csv"))
 }
 

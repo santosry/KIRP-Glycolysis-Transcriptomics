@@ -157,13 +157,12 @@ for (script in pipeline_scripts) {
 session_file <- file.path(run_dir, "sessionInfo.txt")
 writeLines(capture.output(sessionInfo()), session_file)
 
-manifest$output_files <- sapply(pipeline_scripts, function(s) {
-  # Collect output files that exist
-  script_num <- sub("_.*", "", s)
+manifest$output_files <- vapply(seq_len(nrow(manifest)), function(i) {
+  script_num <- sub("_.*", "", manifest$script[i])
   pattern <- paste0("results/.*", script_num, ".*")
   files <- list.files(file.path(repo_root, "results"), recursive = TRUE, full.names = TRUE)
   paste(files, collapse = "; ")
-})
+}, character(1))
 
 write_manifest()
 

@@ -1,32 +1,32 @@
-Gene,logFC,FDR,Regulacao,Funcao
-ALDOB,-7.68,5.65e-28,Down,"Aldolase B; cliva frutose-1,6-bisfosfato. Isoforma hepática/renal com alta afinidade por frutose-1P. Favorece gliconeogênese"
-ADH1B,-4.6,1.88e-15,Down,Álcool desidrogenase 1B; oxida etanol a acetaldeído. Principal enzima do metabolismo do etanol hepático. Substrato CYP450
-ADH1C,-3.95,1.28e-18,Down,Álcool desidrogenase 1C; oxidação de álcoois. Metabolismo de retinoides e xenobióticos. Substrato CYP450
-ALDH3B2,-3.63,4.27e-18,Down,Aldeído desidrogenase 3B2; oxida aldeídos a ácidos carboxílicos. Proteção contra estresse oxidativo
-HK2,3.55,1.48e-35,Up,Hexoquinase 2; fosforila glicose a glicose-6-fosfato. Etapa irreversível limitante da glicólise. Associada a pior prognóstico em tumores sólidos
-PCK1,-3.27,1.98e-08,Down,Fosfoenolpiruvato carboxiquinase 1; etapa limitante da gliconeogênese. Converte oxaloacetato em fosfoenolpiruvato
-ADH4,-3.08,5.40e-24,Down,Álcool desidrogenase 4 (classe II); metabolismo de álcoois e retinoides. Substrato CYP450
-PGAM2,-3.0,2.15e-13,Down,Fosfoglicerato mutase 2 (isoforma muscular); converte 3-fosfoglicerato em 2-fosfoglicerato na glicólise
-ALDH3B1,1.89,2.50e-18,Up,Aldeído desidrogenase 3B1; oxida aldeídos graxos de cadeia média/longa. Proteção contra peroxidação lipídica
-PKM,1.84,1.02e-17,Up,Piruvato quinase M; converte PEP em piruvato gerando ATP. Isoforma M2 associada ao efeito Warburg
-PFKP,1.79,3.42e-18,Up,Fosfofrutoquinase plaquetária; principal ponto de controle do fluxo glicolítico. Regulada por AMP/ATP
-ALDOA,1.76,2.87e-14,Up,Aldolase A; isoforma muscular/ubíqua. Favorece fluxo glicolítico sobre gliconeogênese
-ADH6,-1.67,6.56e-04,Down,Álcool desidrogenase 6 (classe V); metabolismo de álcoois. Substrato CYP450
-GAPDH,1.67,2.70e-13,Up,"Gliceraldeído-3-fosfato desidrogenase; gera NADH na glicólise. Funções não glicolíticas: apoptose, transcrição"
-FBP2,-1.66,1.19e-06,Down,"Frutose-1,6-bisfosfatase 2; etapa irreversível da gliconeogênese. Isoforma muscular"
-ENO1,1.64,3.07e-14,Up,Enolase 1 (alfa); converte 2-fosfoglicerato em PEP. Isoforma ubíqua. Superexpressa em múltiplos tumores
-GPI,1.55,7.17e-15,Up,Glicose-6-fosfato isomerase; interconverte G6P e F6P. Também atua como citocina extracelular
-LDHC,-1.55,1.97e-06,Down,Lactato desidrogenase C; converte piruvato a lactato. Isoforma testículo-específica
-PGM1,1.5,2.22e-12,Up,Fosfoglicomutase 1; essencial para glicogenólise e metabolismo da galactose
-TPI1,1.49,1.94e-13,Up,Triosefosfato isomerase 1; deficiência causa anemia hemolítica grave
-ENO2,1.42,7.12e-08,Up,Enolase 2 (gama); isoforma neurônio-específica. Marcador de tumores neuroendócrinos (NSE)
-ENO4,1.42,2.88e-07,Up,Enolase 4; isoforma menos caracterizada. Possível papel na espermatogênese
-G6PC3,1.38,1.03e-07,Up,Glicose-6-fosfatase catalítica 3; deficiência causa neutropenia congênita grave
-DLD,1.34,3.55e-11,Up,Dihidrolipoamida desidrogenase; conecta glicólise ao ciclo de Krebs via complexo piruvato desidrogenase
-ADH1A,-1.31,1.21e-05,Down,Álcool desidrogenase 1A (alfa); expressão fetal/neonatal predominante. Substrato CYP450
-GCK,-1.28,1.44e-03,Down,Glicoquinase (hexoquinase 4); sensor de glicose pancreático. Mutações causam MODY2
-PGAM1,1.23,4.77e-10,Up,Fosfoglicerato mutase 1 (isoforma cerebral); superexpressa em tumores sólidos
-ALDH2,1.2,1.30e-09,Up,Aldeído desidrogenase 2 mitocondrial; principal enzima do metabolismo do etanol. Polimorfismo ALDH2*2 associado a câncer
-ALDH3A1,1.16,4.45e-06,Up,Aldeído desidrogenase 3A1; proteção corneal contra UV. Superexpressa em câncer de pulmão
-ACSS2,1.15,4.98e-07,Up,Acetil-CoA sintetase 2; essencial para síntese de ácidos graxos e acetilação de histonas em tumores
-ALDH3A2,1.05,8.21e-07,Up,Aldeído desidrogenase 3A2; mutação causa síndrome de Sjögren-Larsson
+gene_symbol,preferred_name,logFC,adj.P.Val,regulation
+ALDOB,ALDOB,-7.68061408730158,5.65431855140113e-28,Down
+ADH1B,ADH1B,-4.59645694444445,1.88364578817286e-15,Down
+ADH1C,ADH1C,-3.9462875,1.27707797960267e-18,Down
+ALDH3B2,ALDH3B2,-3.63326676587301,4.27000778275569e-18,Down
+HK2,HK2,3.55394642857144,1.4848523220681e-35,Up
+PCK1,PCK1,-3.27097371031745,1.97917754530037e-08,Down
+ADH4,ADH4,-3.07977182539682,5.39613425283524e-24,Down
+PGAM2,PGAM2,-3.00005674603174,2.14528160459598e-13,Down
+ALDH3B1,ALDH3B1,1.88786458333334,2.49627142113617e-18,Up
+PKM,PKM,1.83893353174604,1.02328823303176e-17,Up
+PFKP,PFKP,1.79298511904763,3.41759655057331e-18,Up
+ALDOA,ALDOA,1.76057539682542,2.8652213114974e-14,Up
+ADH6,ADH6,-1.66936061507937,0.000655649622609368,Down
+GAPDH,GAPDH,1.66745039682542,2.69868670339425e-13,Up
+LDHC,LDHC,-1.66477068452381,0.000132610593940858,Down
+ENO1,ENO1,1.57759424603177,4.14881585165804e-13,Up
+ENO2,ENO2,1.56444196428571,3.77759765691245e-09,Up
+ENO4,ENO4,1.51864528769841,1.61536928590232e-11,Up
+G6PC3,G6PC3,1.47676091269842,4.40074993352197e-17,Up
+ALDH3A1,ALDH3A1,1.32598804563493,0.00019559127431889,Up
+ALDH2,ALDH2,1.29316914682542,1.04470186495064e-06,Up
+ALDH3A2,ALDH3A2,1.19604960317462,3.77759765691245e-09,Up
+GPI,GPI,1.1943253968254,3.83679937277509e-09,Up
+GCK,GCK,-1.16881964285714,0.000157189360944153,Down
+TPI1,TPI1,1.15001984126987,7.13269970709285e-09,Up
+ACSS2,ACSS2,1.14971726190477,4.98153974710733e-07,Up
+PGM1,PGM1,1.1280322420635,5.22462938764648e-09,Up
+ADH1A,ADH1A,-1.12476309523809,1.46207678287402e-07,Down
+PGAM1,PGAM1,1.09631944444446,2.3626718518187e-08,Up
+DLD,DLD,1.09079216269842,4.66548504947822e-08,Up
+FBP2,FBP2,-1.07982008928571,1.81642567067357e-08,Down

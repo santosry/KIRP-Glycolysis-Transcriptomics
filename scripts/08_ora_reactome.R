@@ -116,12 +116,10 @@ for (gt in glyc_terms) {
 
 # ── Concordance KEGG vs Reactome ──
 concordance <- list()
-if (!is.null(kegg_file <- file.path(repo_root, "results", "enrichment", "KEGG_ORA_Up.csv"))) {
-  if (file.exists(kegg_file)) concordance$kegg_up <- rio::import(kegg_file)
-}
-if (!is.null(kegg_file2 <- file.path(repo_root, "results", "enrichment", "KEGG_ORA_Down.csv"))) {
-  if (file.exists(kegg_file2)) concordance$kegg_down <- rio::import(kegg_file2)
-}
+kegg_up_file <- file.path(repo_root, "results", "enrichment", "KEGG_ORA_Up.csv")
+if (file.exists(kegg_up_file)) concordance$kegg_up <- rio::import(kegg_up_file)
+kegg_down_file <- file.path(repo_root, "results", "enrichment", "KEGG_ORA_Down.csv")
+if (file.exists(kegg_down_file)) concordance$kegg_down <- rio::import(kegg_down_file)
 concordance$reactome_up <- reactome_up
 concordance$reactome_down <- reactome_down
 
