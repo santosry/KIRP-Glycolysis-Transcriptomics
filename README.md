@@ -2,91 +2,86 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![R 4.6.0](https://img.shields.io/badge/R-4.6.0-276DC3)](https://www.r-project.org/)
-[![v2.0.0](https://img.shields.io/badge/version-2.0.0-green)]()
+[![v3.0.0](https://img.shields.io/badge/version-3.0.0-green)]()
 
-**Transcriptomic alterations in central carbon metabolism pathways in papillary renal cell carcinoma (KIRP): integrated analysis with multiple comparators and implications for precision health.**
-
----
+**Transcriptomic profile of central carbon metabolism genes in papillary renal cell carcinoma (KIRP): paired tumor-adjacent analysis, sensitivity to reference tissue choice, and methodological implications.**
 
 ## Scientific Question
 
-What transcriptomic alterations are observed in interconnected central carbon metabolism pathways (glycolysis/gluconeogenesis, pentose phosphate pathway, citrate cycle) in KIRP, which remain robust across different comparator strategies, and what are the implications for interpreting omics evidence in precision health?
+What is the transcriptomic profile of central carbon metabolism genes (glycolysis, pentose phosphate pathway, citrate cycle) in KIRP when analyzed with paired tumor-adjacent normal tissue as the primary comparator, and how sensitive are the results to the choice of reference tissue?
 
 ## Pathways Analyzed
 
 | KEGG ID | Pathway | Genes in DB | Genes in Matrix |
 |---------|---------|-------------|-----------------|
-| hsa00010 | Glycolysis / Gluconeogenesis | 67 | 66 |
-| hsa00030 | Pentose Phosphate Pathway | 31 | 11 |
-| hsa00020 | Citrate Cycle (TCA) | 30 | 7 |
-| **Union** | **Central Carbon Metabolism** | **110** | **66** |
+| hsa00010 | Glycolysis / Gluconeogenesis | 67 | 64 |
+| hsa00030 | Pentose Phosphate Pathway | 31 | 30 |
+| hsa00020 | Citrate Cycle (TCA) | 30 | 29 |
+| **Union (unique)** | **Central Carbon Metabolism** | **110** | **106** |
 
-## Key Findings (v2.0.0)
+## Key Findings (v3.0.0)
 
-- **17/66 genes (25.8%)** are ROBUST — significant across all three comparators with consistent direction
-- **ALDOB** (mean logFC = -8.11) and **HK2** (+3.30) are the most robustly altered
-- ADH family genes (ADH1A, ADH1B, ADH1C, ADH4, ADH6) are consistently downregulated
-- **PKM, PFKP, ENO1**: comparator-sensitive (significant only vs GTEx, not in paired/TCGA analyses)
-- Paired analysis (32 pairs, gold standard) yields 7 Up / 19 Down, contrasting with GTEx: 19 Up / 12 Down
-- Comparator choice substantially affects the gene list reported as differentially expressed
+- **35/106 genes (33.0%)** differentially expressed in paired analysis (32 KIRP tumor-adjacent pairs, |log2FC|>1, FDR<0.05)
+- **ALDOB** (log2FC = -8.66, CI: [-9.96, -7.36]) and **HK2** (+3.34, CI: [2.51, 4.17]) show largest magnitudes
+- Camera gene set test: TCA genes coordinately suppressed (FDR = 0.0012)
+- 7 genes shared across multiple pathways among the 35 unique DEGs
+- **Paired vs TCGA-adjacent**: Lin's CCC = 0.990, MAE = 0.19, 100% directional agreement
+- **Paired vs GTEx**: Lin's CCC = 0.795, MAE = 0.94, systematic bias = -0.79, only 60.2% directional agreement
+- GTEx as reference tissue introduces systematic overestimation and directional discordance
 
-## Comparator Hierarchy
+## Comparator Design
 
 | Comparator | Design | N | Role |
 |------------|--------|---|------|
-| Paired KIRP | 32 tumor-normal pairs | 64 | Gold standard |
-| KIRP vs TCGA Normal | Unpaired, same cohort | 417 | Primary unpaired |
-| KIRP vs GTEx Normal | Cross-cohort, exploratory | 316 | Sensitivity |
+| Paired KIRP | 32 tumor-adjacent pairs, ~ patient + condition | 64 | Primary |
+| KIRP vs Adjacent Normal | Unpaired, 288 tumors vs 32 KIRP-adjacent | 320 | Secondary (same cohort) |
+| KIRP vs All TCGA Normal | Unpaired, 288 tumors vs 129 TCGA normals | 417 | Exploratory (mixed projects) |
+| KIRP vs GTEx Normal | Cross-cohort, structurally confounded | 316 | Sensitivity only |
 
 ## Data
 
-- **Source:** UCSC Xena — TCGA/GTEx integrated dataset
-- **Samples:** 445 (288 KIRP, 28 GTEx Normal, 32 KIRP-matched normal, 97 other TCGA normal)
-- **Genes:** 66 (log2(norm_count+1) scale, max 20.1, 0 missing values)
-- **SHA256:** `c7ae7ed3a4bfe3111239a6bd2c7b6cc1a085b2e19fd180900bb9c25a03fd39ca`
+- **Source:** UCSC Xena — `TcgaTargetGtex_RSEM_Hugo_norm_count`
+- **Samples:** 445 (288 KIRP, 28 GTEx Normal, 32 KIRP-adjacent normal, 97 other TCGA normal)
+- **Genes:** 31,633 after filtering (58,581 raw, 26,948 low expression removed)
+- **Scale:** log2(norm_count+1), confirmed by audit (max 20.1, median 11.15)
+- **Access date:** 2026-07-11
 
 ## Reproduction
 
 ```r
-# Clone and run
+# Clone
 git clone https://github.com/santosry/KIRP-Glycolysis-Transcriptomics.git
 cd KIRP-Glycolysis-Transcriptomics
 
-# Place kidney.tsv in data/raw/
+# Download full kidney transcriptome (Python)
+python3 scripts/download_full_transcriptome.py
 
-# Run analysis
-source("scripts/04_v2_main_analysis.R")
-source("scripts/05_v2_visualizations.R")
+# Run v3 pipeline
+Rscript scripts/pipeline_v3.R
 ```
 
 ## Repository Structure
 
 ```
-├── data/raw/kidney.tsv          # Expression matrix
 ├── scripts/
-│   ├── 01_column_reconciliation.R   # Resolves 72 vs 66 column discrepancy
-│   ├── 02_tcga_normal_provenance.R  # Characterizes 129 TCGA Normal samples
-│   ├── 03_kegg_pathway_genes.R      # KEGG pathway gene retrieval
-│   ├── 04_v2_main_analysis.R        # Comparator hierarchy + robustness
-│   └── 05_v2_visualizations.R       # Figures and tables
-├── results/v2/                     # v2.0.0 outputs
-├── docs/                           # Documentation
-├── tests/                          # Automated tests
-├── reports/                        # Audit reports
-└── checksums/                      # SHA256SUMS
+│   ├── pipeline_v3.R                    # Primary analysis (paired, camera, concordance)
+│   └── download_full_transcriptome.py   # Downloads & filters Xena data
+├── results/v3/                         # v3.0.0 outputs
+│   ├── tables/                          # DEGs, supplementary S1, discordant genes
+│   ├── figures/                         # Volcano, Bland-Altman, PCA, paired plots
+│   └── sessionInfo.txt                  # Complete session info
+├── tests/                              # Automated tests (30/30 passing)
+└── docs/                               # Documentation
 ```
 
 ## Limitations
 
-- PPP (11/31 genes) and TCA (7/30 genes) coverage is limited by the pre-filtered matrix
-- RNA expression does not measure metabolic flux, enzyme activity, or protein levels
-- Bulk RNA-seq does not resolve cell-type heterogeneity or isoforms (PKM1 vs PKM2)
-- Cross-cohort (TCGA vs GTEx) comparison is structurally confounded
+- 32 pairs limits statistical power for small effects
+- Bulk RNA-seq does not resolve cell types, isoforms, or tumor purity
+- RNA abundance does not equal protein, enzyme activity, or metabolic flux
+- GTEx comparison is structurally confounded (all tumors TCGA, all controls GTEx)
+- KIRP is molecularly heterogeneous; pooled analysis does not capture subtypes
 - No external validation cohort
-
-## Precision Health Contribution
-
-This study demonstrates that transcriptomic findings depend on comparator choice — a critical methodological consideration for interpreting omics evidence in precision health. Only 25.8% of genes were robust across comparators, underscoring the need for robustness assessment before biological or translational interpretation.
 
 ## License
 
@@ -94,4 +89,4 @@ MIT License. See [LICENSE](LICENSE).
 
 ## Citation
 
-See [CITATION.cff](CITATION.cff) and [docs/MANUSCRIPT_VERSION_LOG.md](docs/MANUSCRIPT_VERSION_LOG.md).
+See [CITATION.cff](CITATION.cff).
