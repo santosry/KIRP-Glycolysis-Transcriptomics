@@ -138,6 +138,42 @@ Nenhuma das três vias apresentou alteração coordenada estatisticamente signif
 
 > ⚠️ **GTEx como referência externa introduz viés sistemático** de −0,79 e reverte a direção em 45 genes. As duas análises com tecido adjacente KIRP compartilham os mesmos 32 controles; a alta concordância **não** constitui validação independente.
 
+### Enriquecimento funcional (KEGG + Reactome + STRING)
+
+Foram realizadas análises de enriquecimento funcional por *over-representation analysis* (ORA) utilizando três bases de dados complementares — **KEGG**, **Reactome** e **STRING** (versão 11.5) — para os genes diferencialmente expressos (DEGs) aumentados (n = 9), diminuídos (n = 26) e o conjunto total (n = 35). O universo de referência foram os 106 genes das três vias.
+
+#### Resultados do enriquecimento
+
+| Fonte | DEGs Up (9 genes) | DEGs Down (26 genes) | DEGs All (35 genes) |
+|-------|:-----------------:|:--------------------:|:-------------------:|
+| **KEGG ORA** | 21 termos (1 sig) | 21 termos (0 sig) | 21 termos (1 sig) |
+| **Reactome ORA** | 19 termos | 19 termos | 19 termos |
+| **STRING KEGG** | 16 termos | 28 termos | — |
+
+#### Principais vias enriquecidas (STRING)
+
+**DEGs Up (9 genes):**
+
+| Via | Genes | FDR |
+|-----|:-----:|:---:|
+| hsa01200 Carbon metabolism | 8 | 6,6×10⁻¹⁵ |
+| hsa00010 Glycolysis / Gluconeogenesis | 7 | 4,1×10⁻¹⁴ |
+| hsa04066 HIF-1 signaling pathway | 6 | 2,8×10⁻¹⁰ |
+| hsa01100 Metabolic pathways | 9 | 5,7×10⁻⁹ |
+| hsa00030 Pentose phosphate pathway | 3 | 1,2×10⁻⁵ |
+
+**DEGs Down (26 genes):**
+
+| Via | Genes | FDR |
+|-----|:-----:|:---:|
+| hsa00010 Glycolysis / Gluconeogenesis | 19 | 2,5×10⁻³⁸ |
+| hsa01100 Metabolic pathways | 26 | 8,2×10⁻²⁸ |
+| hsa01200 Carbon metabolism | 14 | 1,8×10⁻²² |
+| hsa00030 Pentose phosphate pathway | 9 | 3,6×10⁻¹⁷ |
+| hsa00620 Pyruvate metabolism | 7 | 8,8×10⁻¹² |
+
+> **Interpretação:** Os DEGs Down apresentam enriquecimento extremamente significativo para as próprias vias metabólicas analisadas (glicólise, PPP, metabolismo do carbono), confirmando que a redução coordenada da expressão dessas vias é o sinal transcriptômico dominante no KIRP. Os DEGs Up, embora menos numerosos, mostram enriquecimento para a via de sinalização HIF-1, compatível com a ativação do programa glicolítico dependente de hipóxia. As figuras completas de enriquecimento (dotplots e barplots) estão em `results/v3/figures/enrichment/`.
+
 ---
 
 ## Desenho dos Comparadores
@@ -218,6 +254,32 @@ KIRP-Glycolysis-Transcriptomics/
 │   ├── 04_ppi_network.R                  # Rede coexpressão (PNG + 3D HTML)
 │   ├── 05_functional_enrichment.R        # camera + ORA KEGG (Up/Down)
 │   └── 06_concordance_and_tables.R       # CCC, Bland-Altman, tabelas S1/DEG
+│
+├── results/
+│   └── v3/
+│       ├── tables/
+│       │   ├── Supplementary_Table_S1.csv      # 106 genes, todos os comparadores
+│       │   ├── DEG_hsa00010/hsa00020/hsa00030   # DEGs por via
+│       │   ├── camera_gene_sets.csv             # Gene set test
+│       │   ├── ORA_KEGG_Up/Down/All.csv         # KEGG enrichment
+│       │   ├── ORA_Reactome_Up/Down/All.csv     # Reactome enrichment
+│       │   ├── STRING_KEGG_Up/Down.csv          # STRING enrichment
+│       │   ├── discordant_genes.csv             # Discordantes (Paired vs GTEx)
+│       │   ├── ppi_centrality.csv               # Centralidade da rede PPI
+│       │   └── expression_matrix.csv            # Matriz de expressão
+│       ├── figures/
+│       │   ├── Volcano_hsa00010/20/30.png       # Volcano plots por via
+│       │   ├── Volcano_*_3D.html                # Volcano 3D interativos
+│       │   ├── PPI_network.png / _3D.html       # Rede de coexpressão
+│       │   ├── BlandAltman_Paired_vs_GTEx.png   # Bland-Altman
+│       │   ├── PCA_transcriptome.png            # PCA
+│       │   ├── Paired_*.png                     # Gráficos pareados
+│       │   └── enrichment/                      # Dotplots + Barplots
+│       │       ├── KEGG_Up/Down/All_dotplot.png
+│       │       ├── Reactome_Up/Down/All_dotplot.png
+│       │       └── STRING_Up/Down_barplot.png
+│       ├── checksums_sha256.txt
+│       └── sessionInfo.txt
 │
 ├── results/
 │   └── v3/                               # Todos os outputs da versão 3
