@@ -107,3 +107,4 @@ data/raw/kidney_tcga_kirp.tsv.gz
 
 # Note: plotly HTML dep directories (*_files/) ARE versioned
 # so 3D visualizations work immediately after cloning
+render_pdf.R
