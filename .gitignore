@@ -74,5 +74,5 @@ data/raw/kidney_full.tsv
 data/raw/kidney_full.tsv.gz
 data/raw/kidney_tcga_kirp.tsv.gz
 
-# Plotly HTML dependency directories (generated, redundant with self-contained)
-results/v3/figures/*_files/
+# Note: plotly HTML dep directories (*_files/) ARE versioned
+# so 3D visualizations work immediately after cloning
