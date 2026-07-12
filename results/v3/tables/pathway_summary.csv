@@ -1,4 +1,0 @@
-pathway,name,genes_in_matrix,DEG_Up,DEG_Down,top_gene,top_logFC_Paired,directionally_consistent,pct_consistent
-hsa00010,Glycolysis / Gluconeogenesis,64,7,19,ALDOB,-8.66,39,60.9
-hsa00030,Pentose Phosphate Pathway,30,3,9,ALDOB,-8.66,22,73.3
-hsa00020,Citrate Cycle (TCA),29,0,4,PCK1,-5.11,9,31
