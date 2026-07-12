@@ -10,7 +10,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: rocker/r-ver:4.4.0
+      image: rocker/r-ver:4.4.0  # minimal R; enough to validate structure and run lightweight tests
 
     steps:
       - uses: actions/checkout@v4
@@ -21,8 +21,8 @@ jobs:
 
       - name: Install R packages
         run: |
-          R -e 'install.packages(c("dplyr","tibble","stringr","rio","digest","ggplot2","ggrepel","pheatmap","RColorBrewer","tidyr","testthat","umap","plotly","htmlwidgets","igraph","scales"), repos="https://cloud.r-project.org")'
-          R -e 'if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager"); BiocManager::install(c("limma","edgeR","clusterProfiler","org.Hs.eg.db","ReactomePA","enrichplot","STRINGdb","ggraph","KEGGREST"), ask=FALSE)'
+          R -e 'install.packages(c("dplyr","tibble","stringr","rio","digest","ggplot2","ggrepel","pheatmap","RColorBrewer","tidyr","testthat","plotly","htmlwidgets","igraph","scales"), repos="https://cloud.r-project.org")'
+          R -e 'if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager"); BiocManager::install(c("limma","clusterProfiler","org.Hs.eg.db","KEGGREST"), ask=FALSE)'
 
       - name: Check environment
         run: |
