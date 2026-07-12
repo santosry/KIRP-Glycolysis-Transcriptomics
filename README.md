@@ -79,7 +79,21 @@ As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose
 ### Análise pareada primária (32 pares tumor-adjacente KIRP)
 
 - **35/106 genes (33,0%)** diferencialmente expressos (|log₂FC| > 1, FDR < 0,05): 9 aumentados, 26 diminuídos
-- 7 genes compartilhados entre duas ou três vias metabólicas
+- 7 genes compartilhados entre duas ou três vias metabólicas (Tabela abaixo)
+
+#### Genes compartilhados entre vias (DEGs de dupla anotação KEGG)
+
+| Gene | Vias | log₂FC | FDR | Dir. | Função |
+|------|------|:------:|:---:|:----:|--------|
+| *ALDOA* | hsa00010 + hsa00030 | +1,12 | 1,0×10⁻⁶ | ▲ | Aldolase A (glicólise) |
+| *ALDOB* | hsa00010 + hsa00030 | −8,66 | 4,3×10⁻¹³ | ▼ | Aldolase B (gliconeogênese renal) |
+| *ALDOC* | hsa00010 + hsa00030 | −1,08 | 1,5×10⁻² | ▼ | Aldolase C (cerebral) |
+| *FBP1* | hsa00010 + hsa00030 | −3,07 | 1,1×10⁻⁸ | ▼ | Frutose-1,6-bisfosfatase 1 |
+| *FBP2* | hsa00010 + hsa00030 | −1,57 | 4,7×10⁻⁸ | ▼ | Frutose-1,6-bisfosfatase 2 |
+| *PCK1* | hsa00010 + hsa00020 | −5,11 | 1,7×10⁻⁹ | ▼ | PEP carboxiquinase 1 |
+| *PCK2* | hsa00010 + hsa00020 | −1,69 | 6,2×10⁻⁵ | ▼ | PEP carboxiquinase 2 |
+
+Estes 7 genes atuam em pontos de ramificação metabólica: ALDOA/B/C e FBP1/2 catalisam reações no ponto de bifurcação glicólise ↔ PPP (frutose-1,6-bisfosfato ↔ gliceraldeído-3-fosfato + di-hidroxiacetona-fosfato); PCK1/2 conectam o TCA à gliconeogênese (oxaloacetato → fosfoenolpiruvato). Nenhum gene foi compartilhado entre PPP (hsa00030) e TCA (hsa00020) nem entre as três vias simultaneamente.
 
 | Via | Genes | DEGs | ▲ Up | ▼ Down |
 |-----|:-----:|:----:|:----:|:------:|
