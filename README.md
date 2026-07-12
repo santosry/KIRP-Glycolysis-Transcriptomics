@@ -39,7 +39,7 @@ Qual é o perfil transcriptômico dos genes das vias **glicolítica (hsa00010), 
 
 ## Vias Analisadas
 
-O estudo investiga **três vias do metabolismo central do carbono**, tratadas com igual importância. Nenhuma via é hierarquicamente "principal": as três são analisadas em conjunto a partir de um modelo transcriptômico único sobre 31.633 genes, com extração *a posteriori* dos 107 genes de interesse — estratégia que evita viés de seleção e circularidade metodológica.
+O estudo investiga **três vias do metabolismo central do carbono**, tratadas com igual importância. Nenhuma via é hierarquicamente "principal": as três são analisadas em conjunto a partir de um modelo transcriptômico único sobre 31.633 genes, com extração *a posteriori* dos 106 genes de interesse — estratégia que evita viés de seleção e circularidade metodológica.
 
 | KEGG ID | Via / Pathway | Genes no KEGG | Genes na Matriz |
 |---------|---------------|:-------------:|:---------------:|
@@ -48,7 +48,7 @@ O estudo investiga **três vias do metabolismo central do carbono**, tratadas co
 | hsa00020 | Ciclo do Ácido Cítrico (TCA) | 30 | 29 |
 | **União (genes únicos)** | **Metabolismo Central do Carbono** | **110** | **106** |
 
-**Genes ausentes da matriz (n = 3):** *PDHA2*, *PGK2*, *PRPS1L1* — removidos durante a filtragem de baixa expressão (> 90% das amostras com expressão ≤ 1). Análise de sensibilidade confirmou que nenhum gene das três vias foi afetado exclusivamente por este critério. Matriz final: **107 genes**.
+**Genes ausentes da matriz (n = 3):** *PDHA2*, *PGK2*, *PRPS1L1* — removidos durante a filtragem de baixa expressão (> 90% das amostras com expressão ≤ 1). Análise de sensibilidade confirmou que nenhum gene das três vias foi afetado exclusivamente por este critério. Matriz final: **106 genes**.
 
 > ⚠️ **Alcance da anotação KEGG hsa00010:** Aproximadamente 25 dos 64 genes desta via são álcool desidrogenases (ADH) e aldeído desidrogenases (ALDH), enzimas do metabolismo de etanol e detoxificação de aldeídos, co-anotadas porque o etanol pode entrar como acetil-CoA. Estes genes **não pertencem ao metabolismo central do carbono em sentido estrito**. São mantidos na análise por fidelidade à anotação KEGG *release* 119.0 (sem curadoria manual — decisão que privilegia reprodutibilidade). A discussão concentra-se nas enzimas *core* (HK2, ALDOB, FBP1, PCK1, G6PD, TKT, ENO2 e demais). Resultados completos de ADH/ALDH em Supplementary Table S1.
 
@@ -70,7 +70,7 @@ O ciclo de Krebs é a encruzilhada central do metabolismo oxidativo: oxida aceti
 
 ### Integração das três vias
 
-As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose-6-fosfato) e o TCA (via piruvato → acetil-CoA); a PPP fornece NADPH para biossíntese redutora; o TCA fornece citrato para lipogênese e intermediários para aminoácidos. Analisar as três vias em conjunto — 107 genes extraídos *a posteriori* de um modelo transcriptômico único — evita o viés de seleção que ocorreria ao restringir previamente o universo gênico apenas a essas vias. A análise conjunta também revela **genes compartilhados** entre vias (7 dos 35 DEGs pertencem a duas ou três vias), evidenciando pontos de conexão metabólica potencialmente relevantes.
+As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose-6-fosfato) e o TCA (via piruvato → acetil-CoA); a PPP fornece NADPH para biossíntese redutora; o TCA fornece citrato para lipogênese e intermediários para aminoácidos. Analisar as três vias em conjunto — 106 genes extraídos *a posteriori* de um modelo transcriptômico único — evita o viés de seleção que ocorreria ao restringir previamente o universo gênico apenas a essas vias. A análise conjunta também revela **genes compartilhados** entre vias (7 dos 35 DEGs pertencem a duas ou três vias), evidenciando pontos de conexão metabólica potencialmente relevantes.
 
 ---
 
@@ -78,7 +78,7 @@ As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose
 
 ### Análise pareada primária (32 pares tumor-adjacente KIRP)
 
-- **35/107 genes (33,0%)** diferencialmente expressos (|log₂FC| > 1, FDR < 0,05): 9 aumentados, 26 diminuídos
+- **35/106 genes (33,0%)** diferencialmente expressos (|log₂FC| > 1, FDR < 0,05): 9 aumentados, 26 diminuídos
 - 7 genes compartilhados entre duas ou três vias metabólicas (Tabela abaixo)
 
 #### Genes compartilhados entre vias (DEGs de dupla anotação KEGG)
@@ -119,11 +119,11 @@ Dos 7 genes: 5 pertencem simultaneamente à glicólise e à PPP (ALDOA/B/C, FBP1
 
 | Via | NGenes | Direção | P | FDR |
 |-----|:------:|:-------:|:---:|:---:|
-| hsa00020 (TCA) | 29 | ↓ Down | 0,00039 | **0,147 (não significativo)** |
-| hsa00010 (Glicólise) | 64 | ↓ Down | 0,982 | 0,982 |
-| hsa00030 (PPP) | 30 | ↑ Up | 0,248 | 0,372 |
+| hsa00020 (TCA) | 29 | ↓ Down | 0,00039 | **0,159 (não significativo)** |
+| hsa00010 (Glicólise) | 64 | ↓ Down | 0,968 | 0,968 |
+| hsa00030 (PPP) | 30 | ↑ Up | 0,248 | 0,352 |
 
-Nenhuma das três vias apresentou alteração coordenada estatisticamente significativa após correção para testes múltiplos. O TCA apresentou o menor valor nominal (FDR = 0,147).
+Nenhuma das três vias apresentou alteração coordenada estatisticamente significativa após correção para testes múltiplos. O TCA apresentou o menor valor nominal (FDR = 0,159).
 
 ### Concordância entre comparadores
 
@@ -222,7 +222,7 @@ KIRP-Glycolysis-Transcriptomics/
 ├── results/
 │   └── v3/                               # Todos os outputs da versão 3
 │       ├── tables/
-│       │   ├── Supplementary_Table_S1.csv    # Tabela suplementar (107 genes)
+│       │   ├── Supplementary_Table_S1.csv    # Tabela suplementar (106 genes)
 │       │   ├── DEG_hsa00010.csv              # DEGs — Glicólise
 │       │   ├── DEG_hsa00020.csv              # DEGs — TCA
 │       │   ├── DEG_hsa00030.csv              # DEGs — PPP
@@ -343,7 +343,7 @@ sha256sum -c checksums_sha256.txt
 
 6. **Não executar** scripts com prefixo `10_` (STRING) sem solicitação explícita — dependem de API externa e ~500 MB de download. A rede PPI 3D atual (`16b_ppi_3d_correlation.R`) usa correlação de Pearson (offline, 100% reprodutível).
 
-7. **Scripts v2 (prefixos 01-15):** legado da versão 2 (apenas glicólise, 66 genes). Usar `pipeline_v3.R` e `16_*.R` para a versão atual (3 vias, 107 genes).
+7. **Scripts v2 (prefixos 01-15):** legado da versão 2 (apenas glicólise, 66 genes). Usar `pipeline_v3.R` e `16_*.R` para a versão atual (3 vias, 106 genes).
 
 8. **Não modificar** arquivos em `results/v3/` manualmente.
 
@@ -420,12 +420,12 @@ Abra os arquivos HTML em `results/v3/figures/` em qualquer navegador moderno:
 ### Generalização
 
 9. **Heterogeneidade do KIRP:** OMS 2022 não usa mais dicotomia tipo 1/2. Análise agrupada não captura diferenças entre subtipos.
-10. **Escopo restrito:** concordância avaliada apenas nos 107 genes destas três vias.
+10. **Escopo restrito:** concordância avaliada apenas nos 106 genes destas três vias.
 11. **Não se aplica** a KIRC, KICH ou outros subtipos renais.
 
 ### Computacionais
 
-12. **Sensibilidade a parâmetros:** resultado do camera para TCA (FDR = 0,147 (não significativo)) não se manteve com *inter.gene.cor = NA* (FDR = 0,437).
+12. **Sensibilidade a parâmetros:** resultado do camera para TCA (FDR = 0,159 (não significativo)) não se manteve com *inter.gene.cor = NA* (FDR = 0,437).
 13. **Anotações KEGG:** congeladas na release 119.0 (julho/2026). Atualizações futuras podem alterar a composição dos conjuntos gênicos.
 14. **Genes periféricos em hsa00010:** ~25 dos 64 genes da via glicolítica são ADH/ALDH (metabolismo de etanol/detoxificação), co-anotados na via KEGG mas funcionalmente não pertencentes ao metabolismo central do carbono. Sua inclusão decorre da estratégia de usar a anotação KEGG completa sem curadoria manual. Resultados relativos a estes genes devem ser interpretados com cautela quanto à relevância para o metabolismo energético tumoral.
 
