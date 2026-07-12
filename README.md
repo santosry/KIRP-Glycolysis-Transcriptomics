@@ -93,7 +93,7 @@ As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose
 | *PCK1* | hsa00010 + hsa00020 | −5,11 | 1,7×10⁻⁹ | ▼ | PEP carboxiquinase 1 |
 | *PCK2* | hsa00010 + hsa00020 | −1,69 | 6,2×10⁻⁵ | ▼ | PEP carboxiquinase 2 |
 
-Estes 7 genes atuam em pontos de ramificação metabólica: ALDOA/B/C e FBP1/2 catalisam reações no ponto de bifurcação glicólise ↔ PPP (frutose-1,6-bisfosfato ↔ gliceraldeído-3-fosfato + di-hidroxiacetona-fosfato); PCK1/2 conectam o TCA à gliconeogênese (oxaloacetato → fosfoenolpiruvato). Nenhum gene foi compartilhado entre PPP (hsa00030) e TCA (hsa00020) nem entre as três vias simultaneamente.
+Dos 7 genes: 5 pertencem simultaneamente à glicólise e à PPP (ALDOA/B/C, FBP1/2 — enzimas que atuam no ponto de ramificação frutose-1,6-bisfosfato); 2 pertencem à glicólise e ao TCA (PCK1/2 — enzimas que conectam oxaloacetato à gliconeogênese).
 
 | Via | Genes | DEGs | ▲ Up | ▼ Down |
 |-----|:-----:|:----:|:----:|:------:|
