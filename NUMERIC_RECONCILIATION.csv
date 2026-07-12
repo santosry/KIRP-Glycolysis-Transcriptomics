@@ -1,0 +1,36 @@
+variavel,valor_manuscrito,valor_arquivo,script_origem,status,correcao
+genes_raw,109,109,01_load_data.R,OK,
+genes_filtrados,106,106,01_load_data.R,OK,
+genes_removidos,"PDHA2, PGK2, PRPS1L1","PDHA2, PGK2, PRPS1L1",01_load_data.R,OK,
+G6PC1_status,ausente no Xena,ausente no Xena,01_load_data.R,OK,
+DEGs_total,35,35,02_differential_expression.R,OK,
+DEGs_Up,9,9,02_differential_expression.R,OK,
+DEGs_Down,26,26,02_differential_expression.R,OK,
+DEGs_shared,7,7,06_concordance_and_tables.R,OK,
+hsa00010_DEGs,26 (7 Up, 19 Down),"26 (7 Up, 19 Down)",06_concordance_and_tables.R,OK,
+hsa00020_DEGs,4 (0 Up, 4 Down),"4 (0 Up, 4 Down)",06_concordance_and_tables.R,OK,
+hsa00030_DEGs,12 (3 Up, 9 Down),"12 (3 Up, 9 Down)",06_concordance_and_tables.R,OK,
+ALDOB_logFC,-8.66,-8.66,DEG_hsa00010.csv,OK,
+HK2_logFC,+3.34,+3.34,DEG_hsa00010.csv,OK,
+camera_TCA_FDR,0.159,0.159,camera_gene_sets.csv,OK,
+camera_PPP_FDR,0.352,0.352,camera_gene_sets.csv,OK,
+camera_Glycolysis_FDR,0.968,0.968,camera_gene_sets.csv,OK,
+CCC_Paired_vs_TCGA,0.990,0.990,06_concordance_and_tables.R,OK,
+MAE_Paired_vs_TCGA,0.19,0.188,06_concordance_and_tables.R,OK,diferença de arredondamento
+CCC_Paired_vs_GTEx,0.795,0.795,06_concordance_and_tables.R,OK,
+MAE_Paired_vs_GTEx,0.94,0.941,06_concordance_and_tables.R,OK,
+bias_GTEx,-0.79,-0.789,06_concordance_and_tables.R,OK,
+discordant_genes,45,45,discordant_genes.csv,OK,
+STRING_Up_terms,16,16,STRING_KEGG_Up.csv,OK,
+STRING_Down_terms,28,28,STRING_KEGG_Down.csv,OK,
+GSEA_gene_sets,352,352,GSEA_KEGG.csv,OK,
+GSEA_hsa01200_FDR,0.012,0.012,GSEA_KEGG.csv,OK,universo inválido - remover de conclusões
+GSEA_hsa00010_FDR,0.031,0.031,GSEA_KEGG.csv,OK,universo inválido - remover de conclusões
+PPI_nodes,85,85,04_ppi_network.R,OK,correlação sobre amostras mistas
+PPI_edges,935,935,04_ppi_network.R,OK,correlação sobre amostras mistas
+STRING_PPI_nodes,30,30,07_heatmap_gsea_string.R,OK,
+STRING_PPI_edges,50,50,07_heatmap_gsea_string.R,OK,
+amostras_KIRP,288,288,01_load_data.R,OK,
+amostras_GTEx,28,28,01_load_data.R,OK,
+amostras_TCGA_normal,129,129,01_load_data.R,OK,
+pares_validos,32,32,02_differential_expression.R,OK,
