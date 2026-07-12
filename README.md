@@ -428,9 +428,6 @@ Ferramentas de IA generativa foram utilizadas como recursos de apoio, sem substi
 | **ChatGPT-5.5** | OpenAI | Redação e revisão do manuscrito; estrutura argumentativa; ABNT/Vancouver | Assistência na redação científica. Nenhum dado ou análise foi gerado por esta ferramenta. |
 | **Codex** | OpenAI | Desenvolvimento e depuração de scripts R/Python; funções limma, ggplot2, plotly, igraph; visualizações 3D; auditoria | Geração de código sob supervisão. Todo código revisado, testado e validado pelos autores. |
 | **DeepSeek-v4-pro** | Hangzhou DeepSeek AI | Verificação cruzada de valores numéricos; auditoria de consistência manuscrito vs. outputs | Identificação de incongruências. Todas as correções validadas manualmente. |
-| **GitHub Copilot** | GitHub/Microsoft | Sugestões pontuais de código no IDE | Complementação de boilerplate. Nenhum bloco completo gerado exclusivamente. |
-| **Claude** | Anthropic | Revisão de estilo e clareza; conformidade com diretrizes de periódicos | Revisão de linguagem. |
-
 - ✅ Nenhum dado gerado sinteticamente
 - ✅ Nenhuma análise estatística delegada integralmente à IA
 - ✅ Sessão registrada: `results/v3/sessionInfo.txt`, `environment/packages.csv`, `renv.lock`
