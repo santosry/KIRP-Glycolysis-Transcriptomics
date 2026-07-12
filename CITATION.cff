@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Se você utilizar este repositório, cite-o conforme os metadados abaixo. / If you use this repository, please cite it using the metadata below."
-title: "KIRP-Glycolysis-Transcriptomics: perfil transcriptômico do metabolismo central do carbono no carcinoma renal papilar"
+title: "KIRP-Glycolysis-Transcriptomics: perfil transcriptômico dos genes das vias glicolítica, das pentoses fosfato e do ciclo do ácido cítrico no carcinoma renal papilar (KIRP)"
 type: software
 authors:
   - family-names: "Loureiro"

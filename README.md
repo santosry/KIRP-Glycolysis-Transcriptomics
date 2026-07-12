@@ -1,11 +1,13 @@
-# Central Carbon Metabolism Transcriptomics in KIRP
+# KIRP Glycolysis · PPP · TCA — Transcriptomics
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![R 4.6.0](https://img.shields.io/badge/R-4.6.0-276DC3)](https://www.r-project.org/)
 [![v3.1.0](https://img.shields.io/badge/version-3.1.0-green)]()
 [![Python 3](https://img.shields.io/badge/Python-3.x-3776AB)](https://www.python.org/)
 
-**Perfil transcriptômico dos genes do metabolismo central do carbono no carcinoma renal papilar (KIRP): análise pareada tumor-tecido adjacente, sensibilidade à escolha do tecido de referência e implicações metodológicas.**
+**Perfil transcriptômico dos genes das vias glicolítica, das pentoses fosfato e do ciclo do ácido cítrico no carcinoma renal papilar (KIRP): análise pareada tumor-tecido adjacente, sensibilidade ao tecido de referência e implicações metodológicas.**
+
+> ⚠️ **Nota sobre a abrangência das vias KEGG:** A via hsa00010 (Glicólise/Gliconeogênese) inclui, na anotação KEGG *release* 119.0, famílias gênicas cuja função primária é o metabolismo de etanol e a detoxificação de aldeídos (ADH: *ADH1A/B/C, ADH4/5/6/7*; ALDH: *ALDH1B1, ALDH2, ALDH3A1/A2/B1/B2, ALDH7A1, ALDH9A1*). Estes ~25 genes são co-anotados na via porque o etanol pode ser convertido a acetil-CoA, mas **não pertencem ao metabolismo central do carbono em sentido estrito**. Sua inclusão decorre da estratégia de usar a anotação KEGG completa sem curadoria manual — decisão que privilegia reprodutibilidade sobre pureza funcional. A discussão científica concentra-se nos genes de função estabelecida nas três vias (HK2, ALDOB, FBP1, PCK1, G6PD, TKT, ENO2 e demais enzimas *core*). Os resultados de ADH/ALDH constam integralmente nos dados suplementares (Supplementary Table S1).
 
 ---
 
@@ -31,7 +33,7 @@
 
 ## Questão Científica
 
-Qual é o perfil transcriptômico dos genes do metabolismo central do carbono — **glicólise/gliconeogênese (hsa00010), via das pentoses fosfato (hsa00030) e ciclo do ácido cítrico (hsa00020)** — no carcinoma renal papilar (KIRP) quando analisado com tecido normal adjacente pareado como comparador primário, e qual a sensibilidade dos resultados à escolha do tecido de referência?
+Qual é o perfil transcriptômico dos genes das vias **glicolítica (hsa00010), das pentoses fosfato (hsa00030) e do ciclo do ácido cítrico (hsa00020)** no carcinoma renal papilar (KIRP) quando analisado com tecido normal adjacente pareado como comparador primário, e qual a sensibilidade dos resultados à escolha do tecido de referência?
 
 ---
 
@@ -47,6 +49,8 @@ O estudo investiga **três vias do metabolismo central do carbono**, tratadas co
 | **União (genes únicos)** | **Metabolismo Central do Carbono** | **110** | **106** |
 
 **Genes ausentes da matriz (n = 4):** *G6PC1*, *PRPS1L1*, *RPEL1*, *SUCLA2* — removidos durante a filtragem de baixa expressão (> 90% das amostras com expressão ≤ 1). Análise de sensibilidade confirmou que nenhum gene das três vias foi afetado exclusivamente por este critério.
+
+> ⚠️ **Alcance da anotação KEGG hsa00010:** Aproximadamente 25 dos 64 genes desta via são álcool desidrogenases (ADH) e aldeído desidrogenases (ALDH), enzimas do metabolismo de etanol e detoxificação de aldeídos, co-anotadas porque o etanol pode entrar como acetil-CoA. Estes genes **não pertencem ao metabolismo central do carbono em sentido estrito**. São mantidos na análise por fidelidade à anotação KEGG *release* 119.0 (sem curadoria manual — decisão que privilegia reprodutibilidade). A discussão concentra-se nas enzimas *core* (HK2, ALDOB, FBP1, PCK1, G6PD, TKT, ENO2 e demais). Resultados completos de ADH/ALDH em Supplementary Table S1.
 
 ---
 
@@ -411,6 +415,7 @@ Abra os arquivos HTML em `results/v3/figures/` em qualquer navegador moderno:
 
 12. **Sensibilidade a parâmetros:** resultado do camera para TCA (FDR = 0,0012) não se manteve com *inter.gene.cor = NA* (FDR = 0,437).
 13. **Anotações KEGG:** congeladas na release 119.0 (julho/2026). Atualizações futuras podem alterar a composição dos conjuntos gênicos.
+14. **Genes periféricos em hsa00010:** ~25 dos 64 genes da via glicolítica são ADH/ALDH (metabolismo de etanol/detoxificação), co-anotados na via KEGG mas funcionalmente não pertencentes ao metabolismo central do carbono. Sua inclusão decorre da estratégia de usar a anotação KEGG completa sem curadoria manual. Resultados relativos a estes genes devem ser interpretados com cautela quanto à relevância para o metabolismo energético tumoral.
 
 ---
 
@@ -436,11 +441,11 @@ Ferramentas de IA generativa foram utilizadas como recursos de apoio, sem substi
 
 ### ABNT (NBR 6023:2018)
 
-LOUREIRO, Kamila da Conceição; SANTOS, Ryan de Paulo; FREITAS, Letícia Maria Dias; SILVA, Ivine Souza; PECLY, Maria Eduarda Peixoto Soares. **KIRP-Glycolysis-Transcriptomics**: perfil transcriptômico do metabolismo central do carbono no carcinoma renal papilar. Versão 3.1.0. [S. l.], 2026. Código-fonte. Disponível em: https://github.com/santosry/KIRP-Glycolysis-Transcriptomics. Acesso em: [data].
+LOUREIRO, Kamila da Conceição; SANTOS, Ryan de Paulo; FREITAS, Letícia Maria Dias; SILVA, Ivine Souza; PECLY, Maria Eduarda Peixoto Soares. **KIRP-Glycolysis-Transcriptomics**: perfil transcriptômico dos genes das vias glicolítica, das pentoses fosfato e do ciclo do ácido cítrico no carcinoma renal papilar (KIRP). Versão 3.1.0. [S. l.], 2026. Código-fonte. Disponível em: https://github.com/santosry/KIRP-Glycolysis-Transcriptomics. Acesso em: [data].
 
 ### Software
 
-Santos, R. P., Loureiro, K. C., Freitas, L. M. D., Silva, I. S., & Pecly, M. E. P. S. (2026). *KIRP-Glycolysis-Transcriptomics* (Version 3.1.0) [Computer software]. https://github.com/santosry/KIRP-Glycolysis-Transcriptomics
+Santos, R. P., Loureiro, K. C., Freitas, L. M. D., Silva, I. S., & Pecly, M. E. P. S. (2026). *KIRP-Glycolysis-Transcriptomics: transcriptomic profiling of glycolysis, pentose phosphate pathway, and citrate cycle genes in papillary renal cell carcinoma* (Version 3.1.0) [Computer software]. https://github.com/santosry/KIRP-Glycolysis-Transcriptomics
 
 Metadados completos em [CITATION.cff](CITATION.cff) (CFF 1.2.0, compatível com GitHub, Zenodo, Zotero).
 
