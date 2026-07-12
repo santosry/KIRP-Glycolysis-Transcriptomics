@@ -1,6 +1,6 @@
-# pipeline_v3.R — VERSÃO FINAL
-# Transcriptoma completo, análise pareada primária,
-# limma único, extração pós-hoc, concordância com métricas apropriadas
+# pipeline_v3.R — VERSÃO FINAL (AJUSTADA PARA kidney.tsv COM 110 GENES)
+# Matriz contém apenas os genes das 3 vias KEGG
+# Análise pareada primária, extração pós-hoc por via, concordância
 
 suppressPackageStartupMessages({
   library(limma)
@@ -9,9 +9,6 @@ suppressPackageStartupMessages({
   library(rio)
   library(ggplot2)
   library(ggrepel)
-  library(pheatmap)
-  library(org.Hs.eg.db)
-  library(clusterProfiler)
 })
 
 repo_root <- normalizePath(file.path(getwd()), winslash = "/", mustWork = TRUE)
@@ -22,44 +19,50 @@ dir.create("results/v3/figures", recursive = TRUE, showWarnings = FALSE)
 dir.create("results/v3/tables", recursive = TRUE, showWarnings = FALSE)
 
 # ═════════════════════════════════════════
-# STEP 1: Load & filter full transcriptome
+# STEP 1: Load data
 # ═════════════════════════════════════════
-message("=== STEP 1: Loading ===")
-raw <- rio::import("data/raw/kidney_transcriptome.tsv")
-n_genes_raw <- nrow(raw)
-n_samples <- ncol(raw) - 1
+message("=== STEP 1: Loading kidney.tsv ===")
+raw <- rio::import("data/raw/kidney.tsv")
+n_genes_raw <- ncol(raw) - 8  # 8 metadata columns
+n_samples <- nrow(raw)
 message(sprintf("Raw: %d genes x %d samples", n_genes_raw, n_samples))
 
-gene_symbols <- raw[[1]]
-expr_data <- as.matrix(raw[, -1])
-rownames(expr_data) <- gene_symbols
-colnames(expr_data) <- colnames(raw)[-1]
+# Separate metadata and expression
+meta_cols <- c("sample", "samples", "TCGA_GTEX_main_category", "_sample_type", 
+               "_study", "_primary_site", "OS", "OS.time")
+gene_symbols <- setdiff(colnames(raw), meta_cols)
+
+expr_data <- as.matrix(raw[, gene_symbols])
+rownames(expr_data) <- raw$sample
 storage.mode(expr_data) <- "numeric"
 
-# Filtering report
-n_ambiguous <- sum(grepl("\\?", gene_symbols))
-expr_data <- expr_data[!grepl("\\?", gene_symbols), ]
-n_after_ambiguous <- nrow(expr_data)
+# Transpose: genes x samples
+E_all <- t(expr_data)
+message(sprintf("Expression matrix: %d genes x %d samples", nrow(E_all), ncol(E_all)))
 
-n_low <- sum(rowMeans(expr_data > 1) <= 0.1)
-expr_data <- expr_data[rowMeans(expr_data > 1) > 0.1, ]
-n_genes_final <- nrow(expr_data)
-
-message(sprintf("Filtering: %d raw -> remove %d ambiguous symbols -> remove %d low expression = %d final",
-                n_genes_raw, n_ambiguous, n_low, n_genes_final))
+# Remove low-expression genes (expression <= 1 in >90% of samples)
+n_low <- sum(rowMeans(E_all > 1) <= 0.1)
+E_filt <- E_all[rowMeans(E_all > 1) > 0.1, ]
+n_genes_final <- nrow(E_filt)
+genes_removed <- setdiff(rownames(E_all), rownames(E_filt))
+message(sprintf("Filtering: %d -> remove %d low expression = %d final", 
+                nrow(E_all), n_low, n_genes_final))
+if (length(genes_removed) > 0) {
+  message(sprintf("  Removed: %s", paste(genes_removed, collapse=", ")))
+}
 
 # ═════════════════════════════════════════
-# STEP 2: Metadata & QC
+# STEP 2: Metadata
 # ═════════════════════════════════════════
 message("\n=== STEP 2: Metadata ===")
-samples <- colnames(expr_data)
+samples <- colnames(E_filt)
 meta <- tibble(
-  sample = samples,
-  study = ifelse(grepl("^GTEX-", samples), "GTEX", "TCGA"),
+  sample = raw$sample,
+  study = ifelse(grepl("^GTEX-", raw$sample), "GTEX", "TCGA"),
   sample_type = case_when(
-    grepl("-01", samples, fixed = TRUE) ~ "Primary_Tumor",
-    grepl("-11", samples, fixed = TRUE) ~ "Solid_Tissue_Normal",
-    grepl("^GTEX-", samples) ~ "Normal_Tissue",
+    grepl("-01", raw$sample, fixed = TRUE) ~ "Primary_Tumor",
+    grepl("-11", raw$sample, fixed = TRUE) ~ "Solid_Tissue_Normal",
+    grepl("^GTEX-", raw$sample) ~ "Normal_Tissue",
     TRUE ~ "Other"
   ),
   condition = case_when(
@@ -68,60 +71,66 @@ meta <- tibble(
     sample_type == "Solid_Tissue_Normal" ~ "TCGA_Normal",
     TRUE ~ "Other"
   ),
-  participant = sub("^(TCGA-..-....).*", "\\1", samples)
+  participant = sub("^(TCGA-..-....).*", "\\1", raw$sample)
 )
 
 kirp_participants <- unique(meta$participant[meta$condition == "KIRP"])
 meta$paired_normal <- meta$condition == "TCGA_Normal" & meta$participant %in% kirp_participants
-meta$normal_project <- ifelse(meta$paired_normal, "KIRP_adjacent", 
-                               ifelse(meta$condition == "TCGA_Normal", "Other_RCC", NA))
 
 message("Sample counts:")
 print(table(meta$condition))
-message(sprintf("TCGA Normals: %d (KIRP-adjacent: %d, Other projects: %d)", 
+message(sprintf("TCGA Normals: %d (KIRP-adjacent: %d, Other: %d)", 
                 sum(meta$condition == "TCGA_Normal"),
                 sum(meta$paired_normal),
                 sum(meta$condition == "TCGA_Normal" & !meta$paired_normal)))
 
-# QC: PCA on full transcriptome (top 5000 most variable genes)
-message("\n=== QC: Full transcriptome PCA ===")
-vars <- apply(expr_data, 1, var)
-top5k <- names(sort(vars, decreasing = TRUE))[1:min(5000, nrow(expr_data))]
-pca <- prcomp(t(expr_data[top5k, ]), scale. = TRUE, center = TRUE)
+# Restrict metadata to samples in expression matrix
+meta <- meta[meta$sample %in% colnames(E_filt), ]
+
+# ═════════════════════════════════════════
+# STEP 3: QC — PCA
+# ═════════════════════════════════════════
+message("\n=== QC: PCA ===")
+pca <- prcomp(t(E_filt), scale. = TRUE, center = TRUE)
 pca_scores <- as.data.frame(pca$x)
-pca_scores$condition <- meta$condition
-pca_scores$study <- meta$study
+pca_scores$condition <- meta$condition[match(rownames(pca_scores), meta$sample)]
+pca_scores$study <- meta$study[match(rownames(pca_scores), meta$sample)]
 var_pc1 <- round(summary(pca)$importance[2,1] * 100, 1)
 var_pc2 <- round(summary(pca)$importance[2,2] * 100, 1)
 
 png("results/v3/figures/PCA_transcriptome.png", width = 1000, height = 800, res = 130)
 ggplot(pca_scores, aes(PC1, PC2, color = condition, shape = study)) +
   geom_point(alpha = 0.6, size = 2) +
-  labs(title = "PCA — Full Transcriptome (top 5000 variable genes)",
+  labs(title = "PCA — 110 Central Carbon Metabolism Genes",
        subtitle = sprintf("PC1: %.1f%% | PC2: %.1f%% | Colored by condition, shaped by study", var_pc1, var_pc2)) +
   theme_minimal(14)
 dev.off()
 
-# QC: Expression distributions
+# QC density
 png("results/v3/figures/QC_density.png", width = 900, height = 600, res = 120)
-plot(density(expr_data[, meta$condition == "KIRP"][, 1]), col = "#8A2BE2", lwd = 2,
-     main = "Expression Density by Condition", xlab = "log2(expression)", ylim = c(0, 0.25))
-lines(density(expr_data[, meta$condition == "TCGA_Normal"][, 1]), col = "#1F5BFF", lwd = 2)
-lines(density(expr_data[, meta$condition == "Normal_GTEx"][, 1]), col = "#FFB347", lwd = 2)
+kirp_cols <- meta$sample[meta$condition == "KIRP"]
+tcga_cols <- meta$sample[meta$condition == "TCGA_Normal"]
+gtex_cols <- meta$sample[meta$condition == "Normal_GTEx"]
+plot(density(as.vector(E_filt[, kirp_cols[1:min(50, length(kirp_cols))]])), 
+     col = "#8A2BE2", lwd = 2, main = "Expression Density by Condition", 
+     xlab = "log2(expression)", ylim = c(0, 0.25))
+lines(density(as.vector(E_filt[, tcga_cols[1:min(50, length(tcga_cols))]])), col = "#1F5BFF", lwd = 2)
+lines(density(as.vector(E_filt[, gtex_cols])), col = "#FFB347", lwd = 2)
 legend("topright", c("KIRP", "TCGA Normal", "GTEx"), col = c("#8A2BE2", "#1F5BFF", "#FFB347"), lwd = 2)
 dev.off()
 
 # ═════════════════════════════════════════
-# STEP 3: PRIMARY — Paired analysis
+# STEP 4: PRIMARY — Paired analysis (32 pairs)
 # ═════════════════════════════════════════
-message("\n=== STEP 3: PRIMARY — Paired (32 pairs) ===")
+message("\n=== STEP 4: PRIMARY — Paired (32 pairs) ===")
 paired_normals <- meta$sample[meta$paired_normal]
-paired_tumors <- meta$sample[meta$condition == "KIRP" & meta$participant %in% meta$participant[meta$paired_normal]]
+paired_tumors <- meta$sample[meta$condition == "KIRP" & 
+                              meta$participant %in% meta$participant[meta$paired_normal]]
 paired_meta <- meta[meta$sample %in% c(paired_normals, paired_tumors), ]
 paired_meta$condition <- factor(paired_meta$condition, levels = c("TCGA_Normal", "KIRP"))
 paired_meta$patient <- factor(paired_meta$participant)
 
-E_paired <- expr_data[, paired_meta$sample, drop = FALSE]
+E_paired <- E_filt[, paired_meta$sample, drop = FALSE]
 design_paired <- model.matrix(~ patient + condition, data = paired_meta)
 fit_paired <- lmFit(E_paired, design_paired)
 fit_paired <- eBayes(fit_paired, robust = TRUE, trend = TRUE)
@@ -133,61 +142,40 @@ deg_paired$regulation <- ifelse(deg_paired$adj.P.Val < 0.05 & abs(deg_paired$log
                                  ifelse(deg_paired$logFC > 0, "Up", "Down"), "NS")
 n_up <- sum(deg_paired$regulation == "Up")
 n_down <- sum(deg_paired$regulation == "Down")
-message(sprintf("Paired DEGs: %d Up | %d Down", n_up, n_down))
+message(sprintf("Paired DEGs: %d Up | %d Down | %d NS (of %d genes)", 
+                n_up, n_down, sum(deg_paired$regulation=="NS"), nrow(deg_paired)))
 
-# plotSA
 png("results/v3/figures/plotSA_paired.png", width = 800, height = 600, res = 120)
-plotSA(fit_paired, main = "Mean-Variance — Paired Analysis (31633 genes)")
+plotSA(fit_paired, main = sprintf("Mean-Variance — Paired Analysis (%d genes)", nrow(E_filt)))
 dev.off()
 
 # ═════════════════════════════════════════
-# STEP 4: SECONDARY — KIRP vs KIRP-adjacent normals only (32 normals)
+# STEP 5: SECONDARY — KIRP vs KIRP-adjacent
 # ═════════════════════════════════════════
-message("\n=== STEP 4: SECONDARY — 288 KIRP vs 32 adjacent normals ===")
-tcga_kirp_idx <- meta$condition == "KIRP" | meta$paired_normal
-tcga_kirp_meta <- meta[tcga_kirp_idx, ]
-tcga_kirp_meta$condition <- factor(tcga_kirp_meta$condition, levels = c("TCGA_Normal", "KIRP"))
-E_tcga_kirp <- expr_data[, tcga_kirp_meta$sample, drop = FALSE]
+message("\n=== STEP 5: SECONDARY — KIRP vs Adjacent ===")
+tcga_idx <- meta$condition == "KIRP" | meta$paired_normal
+tcga_meta <- meta[tcga_idx, ]
+tcga_meta$condition <- factor(tcga_meta$condition, levels = c("TCGA_Normal", "KIRP"))
+E_tcga <- E_filt[, tcga_meta$sample, drop = FALSE]
 
-design_tcga_kirp <- model.matrix(~ condition, data = tcga_kirp_meta)
-fit_tcga_kirp <- lmFit(E_tcga_kirp, design_tcga_kirp)
-fit_tcga_kirp <- eBayes(fit_tcga_kirp, robust = TRUE, trend = TRUE)
+design_tcga <- model.matrix(~ condition, data = tcga_meta)
+fit_tcga <- lmFit(E_tcga, design_tcga)
+fit_tcga <- eBayes(fit_tcga, robust = TRUE, trend = TRUE)
 
-deg_tcga_kirp <- topTable(fit_tcga_kirp, coef = "conditionKIRP", number = Inf, adjust.method = "BH", confint = TRUE)
-deg_tcga_kirp$gene_id <- rownames(deg_tcga_kirp)
-deg_tcga_kirp$regulation <- ifelse(deg_tcga_kirp$adj.P.Val < 0.05 & abs(deg_tcga_kirp$logFC) > 1,
-                                    ifelse(deg_tcga_kirp$logFC > 0, "Up", "Down"), "NS")
-message(sprintf("KIRP vs adjacent normals: %d Up | %d Down",
-                sum(deg_tcga_kirp$regulation == "Up"), sum(deg_tcga_kirp$regulation == "Down")))
-
-# ═════════════════════════════════════════
-# STEP 5: EXPLORATORY — KIRP vs all TCGA normals (129)
-# ═════════════════════════════════════════
-message("\n=== STEP 5: EXPLORATORY — 288 KIRP vs 129 all TCGA normals ===")
-tcga_all_idx <- meta$condition %in% c("KIRP", "TCGA_Normal")
-tcga_all_meta <- meta[tcga_all_idx, ]
-tcga_all_meta$condition <- factor(tcga_all_meta$condition, levels = c("TCGA_Normal", "KIRP"))
-E_tcga_all <- expr_data[, tcga_all_meta$sample, drop = FALSE]
-
-design_tcga_all <- model.matrix(~ condition, data = tcga_all_meta)
-fit_tcga_all <- lmFit(E_tcga_all, design_tcga_all)
-fit_tcga_all <- eBayes(fit_tcga_all, robust = TRUE, trend = TRUE)
-
-deg_tcga_all <- topTable(fit_tcga_all, coef = "conditionKIRP", number = Inf, adjust.method = "BH", confint = TRUE)
-deg_tcga_all$gene_id <- rownames(deg_tcga_all)
-deg_tcga_all$regulation <- ifelse(deg_tcga_all$adj.P.Val < 0.05 & abs(deg_tcga_all$logFC) > 1,
-                                   ifelse(deg_tcga_all$logFC > 0, "Up", "Down"), "NS")
-message(sprintf("KIRP vs all TCGA normals: %d Up | %d Down",
-                sum(deg_tcga_all$regulation == "Up"), sum(deg_tcga_all$regulation == "Down")))
+deg_tcga <- topTable(fit_tcga, coef = "conditionKIRP", number = Inf, adjust.method = "BH", confint = TRUE)
+deg_tcga$gene_id <- rownames(deg_tcga)
+message(sprintf("KIRP vs adjacent: %d Up | %d Down", 
+                sum(deg_tcga$adj.P.Val < 0.05 & deg_tcga$logFC > 1),
+                sum(deg_tcga$adj.P.Val < 0.05 & deg_tcga$logFC < -1)))
 
 # ═════════════════════════════════════════
-# STEP 6: EXPLORATORY — KIRP vs GTEx (confounded)
+# STEP 6: EXPLORATORY — KIRP vs GTEx
 # ═════════════════════════════════════════
-message("\n=== STEP 6: EXPLORATORY — 288 KIRP vs 28 GTEx (confounded) ===")
+message("\n=== STEP 6: EXPLORATORY — KIRP vs GTEx ===")
 gtx_idx <- meta$condition %in% c("KIRP", "Normal_GTEx")
 gtx_meta <- meta[gtx_idx, ]
 gtx_meta$condition <- factor(gtx_meta$condition, levels = c("Normal_GTEx", "KIRP"))
-E_gtx <- expr_data[, gtx_meta$sample, drop = FALSE]
+E_gtx <- E_filt[, gtx_meta$sample, drop = FALSE]
 
 design_gtx <- model.matrix(~ condition, data = gtx_meta)
 fit_gtx <- lmFit(E_gtx, design_gtx)
@@ -195,22 +183,18 @@ fit_gtx <- eBayes(fit_gtx, robust = TRUE, trend = TRUE)
 
 deg_gtx <- topTable(fit_gtx, coef = "conditionKIRP", number = Inf, adjust.method = "BH", confint = TRUE)
 deg_gtx$gene_id <- rownames(deg_gtx)
-deg_gtx$regulation <- ifelse(deg_gtx$adj.P.Val < 0.05 & abs(deg_gtx$logFC) > 1,
-                              ifelse(deg_gtx$logFC > 0, "Up", "Down"), "NS")
 message(sprintf("KIRP vs GTEx: %d Up | %d Down (WARNING: confounded)",
-                sum(deg_gtx$regulation == "Up"), sum(deg_gtx$regulation == "Down")))
+                sum(deg_gtx$adj.P.Val < 0.05 & deg_gtx$logFC > 1),
+                sum(deg_gtx$adj.P.Val < 0.05 & deg_gtx$logFC < -1)))
 
 # ═════════════════════════════════════════
 # STEP 7: Paired plots for key genes
 # ═════════════════════════════════════════
 message("\n=== STEP 7: Paired plots ===")
-key_genes <- c("ALDOB", "HK2", "PCK1", "G6PD", "TKT", "ADH1B", "FBP1")
-for (g in intersect(key_genes, rownames(expr_data))) {
-  normals <- paired_normals[paired_normals %in% colnames(expr_data)]
-  tumors <- paired_tumors[paired_tumors %in% colnames(expr_data)]
-  
+key_genes <- intersect(c("ALDOB", "HK2", "PCK1", "G6PD", "TKT", "ADH1B", "FBP1"), rownames(E_filt))
+for (g in key_genes) {
   pd <- paired_meta
-  pd$expression <- expr_data[g, pd$sample]
+  pd$expression <- E_filt[g, pd$sample]
   pd$pair_id <- pd$participant
   
   png(sprintf("results/v3/figures/Paired_%s.png", g), width = 700, height = 500, res = 110)
@@ -231,13 +215,11 @@ message("\n=== STEP 8: Gene set testing (camera) ===")
 pw_membership <- rio::import("results/tables/pathway_gene_membership.csv")
 
 pathways <- list(
-  hsa00010 = intersect(pw_membership$gene[pw_membership$in_hsa00010], rownames(expr_data)),
-  hsa00030 = intersect(pw_membership$gene[pw_membership$in_hsa00030], rownames(expr_data)),
-  hsa00020 = intersect(pw_membership$gene[pw_membership$in_hsa00020], rownames(expr_data))
+  hsa00010_Glycolysis = intersect(pw_membership$gene[pw_membership$in_hsa00010], rownames(E_filt)),
+  hsa00030_PPP        = intersect(pw_membership$gene[pw_membership$in_hsa00030], rownames(E_filt)),
+  hsa00020_TCA        = intersect(pw_membership$gene[pw_membership$in_hsa00020], rownames(E_filt))
 )
-names(pathways) <- c("hsa00010_Glycolysis", "hsa00030_PPP", "hsa00020_TCA")
 
-# camera on paired analysis
 camera_res <- camera(E_paired, pathways, design_paired, coef = coef_idx)
 camera_res$pathway <- rownames(camera_res)
 message("Camera gene set test (paired):")
@@ -245,7 +227,7 @@ print(camera_res)
 rio::export(camera_res, "results/v3/tables/camera_gene_sets.csv")
 
 # ═════════════════════════════════════════
-# STEP 9: Extract pathway genes
+# STEP 9: Pathway extraction & DEG tables
 # ═════════════════════════════════════════
 message("\n=== STEP 9: Pathway extraction ===")
 pw_names <- list(
@@ -256,12 +238,10 @@ pw_names <- list(
 
 pw_results <- list()
 for (pw_id in names(pw_names)) {
-  pw_genes <- intersect(pw_membership$gene[pw_membership[[paste0("in_", pw_id)]]], rownames(expr_data))
+  pw_genes <- intersect(pw_membership$gene[pw_membership[[paste0("in_", pw_id)]]], rownames(E_filt))
   
-  # Extract from all 4 analyses
   pw_paired <- deg_paired[deg_paired$gene_id %in% pw_genes, ]
-  pw_tcga_kirp <- deg_tcga_kirp[deg_tcga_kirp$gene_id %in% pw_genes, ]
-  pw_tcga_all <- deg_tcga_all[deg_tcga_all$gene_id %in% pw_genes, ]
+  pw_tcga <- deg_tcga[deg_tcga$gene_id %in% pw_genes, ]
   pw_gtx <- deg_gtx[deg_gtx$gene_id %in% pw_genes, ]
   
   pw_out <- data.frame(
@@ -269,20 +249,14 @@ for (pw_id in names(pw_names)) {
     stringsAsFactors = FALSE
   )
   pw_out$logFC_Paired <- pw_paired$logFC[match(pw_out$gene_id, pw_paired$gene_id)]
-  pw_out$CI.L_Paired <- pw_paired$CI.L[match(pw_out$gene_id, pw_paired$gene_id)]
-  pw_out$CI.R_Paired <- pw_paired$CI.R[match(pw_out$gene_id, pw_paired$gene_id)]
-  pw_out$FDR_Paired <- pw_paired$adj.P.Val[match(pw_out$gene_id, pw_paired$gene_id)]
-  pw_out$AveExpr <- pw_paired$AveExpr[match(pw_out$gene_id, pw_paired$gene_id)]
-  
-  pw_out$logFC_TCGA_adj <- pw_tcga_kirp$logFC[match(pw_out$gene_id, pw_tcga_kirp$gene_id)]
-  pw_out$FDR_TCGA_adj <- pw_tcga_kirp$adj.P.Val[match(pw_out$gene_id, pw_tcga_kirp$gene_id)]
-  
-  pw_out$logFC_TCGA_all <- pw_tcga_all$logFC[match(pw_out$gene_id, pw_tcga_all$gene_id)]
-  pw_out$FDR_TCGA_all <- pw_tcga_all$adj.P.Val[match(pw_out$gene_id, pw_tcga_all$gene_id)]
-  
-  pw_out$logFC_GTEx <- pw_gtx$logFC[match(pw_out$gene_id, pw_gtx$gene_id)]
-  pw_out$FDR_GTEx <- pw_gtx$adj.P.Val[match(pw_out$gene_id, pw_gtx$gene_id)]
-  
+  pw_out$CI.L_Paired   <- pw_paired$CI.L[match(pw_out$gene_id, pw_paired$gene_id)]
+  pw_out$CI.R_Paired   <- pw_paired$CI.R[match(pw_out$gene_id, pw_paired$gene_id)]
+  pw_out$FDR_Paired    <- pw_paired$adj.P.Val[match(pw_out$gene_id, pw_paired$gene_id)]
+  pw_out$AveExpr       <- pw_paired$AveExpr[match(pw_out$gene_id, pw_paired$gene_id)]
+  pw_out$logFC_TCGA_adj <- pw_tcga$logFC[match(pw_out$gene_id, pw_tcga$gene_id)]
+  pw_out$FDR_TCGA_adj  <- pw_tcga$adj.P.Val[match(pw_out$gene_id, pw_tcga$gene_id)]
+  pw_out$logFC_GTEx    <- pw_gtx$logFC[match(pw_out$gene_id, pw_gtx$gene_id)]
+  pw_out$FDR_GTEx      <- pw_gtx$adj.P.Val[match(pw_out$gene_id, pw_gtx$gene_id)]
   pw_out$pathway <- pw_id
   
   rio::export(pw_out, sprintf("results/v3/tables/DEG_%s.csv", pw_id))
@@ -294,48 +268,44 @@ for (pw_id in names(pw_names)) {
 }
 
 # ═════════════════════════════════════════
-# STEP 10: Supplementary table (all 106 genes)
+# STEP 10: Supplementary Table S1
 # ═════════════════════════════════════════
 message("\n=== STEP 10: Supplementary table ===")
 all_pw_genes <- unique(unlist(lapply(pw_results, `[[`, "gene_id")))
-supp_table <- pw_results[[1]][, c("gene_id", "pathway")]
-for (pw_id in names(pw_names)[-1]) {
-  other <- pw_results[[pw_id]][, c("gene_id", "pathway")]
-  # Merge pathways for shared genes
-  for (g in other$gene_id) {
-    if (g %in% supp_table$gene_id) {
-      supp_table$pathway[supp_table$gene_id == g] <- paste(supp_table$pathway[supp_table$gene_id == g], pw_id, sep = ";")
+supp <- data.frame(gene_id = all_pw_genes, stringsAsFactors = FALSE)
+supp$pathway <- ""
+for (pw_id in names(pw_names)) {
+  pw_genes <- pw_results[[pw_id]]$gene_id
+  for (g in pw_genes) {
+    if (supp$pathway[supp$gene_id == g] == "") {
+      supp$pathway[supp$gene_id == g] <- pw_id
     } else {
-      supp_table <- rbind(supp_table, other[other$gene_id == g, ])
+      supp$pathway[supp$gene_id == g] <- paste(supp$pathway[supp$gene_id == g], pw_id, sep = ";")
     }
   }
 }
 
-# Merge all stats
-supp <- supp_table
 supp$logFC_Paired <- deg_paired$logFC[match(supp$gene_id, deg_paired$gene_id)]
-supp$CI.L_Paired <- deg_paired$CI.L[match(supp$gene_id, deg_paired$gene_id)]
-supp$CI.R_Paired <- deg_paired$CI.R[match(supp$gene_id, deg_paired$gene_id)]
+supp$CI.L_Paired   <- deg_paired$CI.L[match(supp$gene_id, deg_paired$gene_id)]
+supp$CI.R_Paired   <- deg_paired$CI.R[match(supp$gene_id, deg_paired$gene_id)]
 supp$P.Value_Paired <- deg_paired$P.Value[match(supp$gene_id, deg_paired$gene_id)]
-supp$FDR_Paired <- deg_paired$adj.P.Val[match(supp$gene_id, deg_paired$gene_id)]
-supp$AveExpr <- deg_paired$AveExpr[match(supp$gene_id, deg_paired$gene_id)]
-supp$logFC_TCGA_adj <- deg_tcga_kirp$logFC[match(supp$gene_id, deg_tcga_kirp$gene_id)]
-supp$FDR_TCGA_adj <- deg_tcga_kirp$adj.P.Val[match(supp$gene_id, deg_tcga_kirp$gene_id)]
-supp$logFC_TCGA_all <- deg_tcga_all$logFC[match(supp$gene_id, deg_tcga_all$gene_id)]
-supp$FDR_TCGA_all <- deg_tcga_all$adj.P.Val[match(supp$gene_id, deg_tcga_all$gene_id)]
-supp$logFC_GTEx <- deg_gtx$logFC[match(supp$gene_id, deg_gtx$gene_id)]
-supp$FDR_GTEx <- deg_gtx$adj.P.Val[match(supp$gene_id, deg_gtx$gene_id)]
+supp$FDR_Paired    <- deg_paired$adj.P.Val[match(supp$gene_id, deg_paired$gene_id)]
+supp$AveExpr       <- deg_paired$AveExpr[match(supp$gene_id, deg_paired$gene_id)]
+supp$logFC_TCGA_adj <- deg_tcga$logFC[match(supp$gene_id, deg_tcga$gene_id)]
+supp$FDR_TCGA_adj  <- deg_tcga$adj.P.Val[match(supp$gene_id, deg_tcga$gene_id)]
+supp$logFC_GTEx    <- deg_gtx$logFC[match(supp$gene_id, deg_gtx$gene_id)]
+supp$FDR_GTEx      <- deg_gtx$adj.P.Val[match(supp$gene_id, deg_gtx$gene_id)]
 
 rio::export(supp, "results/v3/tables/Supplementary_Table_S1.csv")
 
-# Unique DEGs
-supp$is_DEG <- supp$FDR_Paired < 0.05 & abs(supp$logFC_Paired) > 1 & !is.na(supp$FDR_Paired)
-n_unique_DEG <- sum(supp$is_DEG)
-n_shared <- sum(supp$is_DEG & grepl(";", supp$pathway))
-message(sprintf("Unique DEGs: %d (of which %d shared across pathways)", n_unique_DEG, n_shared))
+n_deg <- sum(supp$FDR_Paired < 0.05 & abs(supp$logFC_Paired) > 1, na.rm = TRUE)
+n_up_s <- sum(supp$FDR_Paired < 0.05 & supp$logFC_Paired > 1, na.rm = TRUE)
+n_down_s <- sum(supp$FDR_Paired < 0.05 & supp$logFC_Paired < -1, na.rm = TRUE)
+n_shared <- sum(supp$FDR_Paired < 0.05 & abs(supp$logFC_Paired) > 1 & grepl(";", supp$pathway), na.rm = TRUE)
+message(sprintf("Unique DEGs: %d (%d Up, %d Down, %d shared)", n_deg, n_up_s, n_down_s, n_shared))
 
 # ═════════════════════════════════════════
-# STEP 11: Concordance with proper metrics
+# STEP 11: Concordance
 # ═════════════════════════════════════════
 message("\n=== STEP 11: Concordance ===")
 
@@ -343,56 +313,45 @@ calc_concordance <- function(x, y, label_x, label_y, gene_ids) {
   ok <- !is.na(x) & !is.na(y)
   x <- x[ok]; y <- y[ok]; ids <- gene_ids[ok]
   
-  # Lin's CCC
   mx <- mean(x); my <- mean(y)
   vx <- var(x); vy <- var(y)
   sxy <- cov(x, y)
   ccc <- 2 * sxy / (vx + vy + (mx - my)^2)
-  
-  # Pearson
   r <- cor(x, y)
-  
-  # MAE, bias
   mae <- mean(abs(x - y))
   bias <- mean(x - y)
   
-  # Regression
   lm_fit <- lm(y ~ x)
   slope <- coef(lm_fit)[2]
   intercept <- coef(lm_fit)[1]
   
-  # Directional agreement (only genes with |logFC| > 0.5 in either)
   substantial <- abs(x) > 0.5 | abs(y) > 0.5
   dir_agree <- mean(sign(x[substantial]) == sign(y[substantial]))
   
-  # Discordant genes table
   discordant_idx <- which(sign(x) != sign(y))
-  n_discordant <- length(discordant_idx)
   
   list(ccc = ccc, r = r, mae = mae, bias = bias, slope = slope, intercept = intercept,
-       dir_agree = dir_agree, n_total = length(x), n_discordant = n_discordant,
-       label_x = label_x, label_y = label_y, discordant_genes = ids[discordant_idx])
+       dir_agree = dir_agree, n_total = length(x), n_substantial = sum(substantial),
+       n_discordant = length(discordant_idx),
+       label_x = label_x, label_y = label_y, 
+       discordant_genes = ids[discordant_idx])
 }
 
-# Paired vs TCGA-adjacent (secondary)
+# Paired vs TCGA-adjacent
 conc1 <- calc_concordance(supp$logFC_Paired, supp$logFC_TCGA_adj,
-                           "Paired (32 pairs)", "KIRP vs adjacent normals (288 vs 32)",
-                           supp$gene_id)
+                           "Paired", "KIRP vs Adjacent", supp$gene_id)
 message(sprintf("\nPaired vs TCGA-adjacent:"))
-message(sprintf("  Lin's CCC = %.3f | Pearson r = %.3f", conc1$ccc, conc1$r))
-message(sprintf("  MAE = %.3f | Bias = %.3f | Slope = %.3f | Intercept = %.3f", 
-                conc1$mae, conc1$bias, conc1$slope, conc1$intercept))
-message(sprintf("  Directional (>|0.5|): %.1f%% | Discordant: %d", conc1$dir_agree * 100, conc1$n_discordant))
+message(sprintf("  CCC = %.3f | r = %.3f | MAE = %.3f | Bias = %.3f", conc1$ccc, conc1$r, conc1$mae, conc1$bias))
+message(sprintf("  Directional (>|0.5|): %.1f%% (%d/%d) | Discordant: %d", 
+                conc1$dir_agree*100, sum(abs(supp$logFC_Paired)>0.5 | abs(supp$logFC_TCGA_adj)>0.5, na.rm=TRUE),
+                sum(abs(supp$logFC_Paired)>0.5 | abs(supp$logFC_TCGA_adj)>0.5, na.rm=TRUE), conc1$n_discordant))
 
 # Paired vs GTEx
 conc2 <- calc_concordance(supp$logFC_Paired, supp$logFC_GTEx,
-                           "Paired (32 pairs)", "KIRP vs GTEx (288 vs 28)",
-                           supp$gene_id)
-message(sprintf("\nPaired vs GTEx (confounded):"))
-message(sprintf("  Lin's CCC = %.3f | Pearson r = %.3f", conc2$ccc, conc2$r))
-message(sprintf("  MAE = %.3f | Bias = %.3f | Slope = %.3f | Intercept = %.3f",
-                conc2$mae, conc2$bias, conc2$slope, conc2$intercept))
-message(sprintf("  Directional (>|0.5|): %.1f%% | Discordant: %d", conc2$dir_agree * 100, conc2$n_discordant))
+                           "Paired", "KIRP vs GTEx", supp$gene_id)
+message(sprintf("\nPaired vs GTEx:"))
+message(sprintf("  CCC = %.3f | r = %.3f | MAE = %.3f | Bias = %.3f", conc2$ccc, conc2$r, conc2$mae, conc2$bias))
+message(sprintf("  Directional (>|0.5|): %.1f%% | Discordant: %d", conc2$dir_agree*100, conc2$n_discordant))
 
 # Discordant genes table
 discordant_df <- data.frame(
@@ -404,9 +363,8 @@ discordant_df <- data.frame(
 )
 discordant_df <- discordant_df[order(abs(discordant_df$logFC_Paired), decreasing = TRUE), ]
 rio::export(discordant_df, "results/v3/tables/discordant_genes.csv")
-message(sprintf("Discordant genes saved: %d", nrow(discordant_df)))
 
-# Bland-Altman plot
+# Bland-Altman
 ba_data <- data.frame(
   mean_logFC = (supp$logFC_Paired + supp$logFC_GTEx) / 2,
   diff_logFC = supp$logFC_Paired - supp$logFC_GTEx
@@ -428,7 +386,9 @@ ggplot(ba_data, aes(mean_logFC, diff_logFC)) +
   theme_minimal(14)
 dev.off()
 
-# Volcano plots
+# ═════════════════════════════════════════
+# STEP 12: Volcano plots
+# ═════════════════════════════════════════
 message("\n=== STEP 12: Volcano plots ===")
 for (pw_id in names(pw_names)) {
   pw_out <- pw_results[[pw_id]]
@@ -458,8 +418,8 @@ for (pw_id in names(pw_names)) {
 # STEP 13: Summary
 # ═════════════════════════════════════════
 message("\n=== PIPELINE V3 COMPLETE ===")
-message(sprintf("Transcriptome: %d genes after filtering", n_genes_final))
-message(sprintf("Primary: Paired analysis, 32 pairs, %d DEGs", sum(deg_paired$regulation != "NS")))
+message(sprintf("Genes analyzed: %d (after low-expression filter)", n_genes_final))
+message(sprintf("Primary: Paired analysis, 32 pairs, %d DEGs", n_deg))
 message(sprintf("Camera: %s", paste(rownames(camera_res), collapse=", ")))
 
 # Save session info

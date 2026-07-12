@@ -39,7 +39,7 @@ Qual é o perfil transcriptômico dos genes das vias **glicolítica (hsa00010), 
 
 ## Vias Analisadas
 
-O estudo investiga **três vias do metabolismo central do carbono**, tratadas com igual importância. Nenhuma via é hierarquicamente "principal": as três são analisadas em conjunto a partir de um modelo transcriptômico único sobre 31.633 genes, com extração *a posteriori* dos 106 genes de interesse — estratégia que evita viés de seleção e circularidade metodológica.
+O estudo investiga **três vias do metabolismo central do carbono**, tratadas com igual importância. Nenhuma via é hierarquicamente "principal": as três são analisadas em conjunto a partir de um modelo transcriptômico único sobre 31.633 genes, com extração *a posteriori* dos 107 genes de interesse — estratégia que evita viés de seleção e circularidade metodológica.
 
 | KEGG ID | Via / Pathway | Genes no KEGG | Genes na Matriz |
 |---------|---------------|:-------------:|:---------------:|
@@ -70,7 +70,7 @@ O ciclo de Krebs é a encruzilhada central do metabolismo oxidativo: oxida aceti
 
 ### Integração das três vias
 
-As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose-6-fosfato) e o TCA (via piruvato → acetil-CoA); a PPP fornece NADPH para biossíntese redutora; o TCA fornece citrato para lipogênese e intermediários para aminoácidos. Analisar as três vias em conjunto — 106 genes extraídos *a posteriori* de um modelo transcriptômico único — evita o viés de seleção que ocorreria ao restringir previamente o universo gênico apenas a essas vias. A análise conjunta também revela **genes compartilhados** entre vias (7 dos 35 DEGs pertencem a duas ou três vias), evidenciando pontos de conexão metabólica potencialmente relevantes.
+As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose-6-fosfato) e o TCA (via piruvato → acetil-CoA); a PPP fornece NADPH para biossíntese redutora; o TCA fornece citrato para lipogênese e intermediários para aminoácidos. Analisar as três vias em conjunto — 107 genes extraídos *a posteriori* de um modelo transcriptômico único — evita o viés de seleção que ocorreria ao restringir previamente o universo gênico apenas a essas vias. A análise conjunta também revela **genes compartilhados** entre vias (7 dos 35 DEGs pertencem a duas ou três vias), evidenciando pontos de conexão metabólica potencialmente relevantes.
 
 ---
 
@@ -78,7 +78,7 @@ As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose
 
 ### Análise pareada primária (32 pares tumor-adjacente KIRP)
 
-- **35/106 genes (33,0%)** diferencialmente expressos (|log₂FC| > 1, FDR < 0,05): 9 aumentados, 26 diminuídos
+- **35/107 genes (33,0%)** diferencialmente expressos (|log₂FC| > 1, FDR < 0,05): 9 aumentados, 26 diminuídos
 - 7 genes compartilhados entre duas ou três vias metabólicas (Tabela abaixo)
 
 #### Genes compartilhados entre vias (DEGs de dupla anotação KEGG)
@@ -222,7 +222,7 @@ KIRP-Glycolysis-Transcriptomics/
 ├── results/
 │   └── v3/                               # Todos os outputs da versão 3
 │       ├── tables/
-│       │   ├── Supplementary_Table_S1.csv    # Tabela suplementar (106 genes)
+│       │   ├── Supplementary_Table_S1.csv    # Tabela suplementar (107 genes)
 │       │   ├── DEG_hsa00010.csv              # DEGs — Glicólise
 │       │   ├── DEG_hsa00020.csv              # DEGs — TCA
 │       │   ├── DEG_hsa00030.csv              # DEGs — PPP
@@ -345,7 +345,7 @@ sha256sum -c checksums_sha256.txt
 
 6. **Não executar** scripts com prefixo `10_` (STRING) sem solicitação explícita — dependem de API externa e ~500 MB de download. A rede PPI 3D atual (`16b_ppi_3d_correlation.R`) usa correlação de Pearson (offline, 100% reprodutível).
 
-7. **Scripts v2 (prefixos 01-15):** legado da versão 2 (apenas glicólise, 66 genes). Usar `pipeline_v3.R` e `16_*.R` para a versão atual (3 vias, 106 genes).
+7. **Scripts v2 (prefixos 01-15):** legado da versão 2 (apenas glicólise, 66 genes). Usar `pipeline_v3.R` e `16_*.R` para a versão atual (3 vias, 107 genes).
 
 8. **Não modificar** arquivos em `results/v3/` manualmente.
 
@@ -422,7 +422,7 @@ Abra os arquivos HTML em `results/v3/figures/` em qualquer navegador moderno:
 ### Generalização
 
 9. **Heterogeneidade do KIRP:** OMS 2022 não usa mais dicotomia tipo 1/2. Análise agrupada não captura diferenças entre subtipos.
-10. **Escopo restrito:** concordância avaliada apenas nos 106 genes destas três vias.
+10. **Escopo restrito:** concordância avaliada apenas nos 107 genes destas três vias.
 11. **Não se aplica** a KIRC, KICH ou outros subtipos renais.
 
 ### Computacionais
