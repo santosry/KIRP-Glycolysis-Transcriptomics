@@ -209,10 +209,11 @@ Foram realizadas análises de enriquecimento funcional por *over-representation 
 
 Este arquivo está em `data/raw/kidney.tsv`. Para baixá-lo diretamente do UCSC Xena:
 
-1. Acesse [https://xenabrowser.net/datapages/](https://xenabrowser.net/datapages/)
-2. Selecione: **GDC TCGA Kidney Papillary Cell Carcinoma (KIRP)** + **GTEx Kidney**
+1. Acesse o bookmark do estudo: [https://xenabrowser.net/?bookmark=2f6c060c88ef02dc558adda29d926070](https://xenabrowser.net/?bookmark=2f6c060c88ef02dc558adda29d926070)
+2. Ou acesse [https://xenabrowser.net/datapages/](https://xenabrowser.net/datapages/) e selecione: **GDC TCGA Kidney Papillary Cell Carcinoma (KIRP)** + **GTEx Kidney**
 3. Escolha: **gene expression RNAseq — RSEM norm_count (log₂)**
-4. Salve como `data/raw/kidney.tsv`
+4. Insira os 110 genes (lista completa no README) e clique em Download
+5. Salve como `data/raw/kidney.tsv`
 
 #### Transcriptoma completo (~178 MB, NÃO versionado)
 
