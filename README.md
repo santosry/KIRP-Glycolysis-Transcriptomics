@@ -5,7 +5,7 @@
 [![v3.1.0](https://img.shields.io/badge/version-3.1.0-green)]()
 [![Python 3](https://img.shields.io/badge/Python-3.x-3776AB)](https://www.python.org/)
 
-**Perfil transcriptômico dos genes das vias glicolítica, das pentoses fosfato e do ciclo do ácido cítrico no carcinoma renal papilar (KIRP): análise pareada tumor-tecido adjacente, sensibilidade ao tecido de referência e implicações metodológicas.**
+**Transcriptoma das vias glicolítica, das pentoses fosfato e do ciclo do ácido cítrico no carcinoma renal papilar: análise pareada e sensibilidade ao tecido de referência.**
 
 > ⚠️ **Nota sobre a abrangência das vias KEGG:** A via hsa00010 (Glicólise/Gliconeogênese) inclui, na anotação KEGG *release* 119.0, famílias gênicas cuja função primária é o metabolismo de etanol e a detoxificação de aldeídos (ADH: *ADH1A/B/C, ADH4/5/6/7*; ALDH: *ALDH1B1, ALDH2, ALDH3A1/A2/B1/B2, ALDH7A1, ALDH9A1*). Estes ~25 genes são co-anotados na via porque o etanol pode ser convertido a acetil-CoA, mas **não pertencem ao metabolismo central do carbono em sentido estrito**. Sua inclusão decorre da estratégia de usar a anotação KEGG completa sem curadoria manual — decisão que privilegia reprodutibilidade sobre pureza funcional. A discussão científica concentra-se nos genes de função estabelecida nas três vias (HK2, ALDOB, FBP1, PCK1, G6PD, TKT, ENO2 e demais enzimas *core*). Os resultados de ADH/ALDH constam integralmente nos dados suplementares (Supplementary Table S1).
 
