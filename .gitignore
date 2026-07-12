@@ -1,3 +1,34 @@
+# Legacy v2 scripts and outputs (removed in v3.1.0)
+scripts/0[0-9]*.R
+scripts/1[0-5]*.R
+results/differential_expression/
+results/enrichment/
+results/figures/
+results/literature/
+results/sensitivity/
+results/tables/column_reconciliation.csv
+results/tables/deg_sensitivity.csv
+results/tables/gene_*.csv
+results/tables/hsa00010_audit.csv
+results/tables/hsa00010_ranking.csv
+results/tables/integrative_gene_table.csv
+results/tables/limma_diagnostics.csv
+results/tables/ora_vs_gsea_comparison.csv
+results/tables/pathway_coverage.csv
+results/tables/pathway_stability_summary.csv
+results/tables/pathway_threshold_robustness.csv
+results/tables/pca_*.csv
+results/tables/ppi_centrality.csv
+results/tables/ppi_communities.csv
+results/tables/ppi_network_summary.csv
+results/tables/qc_summary.csv
+results/tables/sample_qc.csv
+results/tables/umap_*.csv
+data/processed/audit_table_*.csv
+data/processed/condition_by_study.csv
+data/processed/sample_classification_audit.csv
+data/string_cache/
+
 # History files
 .Rhistory
 .Rapp.history

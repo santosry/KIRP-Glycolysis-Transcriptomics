@@ -1,9 +1,0 @@
-metric,value
-n_samples_total,316
-n_KIRP,288
-n_Normal_GTEx,28
-n_outliers_flagged,1
-pct_outliers,0.3
-median_expression_KIRP,10.68
-median_expression_Normal,10.69
-n_missing_values,0

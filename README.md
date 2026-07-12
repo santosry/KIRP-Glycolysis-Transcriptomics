@@ -4,11 +4,8 @@
 [![R 4.6.0](https://img.shields.io/badge/R-4.6.0-276DC3)](https://www.r-project.org/)
 [![v3.1.0](https://img.shields.io/badge/version-3.1.0-green)]()
 [![Python 3](https://img.shields.io/badge/Python-3.x-3776AB)](https://www.python.org/)
-[![CI](https://img.shields.io/badge/CI-validated-brightgreen)]()
 
 **Perfil transcriptômico dos genes do metabolismo central do carbono no carcinoma renal papilar (KIRP): análise pareada tumor-tecido adjacente, sensibilidade à escolha do tecido de referência e implicações metodológicas.**
-
-*Transcriptomic profile of central carbon metabolism genes in papillary renal cell carcinoma (KIRP): paired tumor-adjacent analysis, sensitivity to reference tissue choice, and methodological implications.*
 
 ---
 
@@ -16,57 +13,60 @@
 
 1. [Questão Científica](#questão-científica)
 2. [Vias Analisadas](#vias-analisadas)
-3. [Principais Achados](#principais-achados)
-4. [Desenho dos Comparadores](#desenho-dos-comparadores)
-5. [Dados](#dados)
-6. [Estrutura do Repositório](#estrutura-do-repositório)
-7. [Reprodução](#reprodução)
-8. [Instruções para Agentes de IA](#instruções-para-agentes-de-ia)
-9. [Visualizações 3D Interativas](#visualizações-3d-interativas)
-10. [Limitações](#limitações)
-11. [Declaração de Uso de Inteligência Artificial](#declaração-de-uso-de-inteligência-artificial)
-12. [Como Citar](#como-citar)
-13. [Referências](#referências)
-14. [Licença](#licença)
+3. [Por que estas três vias?](#por-que-estas-três-vias)
+4. [Principais Achados](#principais-achados)
+5. [Desenho dos Comparadores](#desenho-dos-comparadores)
+6. [Dados](#dados)
+7. [Estrutura do Repositório](#estrutura-do-repositório)
+8. [Reprodução](#reprodução)
+9. [Instruções para Agentes de IA](#instruções-para-agentes-de-ia)
+10. [Visualizações 3D Interativas](#visualizações-3d-interativas)
+11. [Limitações](#limitações)
+12. [Declaração de Uso de Inteligência Artificial](#declaração-de-uso-de-inteligência-artificial)
+13. [Como Citar](#como-citar)
+14. [Referências](#referências)
+15. [Licença](#licença)
 
 ---
 
 ## Questão Científica
 
-Qual é o perfil transcriptômico dos genes do metabolismo central do carbono (glicólise/gliconeogênese, via das pentoses fosfato e ciclo do ácido cítrico) no carcinoma renal papilar (KIRP) quando analisado com tecido normal adjacente pareado como comparador primário, e qual a sensibilidade dos resultados à escolha do tecido de referência?
-
-*What is the transcriptomic profile of central carbon metabolism genes (glycolysis/gluconeogenesis, pentose phosphate pathway, citrate cycle) in KIRP when analyzed with paired tumor-adjacent normal tissue as the primary comparator, and how sensitive are the results to the choice of reference tissue?*
+Qual é o perfil transcriptômico dos genes do metabolismo central do carbono — **glicólise/gliconeogênese (hsa00010), via das pentoses fosfato (hsa00030) e ciclo do ácido cítrico (hsa00020)** — no carcinoma renal papilar (KIRP) quando analisado com tecido normal adjacente pareado como comparador primário, e qual a sensibilidade dos resultados à escolha do tecido de referência?
 
 ---
 
 ## Vias Analisadas
 
+O estudo investiga **três vias do metabolismo central do carbono**, tratadas com igual importância. Nenhuma via é hierarquicamente "principal": as três são analisadas em conjunto a partir de um modelo transcriptômico único sobre 31.633 genes, com extração *a posteriori* dos 106 genes de interesse — estratégia que evita viés de seleção e circularidade metodológica.
+
 | KEGG ID | Via / Pathway | Genes no KEGG | Genes na Matriz |
 |---------|---------------|:-------------:|:---------------:|
-| hsa00010 | Glicólise / Gliconeogênese (Glycolysis / Gluconeogenesis) | 67 | 64 |
-| hsa00030 | Via das Pentoses Fosfato (Pentose Phosphate Pathway) | 31 | 30 |
-| hsa00020 | Ciclo do Ácido Cítrico — TCA (Citrate Cycle) | 30 | 29 |
-| **União (únicos)** | **Metabolismo Central do Carbono** | **110** | **106** |
+| hsa00010 | Glicólise / Gliconeogênese | 67 | 64 |
+| hsa00030 | Via das Pentoses Fosfato | 31 | 30 |
+| hsa00020 | Ciclo do Ácido Cítrico (TCA) | 30 | 29 |
+| **União (genes únicos)** | **Metabolismo Central do Carbono** | **110** | **106** |
 
-**Genes ausentes da matriz (n = 4):** *G6PC1*, *PRPS1L1*, *RPEL1*, *SUCLA2* — removidos durante a filtragem de baixa expressão (expressão ≤ 1 em > 90% das amostras). Verificação de sensibilidade: a remoção destes genes não afetou quaisquer conclusões.
+**Genes ausentes da matriz (n = 4):** *G6PC1*, *PRPS1L1*, *RPEL1*, *SUCLA2* — removidos durante a filtragem de baixa expressão (> 90% das amostras com expressão ≤ 1). Análise de sensibilidade confirmou que nenhum gene das três vias foi afetado exclusivamente por este critério.
+
+---
 
 ## Por que estas três vias?
 
-### Glicólise / Gliconeogênese (hsa00010) — o eixo central
+### Glicólise / Gliconeogênese (hsa00010)
 
-A via glicolítica é o ponto de partida do metabolismo central do carbono: converte glicose em piruvato, gerando ATP e intermediários biossintéticos que alimentam todas as demais vias metabólicas. A gliconeogênese, via reversa, é crítica no rim pois o túbulo proximal renal é um dos principais sítios gliconeogênicos do organismo humano. No câncer, o efeito Warburg — aumento da captação de glicose e fermentação a lactato mesmo na presença de oxigênio — é uma das alterações metabólicas mais bem documentadas (VANDER HEIDEN et al., 2009). Estudar esta via no KIRP é essencial por duas razões: (i) o rim normal expressa enzimas gliconeogênicas (*FBP1*, *PCK1*, *ALDOB*) em altíssimos níveis no túbulo proximal, e sua perda no tumor serve como marcador de desdiferenciação epitelial; (ii) isoenzimas glicolíticas como *HK2* e *PKM2* são alvos terapêuticos em múltiplos tipos de câncer e sua expressão no KIRP não havia sido sistematicamente caracterizada em análise pareada. Com 64 genes na matriz, é a maior das três vias e fornece o contexto transcriptômico principal.
+A via glicolítica é o ponto de partida do metabolismo central do carbono: converte glicose em piruvato, gerando ATP e intermediários biossintéticos que alimentam todas as demais vias. A gliconeogênese, via reversa, é crítica no rim: o túbulo proximal renal é um dos principais sítios gliconeogênicos do organismo humano, expressando *FBP1*, *PCK1* e *ALDOB* em níveis basais elevados. No câncer, o efeito Warburg — aumento da captação de glicose e fermentação a lactato mesmo na presença de oxigênio — é uma das alterações metabólicas mais documentadas (VANDER HEIDEN; CANTLEY; THOMPSON, 2009). A inclusão desta via no KIRP justifica-se por duas razões: (i) a perda de enzimas gliconeogênicas no tumor serve como marcador de desdiferenciação epitelial tubular; (ii) isoenzimas como *HK2* e *PKM2* são alvos terapêuticos em múltiplos cânceres e sua expressão no KIRP não havia sido caracterizada em análise pareada.
 
-### Via das Pentoses Fosfato (hsa00030) — defesa redox e biossíntese
+### Via das Pentoses Fosfato (hsa00030)
 
-A PPP ramifica-se da glicólise na glicose-6-fosfato e desempenha duas funções essenciais para a proliferação celular: (i) produção de NADPH, o principal redutor celular que sustenta a defesa antioxidante (glutationa, tiorredoxina) e a biossíntese de lipídeos; (ii) produção de ribose-5-fosfato, precursor da síntese de nucleotídeos (DNA, RNA). Em carcinomas renais, a PPP é particularmente relevante porque a enzima limitante G6PD é regulada pela via NRF2 — fator de transcrição frequentemente ativado em KIRP com deficiência de FH (KOPPULA et al., 2020; PATRA; HAY, 2014). Além disso, a produção de NADPH é crítica para a homeostase redox em um órgão exposto a alto estresse oxidativo como o rim. A inclusão desta via permite testar se há evidência transcriptômica de ativação coordenada do braço oxidativo da PPP no KIRP. Com 30 genes na matriz, a PPP complementa a via glicolítica com enzimas que determinam o destino do carbono entre oxidação (geração de NADPH) e biossíntese (geração de ribose).
+A PPP ramifica-se da glicólise na glicose-6-fosfato e desempenha duas funções essenciais para a proliferação celular: (i) produção de **NADPH**, o principal redutor celular que sustenta a defesa antioxidante (glutationa, tiorredoxina) e a biossíntese de lipídeos; (ii) produção de **ribose-5-fosfato**, precursor da síntese de nucleotídeos (DNA, RNA). Em carcinomas renais, a PPP é particularmente relevante porque a enzima limitante **G6PD** é regulada pela via NRF2 — fator de transcrição frequentemente ativado em KIRP com deficiência de FH (KOPPULA et al., 2020; PATRA; HAY, 2014). A inclusão desta via permite testar se há evidência transcriptômica de ativação coordenada do braço oxidativo da PPP.
 
-### Ciclo do Ácido Cítrico — TCA (hsa00020) — encruzilhada metabólica e tumorigênese
+### Ciclo do Ácido Cítrico — TCA (hsa00020)
 
-O ciclo do ácido cítrico (ciclo de Krebs) é a encruzilhada central do metabolismo oxidativo: oxida acetil-CoA a CO₂, gerando equivalentes redutores (NADH, FADH₂) para a cadeia respiratória, e fornece intermediários para biossíntese de aminoácidos, lipídeos e heme. No contexto específico do KIRP, o TCA tem relevância única: mutações no gene *FH* (fumarato hidratase), que codifica uma enzima do ciclo, são a base molecular do subtipo hereditário de KIRP com deficiência de FH (HLRCC). O acúmulo de fumarato promove succinação de PTEN, conectando diretamente o TCA à tumorigênese neste subtipo (GE et al., 2022). Além disso, vários genes do ciclo (CS, ACO2, IDH2/3, OGDH, SDHA-D, MDH2) codificam enzimas mitocondriais cuja expressão pode refletir o conteúdo mitocondrial e o estado de diferenciação celular. A inclusão sistemática de todos os 29 genes do TCA disponíveis na matriz permite: (i) verificar se há alteração coordenada do ciclo como conjunto gênico — hipótese testada formalmente via *camera* — e (ii) contextualizar os achados de *FH*, *SDHs* e *IDHs* cujas mutações são recorrentes em neoplasias renais (SANCHEZ; SIMON, 2024).
+O ciclo de Krebs é a encruzilhada central do metabolismo oxidativo: oxida acetil-CoA a CO₂, gera NADH e FADH₂ para a cadeia respiratória e fornece intermediários para biossíntese de aminoácidos, lipídeos e heme. No KIRP, o TCA tem relevância única: mutações no gene ***FH*** (fumarato hidratase) são a base molecular do subtipo hereditário com deficiência de FH (HLRCC), e o acúmulo de fumarato promove succinação de PTEN conectando diretamente o ciclo à tumorigênese (GE et al., 2022). Adicionalmente, genes como *SDHA-D*, *IDH1/2* e *MDH2* codificam enzimas mitocondriais cujas mutações são recorrentes em neoplasias renais (SANCHEZ; SIMON, 2024). A inclusão sistemática dos 29 genes do TCA permite testar formalmente se o ciclo como conjunto gênico apresenta alteração coordenada — hipótese avaliada via *camera*.
 
 ### Integração das três vias
 
-As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose-6-fosfato) e o TCA (via piruvato → acetil-CoA); a PPP fornece NADPH para biossíntese redutora e ribose-5-fosfato para nucleotídeos; o TCA fornece citrato para lipogênese e intermediários para aminoácidos. Analisar as três vias em conjunto — 106 genes extraídos *a posteriori* de um modelo transcriptômico único sobre 31.633 genes — permite capturar o estado coordenado do metabolismo central do carbono sem o viés de seleção que ocorreria ao restringir previamente o universo gênico apenas a essas vias (circularidade metodológica). A análise conjunta também revela genes compartilhados entre vias (7 dos 35 DEGs pertencem a duas ou três vias), evidenciando pontos de conexão metabólica potencialmente relevantes.
+As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose-6-fosfato) e o TCA (via piruvato → acetil-CoA); a PPP fornece NADPH para biossíntese redutora; o TCA fornece citrato para lipogênese e intermediários para aminoácidos. Analisar as três vias em conjunto — 106 genes extraídos *a posteriori* de um modelo transcriptômico único — evita o viés de seleção que ocorreria ao restringir previamente o universo gênico apenas a essas vias. A análise conjunta também revela **genes compartilhados** entre vias (7 dos 35 DEGs pertencem a duas ou três vias), evidenciando pontos de conexão metabólica potencialmente relevantes.
 
 ---
 
@@ -76,47 +76,55 @@ As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose
 
 - **35/106 genes (33,0%)** diferencialmente expressos (|log₂FC| > 1, FDR < 0,05): 9 aumentados, 26 diminuídos
 - 7 genes compartilhados entre duas ou três vias metabólicas
-- **Glicólise (64 genes):** 26 DEGs (7 aumentados, 19 diminuídos)
-- **Via das Pentoses Fosfato (30 genes):** 12 DEGs (3 aumentados, 9 diminuídos)
-- **TCA (29 genes):** 4 DEGs (todos diminuídos)
+
+| Via | Genes | DEGs | ▲ Up | ▼ Down |
+|-----|:-----:|:----:|:----:|:------:|
+| Glicólise / Gliconeogênese (hsa00010) | 64 | 26 | 7 | 19 |
+| Via das Pentoses Fosfato (hsa00030) | 30 | 12 | 3 | 9 |
+| Ciclo do Ácido Cítrico (hsa00020) | 29 | 4 | 0 | 4 |
+| **Total (genes únicos)** | **106** | **35** | **9** | **26** |
 
 ### Genes de maior magnitude
 
-| Gene | log₂FC | IC 95% | FDR | Regulação |
-|------|:------:|--------|:---:|:---------:|
-| *ALDOB* (aldolase B) | -8,66 | [-9,96; -7,36] | 4,3×10⁻¹³ | ↓ Diminuído |
-| *ADH1C* | -6,01 | [-7,06; -4,95] | 1,9×10⁻¹⁵ | ↓ Diminuído |
-| *PCK1* (PEPCK) | -5,11 | [-6,53; -3,69] | 1,7×10⁻⁹ | ↓ Diminuído |
-| *HK2* (hexoquinase 2) | +3,34 | [2,51; 4,17] | 1,9×10⁻¹² | ↑ Aumentado |
-| *FBP1* (FBPase 1) | -3,07 | [-3,90; -2,23] | 1,1×10⁻⁸ | ↓ Diminuído |
-| *G6PD* (G6PDH) | +1,49 | [0,89; 2,09] | 1,8×10⁻⁶ | ↑ Aumentado |
-| *TKT* (transcetolase) | +1,60 | [1,19; 2,00] | 8,1×10⁻¹² | ↑ Aumentado |
+| Gene | Via(s) | log₂FC | IC 95% | FDR | Direção |
+|------|--------|:------:|--------|:---:|:-------:|
+| *ALDOB* | hsa00010, hsa00030 | −8,66 | [−9,96; −7,36] | 4,3×10⁻¹³ | ↓ |
+| *ADH1C* | hsa00010 | −6,01 | [−7,06; −4,95] | 1,9×10⁻¹⁵ | ↓ |
+| *ALDH3B2* | hsa00010 | −5,19 | [−5,93; −4,46] | 8,5×10⁻²¹ | ↓ |
+| *PCK1* | hsa00010, hsa00020 | −5,11 | [−6,53; −3,69] | 1,7×10⁻⁹ | ↓ |
+| *HK2* | hsa00010 | +3,34 | [2,51; 4,17] | 1,9×10⁻¹² | ↑ |
+| *FBP1* | hsa00010, hsa00030 | −3,07 | [−3,90; −2,23] | 1,1×10⁻⁸ | ↓ |
+| *TKT* | hsa00030 | +1,60 | [1,19; 2,00] | 8,1×10⁻¹² | ↑ |
+| *G6PD* | hsa00030 | +1,49 | [0,89; 2,09] | 1,8×10⁻⁶ | ↑ |
 
 ### Teste de conjuntos gênicos (camera)
 
-- **hsa00020 (TCA):** deslocamento coordenado no sentido de redução — FDR = 0,0012 (*inter.gene.cor = 0,01*)
-- **hsa00010 (Glicólise):** FDR = 0,078 (sem evidência estatística após correção)
-- **hsa00030 (PPP):** FDR = 0,800 (sem deslocamento detectável)
-- **Sensibilidade:** resultados não se mantêm com correlação estimada por conjunto (*inter.gene.cor = NA*)
+| Via | NGenes | Direção | P | FDR |
+|-----|:------:|:-------:|:---:|:---:|
+| hsa00020 (TCA) | 29 | ↓ Down | 0,00039 | **0,0012** |
+| hsa00010 (Glicólise) | 64 | ↓ Down | 0,052 | 0,078 |
+| hsa00030 (PPP) | 30 | ↓ Down | 0,800 | 0,800 |
+
+> O TCA apresentou deslocamento coordenado no sentido de redução (FDR = 0,0012 com *inter.gene.cor = 0,01*). Este resultado não se manteve na análise de sensibilidade com correlação estimada por conjunto (*inter.gene.cor = NA*; FDR = 0,437).
 
 ### Concordância entre comparadores
 
 | Métrica | Pareado vs. TCGA-KIRP expandida | Pareado vs. GTEx |
 |---------|:-------------------------------:|:----------------:|
-| CCC de Lin | 0,974 | 0,795 |
-| MAE (log₂FC) | 0,27 | 0,94 |
-| Viés (d = pareado − comparador) | 0,00 | −0,79 |
-| Limites de concordância 95% | [−0,53; 0,54] | [−2,24; 0,67] |
-| Concordância direcional | 98,7% (74/75) | 60,2% (59/98) |
-| Genes discordantes (todos) | 4 | 45 |
+| CCC de Lin | 0,990 | 0,795 |
+| MAE (log₂FC) | 0,19 | 0,94 |
+| Viés (pareado − comparador) | +0,03 | −0,79 |
+| Limites de concordância 95% | [−0,34; 0,40] | [−2,24; 0,67] |
+| Concordância direcional | 100% (75/75) | 60,2% (59/98) |
+| Genes discordantes (todos os 106) | 4 | 45 |
 
-> ⚠️ **Interpretação:** GTEx como referência externa introduziu viés sistemático de −0,79, superestimando os log₂FC e revertendo a direção em 45 dos 106 genes. As duas análises com tecido adjacente KIRP compartilham os mesmos 32 controles; a alta concordância **não** representa validação independente.
+> ⚠️ **GTEx como referência externa introduz viés sistemático** de −0,79 e reverte a direção em 45 genes. As duas análises com tecido adjacente KIRP compartilham os mesmos 32 controles; a alta concordância **não** constitui validação independente.
 
 ---
 
 ## Desenho dos Comparadores
 
-| Comparador | Delineamento | n | Papel |
+| Comparador | Delineamento | N | Papel |
 |------------|-------------|:-:|-------|
 | **Pareado KIRP** | 32 pares tumor-adjacente, modelo: ~ patient + condition | 64 | **Primário** |
 | KIRP vs. Adjacente Normal | 288 tumores vs. 32 KIRP-adjacentes (não pareado) | 320 | Secundário (mesma coorte) |
@@ -134,51 +142,34 @@ As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose
 | **Plataforma** | [UCSC Xena](https://xenabrowser.net/) |
 | **Dataset** | `TcgaTargetGtex_RSEM_Hugo_norm_count` |
 | **Hub** | `toil-xena-hub` (pipeline Toil) |
-| **Amostras** | 445 (288 KIRP, 28 GTEx Normal, 32 KIRP-adjacente, 97 outros TCGA) |
+| **Amostras** | 445 (288 KIRP, 28 GTEx, 32 adjacentes KIRP, 97 outros TCGA) |
 | **Genes (brutos)** | 58.581 |
-| **Genes (após filtragem)** | 31.633 (26.948 removidos por baixa expressão) |
+| **Genes (após filtragem)** | 31.633 |
 | **Escala** | log₂(norm_count + 1) — pré-transformada pelo UCSC Xena |
-| **Faixa de expressão** | 0 a 20,1 (mediana = 11,15) |
+| **Faixa** | 0 a 20,1 (mediana = 11,15) |
 | **Acesso** | 11 de julho de 2026 |
-| **SHA256 (kidney.tsv)** | `29154696504ce365e681d9c319fe352a6c84c5ae87798c8f1cce3c11159f7ea2` |
-| **SHA256 (kidney_transcriptome.tsv)** | consulte `results/v3/checksums_sha256.txt` |
-| **Tamanho (transcriptoma)** | ~178 MB (TSV); ~70 MB (gzip) |
 
 ### Como obter os dados
 
-#### Opção 1: Baixar o arquivo kidney.tsv (genes das vias metabólicas, ~220 KB)
+#### Arquivo kidney.tsv (~220 KB, versionado)
 
-Este arquivo está versionado neste repositório em `data/raw/kidney.tsv`. Para baixá-lo diretamente do UCSC Xena:
+Este arquivo está em `data/raw/kidney.tsv`. Para baixá-lo diretamente do UCSC Xena:
 
-1. Acesse: [https://xenabrowser.net/datapages/](https://xenabrowser.net/datapages/)
-2. Selecione o dataset: **GDC TCGA Kidney Papillary Cell Carcinoma (KIRP)** combinado com **GTEx Kidney**
-3. Escolha a matriz: **gene expression RNAseq — RSEM norm_count (log₂ transformed)**
-4. Clique em "Download" e salve como `data/raw/kidney.tsv`
+1. Acesse [https://xenabrowser.net/datapages/](https://xenabrowser.net/datapages/)
+2. Selecione: **GDC TCGA Kidney Papillary Cell Carcinoma (KIRP)** + **GTEx Kidney**
+3. Escolha: **gene expression RNAseq — RSEM norm_count (log₂)**
+4. Salve como `data/raw/kidney.tsv`
 
-Alternativamente, utilize o script Python incluso:
-
-```bash
-# Baixa o dataset kidney (painel gênico reduzido)
-# Este arquivo é usado pelo download_full_transcriptome.py como referência de amostras
-python3 scripts/download_full_matrix.py
-```
-
-#### Opção 2: Baixar o transcriptoma completo (~178 MB, ~70 MB zipado)
+#### Transcriptoma completo (~178 MB, NÃO versionado)
 
 ```bash
-# Requer Python 3 e ~2 GB de espaço temporário durante o download
-# Baixa todos os 58.581 genes, filtra para amostras renais
 python3 scripts/download_full_transcriptome.py
 ```
 
-**Verificação de integridade:**
-
+Verificação:
 ```bash
 sha256sum data/raw/kidney.tsv
 # Esperado: 29154696504ce365e681d9c319fe352a6c84c5ae87798c8f1cce3c11159f7ea2
-
-sha256sum data/raw/kidney_transcriptome.tsv
-# Consulte results/v3/checksums_sha256.txt para o hash esperado
 ```
 
 ---
@@ -189,344 +180,275 @@ sha256sum data/raw/kidney_transcriptome.tsv
 KIRP-Glycolysis-Transcriptomics/
 │
 ├── data/
-│   ├── raw/                            # Dados brutos (alguns versionados)
-│   │   ├── kidney.tsv                  # Painel gênico reduzido (~220 KB, versionado)
-│   │   └── kidney_transcriptome.tsv    # Transcriptoma completo (~178 MB, NÃO versionado)
-│   ├── processed/                      # Dados processados (RDS)
-│   │   ├── expression_hsa00010.rds     # Matriz glicólise
-│   │   ├── expression_hsa00020.rds     # Matriz TCA
-│   │   ├── expression_hsa00030.rds     # Matriz PPP
-│   │   └── expression_matrix_full.rds  # Matriz completa (amostras x genes)
-│   ├── metadata/                       # Metadados de genes
-│   └── provenance/                     # Registro de proveniência
+│   ├── raw/
+│   │   ├── kidney.tsv                    # Painel amostral (~220 KB, versionado)
+│   │   └── kidney_transcriptome.tsv      # Transcriptoma completo (~178 MB, NÃO versionado)
+│   ├── processed/                        # Matrizes processadas (RDS)
+│   │   ├── expression_hsa00010.rds       # Expressão — Glicólise
+│   │   ├── expression_hsa00020.rds       # Expressão — TCA
+│   │   ├── expression_hsa00030.rds       # Expressão — PPP
+│   │   └── expression_matrix_full.rds    # Matriz completa
+│   ├── metadata/                         # Metadados de genes
+│   └── provenance/                       # Registro de proveniência
 │
 ├── scripts/
-│   ├── pipeline_v3.R                   # Pipeline principal v3 (análise pareada)
-│   ├── pipeline_v3_addendum.R          # Adendo: concordância, modelo não-pareado-64
-│   ├── 16_3d_visualizations.R          # Volcano plots 3D interativos (HTML)
-│   ├── 16b_ppi_3d_correlation.R        # Rede de coexpressão 3D (HTML)
-│   ├── download_full_transcriptome.py  # Download do transcriptoma completo
-│   ├── download_full_matrix.py         # Download do painel reduzido
-│   ├── 00_environment.R                # Verificação de dependências
-│   └── *.R                             # Scripts auxiliares (v2, auditoria, etc.)
+│   ├── pipeline_v3.R                     # Pipeline principal v3
+│   ├── pipeline_v3_addendum.R            # Adendo: sensibilidade, concordância
+│   ├── 16_3d_visualizations.R            # Volcano plots 3D (HTML)
+│   ├── 16b_ppi_3d_correlation.R          # Rede de coexpressão 3D (HTML)
+│   ├── download_full_transcriptome.py    # Download do transcriptoma completo
+│   ├── download_full_matrix.py           # Download do painel reduzido
+│   ├── 00_environment.R                  # Verificação de dependências
+│   └── *.R                               # Scripts v2 (legado, mantidos para referência)
 │
 ├── results/
-│   ├── v3/                             # Resultados da versão 3
-│   │   ├── tables/                     # DEGs, tabelas suplementares, concordância
-│   │   │   ├── Supplementary_Table_S1.csv  # Todos os 106 genes
-│   │   │   ├── DEG_hsa00010.csv        # DEGs da via glicolítica
-│   │   │   ├── DEG_hsa00020.csv        # DEGs do TCA
-│   │   │   ├── DEG_hsa00030.csv        # DEGs da PPP
-│   │   │   ├── discordant_genes.csv    # Genes com direção discordante (Paired vs GTEx)
-│   │   │   ├── camera_gene_sets.csv    # Resultados do teste camera
-│   │   │   ├── ppi_3d_centrality.csv   # Centralidade da rede 3D
-│   │   │   └── ppi_3d_summary.csv      # Resumo da rede 3D
-│   │   ├── figures/
-│   │   │   ├── Volcano_hsa00010.png / _3D.html   # Volcano glicólise (PNG + 3D HTML)
-│   │   │   ├── Volcano_hsa00020.png / _3D.html   # Volcano TCA
-│   │   │   ├── Volcano_hsa00030.png / _3D.html   # Volcano PPP
-│   │   │   ├── PPI_network_3D.html              # Rede PPI/coexpressão 3D
-│   │   │   ├── BlandAltman_Paired_vs_GTEx.png   # Bland-Altman
-│   │   │   ├── PCA_transcriptome.png            # PCA transcriptoma completo
-│   │   │   ├── plotSA_paired.png                # Diagnóstico limma
-│   │   │   └── Paired_*.png                     # Gráficos pareados por gene
-│   │   ├── supplementary/              # Material suplementar (S1-S8)
-│   │   ├── sessionInfo.txt             # Informação da sessão R
-│   │   └── checksums_sha256.txt        # Checksums de todos os outputs
-│   ├── differential_expression/        # Resultados v2 (legado)
-│   ├── enrichment/                     # Enriquecimento funcional
-│   ├── figures/                        # Figuras v2 (legado)
-│   └── tables/                         # Tabelas v2 (legado)
+│   └── v3/                               # Todos os outputs da versão 3
+│       ├── tables/
+│       │   ├── Supplementary_Table_S1.csv    # Tabela suplementar (106 genes)
+│       │   ├── DEG_hsa00010.csv              # DEGs — Glicólise
+│       │   ├── DEG_hsa00020.csv              # DEGs — TCA
+│       │   ├── DEG_hsa00030.csv              # DEGs — PPP
+│       │   ├── discordant_genes.csv          # Discordantes (Paired vs GTEx)
+│       │   ├── camera_gene_sets.csv          # Resultados camera
+│       │   ├── comparator_concordance.csv    # Métricas de concordância
+│       │   ├── ppi_3d_centrality.csv         # Centralidade da rede 3D
+│       │   └── ppi_3d_summary.csv            # Resumo da rede 3D
+│       ├── figures/
+│       │   ├── Volcano_hsa00010.png / _3D.html   # Volcano — Glicólise
+│       │   ├── Volcano_hsa00020.png / _3D.html   # Volcano — TCA
+│       │   ├── Volcano_hsa00030.png / _3D.html   # Volcano — PPP
+│       │   ├── PPI_network_3D.html                # Rede 3D interativa
+│       │   ├── BlandAltman_Paired_vs_GTEx.png     # Bland-Altman
+│       │   ├── PCA_transcriptome.png              # PCA transcriptoma
+│       │   ├── plotSA_paired.png                  # Diagnóstico limma
+│       │   ├── QC_density.png                     # Densidade de expressão
+│       │   └── Paired_*.png                       # Gráficos pareados por gene
+│       ├── supplementary/                  # Material suplementar (S2-S8)
+│       ├── audit/                          # Relatórios de auditoria
+│       ├── sessionInfo.txt                 # Sessão R
+│       ├── checksums_sha256.txt            # Checksums SHA256
+│       └── results_manifest.csv            # Manifesto de outputs
 │
 ├── tests/
-│   └── testthat/
-│       └── test_pipeline.R             # Testes automatizados (30 asserções)
+│   └── testthat/test_pipeline.R            # Testes automatizados
 │
 ├── environment/
-│   ├── packages.csv                    # Versões dos pacotes R
-│   └── sessionInfo.txt                 # Sessão R completa
+│   ├── packages.csv                        # Versões de pacotes R
+│   └── sessionInfo.txt                     # Sessão R completa
 │
-├── renv.lock                           # Lockfile do renv
-├── renv/                               # Ambiente renv (bibliotecas versionadas)
-├── .github/workflows/ci.yml            # CI (GitHub Actions)
+├── renv.lock                               # Lockfile do renv
+├── .github/workflows/ci.yml                # CI (GitHub Actions)
 ├── .gitignore
 ├── .Rprofile
-├── LICENSE                             # MIT
-├── CITATION.cff                        # Metadados de citação
-├── VERSION                             # v3.1.0
-├── README.md                           # Este arquivo
-├── REPRODUCIBILITY.md                  # Guia de reprodutibilidade
-├── DATA_PROVENANCE.md                  # Proveniência dos dados
-└── manuscrito_kirp_*.Rmd / *.pdf       # Manuscrito (NÃO versionado)
+├── LICENSE                                 # MIT
+├── CITATION.cff                            # Metadados de citação
+├── VERSION                                 # v3.1.0
+├── README.md                               # Este arquivo
+├── REPRODUCIBILITY.md                      # Guia de reprodutibilidade
+└── DATA_PROVENANCE.md                      # Proveniência dos dados
 ```
 
 ---
 
 ## Reprodução
 
-### ⚠️ Pré-requisitos
+### Pré-requisitos
 
-- **R** ≥ 4.6.0 com Bioconductor 3.23
+- **R** ≥ 4.6.0 (Bioconductor 3.23)
 - **Python** ≥ 3.8 (apenas para download dos dados)
-- **Pacotes R:** `limma`, `dplyr`, `rio`, `ggplot2`, `ggrepel`, `pheatmap`, `igraph`, `plotly`, `htmlwidgets`, `clusterProfiler`, `org.Hs.eg.db` e dependências (lista completa em `environment/packages.csv`)
-- **Pacotes Python:** `urllib` (biblioteca padrão; nenhuma instalação adicional necessária)
-- **Conexão com internet:** necessária para download dos dados e anotações KEGG
-- **Espaço em disco:** ~2 GB (durante download e processamento); ~250 MB (resultados finais)
-- **Memória RAM:** ≥ 8 GB recomendado para o transcriptoma completo
+- **Pacotes R:** `limma`, `dplyr`, `rio`, `ggplot2`, `ggrepel`, `igraph`, `plotly`, `htmlwidgets`, `clusterProfiler`, `org.Hs.eg.db` e dependências (`environment/packages.csv`)
+- **Conexão com internet:** necessária para download dos dados (~2 GB durante o processo)
+- **Espaço em disco:** ~2 GB (download + processamento); ~250 MB (resultados finais)
+- **Memória RAM:** ≥ 8 GB
 
-### Ambiente R (renv)
-
-```r
-# Instalar renv se necessário
-install.packages("renv")
-
-# Restaurar ambiente exato
-renv::restore()
-```
-
-### Pipeline completo (versão 3)
+### Pipeline completo
 
 ```bash
-# 1. Clonar o repositório
+# 1. Clonar
 git clone https://github.com/santosry/KIRP-Glycolysis-Transcriptomics.git
 cd KIRP-Glycolysis-Transcriptomics
 
-# 2. Baixar o transcriptoma completo (Python)
+# 2. Baixar transcriptoma completo (Python)
 python3 scripts/download_full_transcriptome.py
 
-# 3. (Opcional) Verificar checksums
-sha256sum -c results/v3/checksums_sha256.txt
-
-# 4. Executar pipeline v3 (análise pareada primária)
+# 3. Executar pipeline v3 (análise pareada primária)
 Rscript scripts/pipeline_v3.R
 
-# 5. Executar adendo (análises de sensibilidade, concordância)
+# 4. Adendo (sensibilidade, concordância)
 Rscript scripts/pipeline_v3_addendum.R
 
-# 6. Gerar visualizações 3D interativas
+# 5. 3D interativos
 Rscript scripts/16_3d_visualizations.R
 Rscript scripts/16b_ppi_3d_correlation.R
 
-# 7. Executar testes automatizados
+# 6. Testes
 R -e "testthat::test_dir('tests/testthat')"
 ```
 
-### Passo a passo mínimo (apenas replicação dos resultados principais)
-
-```r
-# Dentro do R:
-source("scripts/00_environment.R")       # Verificar dependências
-source("scripts/pipeline_v3.R")          # Análise pareada, volcano, concordância
-```
-
-### Verificação de integridade dos resultados
+### Verificação de integridade
 
 ```bash
-# Verificar todos os checksums
 cd results/v3
 sha256sum -c checksums_sha256.txt
 ```
-
-### Componentes determinísticos
-
-| Componente | Reprodutibilidade |
-|------------|:-----------------:|
-| limma eBayes | ✅ Determinístico |
-| PCA (prcomp) | ✅ Determinístico |
-| Correlação de Pearson | ✅ Determinístico |
-| Teste exato de Fisher (ORA) | ✅ Determinístico |
-| Teste camera | ✅ Determinístico |
-| Layout Fruchterman-Reingold 3D | ✅ Determinístico (seed fixa) |
-| STRING PPI | ⚠️ Requer internet; API pode mudar |
-| Anotações KEGG (KEGGREST) | ⚠️ Requer internet; release pode mudar |
 
 ---
 
 ## Instruções para Agentes de IA
 
-> **Esta seção é destinada a agentes de inteligência artificial (Codex, Claude, ChatGPT, DeepSeek, Copilot, etc.) que estejam executando este repositório. Leia atentamente antes de executar qualquer comando.**
+> **Esta seção é destinada a agentes de IA (Codex, Claude, ChatGPT, DeepSeek, Copilot, etc.) que executem este repositório. Leia antes de qualquer comando.**
 
 ### Regras gerais
 
-1. **Ambiente:** Todos os scripts devem ser executados a partir do diretório raiz do repositório (`KIRP-Glycolysis-Transcriptomics/`). O diretório de trabalho do R **deve** ser este.
+1. **Diretório de trabalho:** Executar scripts a partir da raiz do repositório (`KIRP-Glycolysis-Transcriptomics/`).
 
-2. **RENV:** Este projeto utiliza `renv` para gerenciamento de dependências. Antes de executar qualquer script R, verifique se o ambiente está sincronizado:
+2. **RENV:** Verificar sincronia antes de scripts R:
    ```r
    renv::status()
    renv::restore()  # se necessário
    ```
-   Caso `renv` não esteja disponível, instale os pacotes listados em `environment/packages.csv` manualmente. **Não modifique o `renv.lock` a menos que explicitamente solicitado.**
+   Se renv indisponível, instalar pacotes listados em `environment/packages.csv`. **Não modificar `renv.lock`** sem solicitação explícita.
 
-3. **Ordem de execução obrigatória:** Os scripts devem ser executados nesta ordem:
+3. **Ordem de execução obrigatória:**
    ```
    1. scripts/download_full_transcriptome.py  (Python — baixa dados)
    2. scripts/00_environment.R                 (verifica dependências)
    3. scripts/pipeline_v3.R                    (análise principal)
-   4. scripts/pipeline_v3_addendum.R           (análises de sensibilidade)
+   4. scripts/pipeline_v3_addendum.R           (sensibilidade)
    5. scripts/16_3d_visualizations.R           (volcano 3D HTML)
    6. scripts/16b_ppi_3d_correlation.R         (rede PPI 3D HTML)
    ```
 
-4. **Dados de entrada obrigatórios:**
-   - `data/raw/kidney.tsv` — **já está versionado** (~220 KB). Contém os IDs das amostras renais. **Não o sobrescreva**.
-   - `data/raw/kidney_transcriptome.tsv` — **NÃO está versionado** (~178 MB). Deve ser baixado pelo script `download_full_transcriptome.py`.
+4. **Dados obrigatórios:**
+   - `data/raw/kidney.tsv` — **versionado** (~220 KB). Contém IDs das 445 amostras renais. **Não sobrescrever**.
+   - `data/raw/kidney_transcriptome.tsv` — **NÃO versionado** (~178 MB). Baixar via `download_full_transcriptome.py`.
 
-5. **Timeout:** O download do transcriptoma completo (`download_full_transcriptome.py`) pode levar **10-20 minutos** dependendo da conexão. Configure timeouts adequados (≥ 1200 segundos).
+5. **Timeout:** Download do transcriptoma completo leva 10-20 min. Configurar timeout ≥ 1200 s.
 
-6. **Pandoc não é necessário** para gerar os HTMLs 3D (os widgets são salvos com `selfcontained = FALSE` e carregam plotly.js de um diretório local). Os arquivos `*_files/` acompanhantes **devem ser mantidos junto aos HTMLs**.
+6. **Não executar** scripts com prefixo `10_` (STRING) sem solicitação explícita — dependem de API externa e ~500 MB de download. A rede PPI 3D atual (`16b_ppi_3d_correlation.R`) usa correlação de Pearson (offline, 100% reprodutível).
 
-7. **Não execute scripts com prefixo `10_` (`10_string_network.R`, `10b_string_network_retry.R`) a menos que explicitamente solicitado** — eles dependem da API STRING, requerem ~500 MB de download e são instáveis. A rede PPI 3D atual (`16b_ppi_3d_correlation.R`) usa correlação de Pearson (offline, reprodutível).
+7. **Scripts v2 (prefixos 01-15):** legado da versão 2 (apenas glicólise, 66 genes). Usar `pipeline_v3.R` e `16_*.R` para a versão atual (3 vias, 106 genes).
 
-8. **Scripts legados (v2):** Os scripts numerados de `01` a `15` são da versão 2 do pipeline (apenas glicólise, 66 genes). **Use os scripts `pipeline_v3.R` e `16_*.R` para a versão atual (106 genes, 3 vias).**
+8. **Não modificar** arquivos em `results/v3/` manualmente.
 
-9. **Não modifique** os arquivos em `results/v3/` manualmente. Todos são gerados automaticamente pelo pipeline.
+9. **Manuscrito** (`.Rmd`, `.pdf`): **não versionar**, não publicar.
 
-10. **Manuscrito:** O manuscrito (`.Rmd`, `.pdf`) **não deve ser versionado** nem publicado. Se encontrar arquivos de manuscrito rastreados pelo Git, remova-os com `git rm --cached`.
+10. **Ao reportar resultados:** sempre citar números exatos dos arquivos de saída (`results/v3/tables/`), não do README.
 
-11. **Ao reportar resultados:** Sempre cite os números exatos como aparecem nos arquivos de saída (`results/v3/tables/`), não os do README (que podem estar desatualizados). Confira `results/v3/sessionInfo.txt` para o ambiente exato.
+11. **Após gerar resultados:** verificar checksums (`sha256sum -c results/v3/checksums_sha256.txt`) e executar testes (`testthat::test_dir("tests/testthat")`).
 
-12. **Checksums:** Após gerar resultados, verifique a integridade com `sha256sum -c results/v3/checksums_sha256.txt`. Atualize o arquivo de checksums se novos resultados forem gerados.
+### Checklist de verificação
 
-13. **Testes:** Execute `testthat::test_dir("tests/testthat")` após cada alteração no pipeline. Todos os 30 testes devem passar.
-
-### Checklist de verificação para agentes de IA
-
-- [ ] `data/raw/kidney.tsv` existe e tem ~220 KB
-- [ ] `data/raw/kidney_transcriptome.tsv` existe e tem ~178 MB (ou foi baixado com sucesso)
-- [ ] `renv::status()` retorna "The project is synchronized"
-- [ ] `source("scripts/00_environment.R")` não produz erros
-- [ ] `pipeline_v3.R` executa até o fim sem erros
-- [ ] `pipeline_v3_addendum.R` executa até o fim sem erros
-- [ ] Arquivos `results/v3/tables/Supplementary_Table_S1.csv` e `DEG_hsa*.csv` existem
-- [ ] Arquivos `results/v3/figures/Volcano_*_3D.html` existem
-- [ ] Arquivo `results/v3/figures/PPI_network_3D.html` existe
-- [ ] `testthat::test_dir("tests/testthat")` — 30/30 passam
-- [ ] Nenhum arquivo de manuscrito está rastreado pelo Git
+- [ ] `data/raw/kidney.tsv` existe (~220 KB)
+- [ ] `data/raw/kidney_transcriptome.tsv` existe (~178 MB) ou foi baixado com sucesso
+- [ ] `renv::status()` retorna sincronizado
+- [ ] `source("scripts/00_environment.R")` sem erros
+- [ ] `pipeline_v3.R` executa até o fim
+- [ ] `pipeline_v3_addendum.R` executa até o fim
+- [ ] `results/v3/tables/Supplementary_Table_S1.csv` existe
+- [ ] `results/v3/figures/Volcano_*_3D.html` e `PPI_network_3D.html` existem
+- [ ] `testthat::test_dir("tests/testthat")` — todos passam
+- [ ] Nenhum arquivo de manuscrito rastreado pelo Git
 
 ---
 
 ## Visualizações 3D Interativas
 
-Os arquivos HTML na pasta `results/v3/figures/` contêm visualizações 3D interativas que podem ser abertas em qualquer navegador moderno:
+Abra os arquivos HTML em `results/v3/figures/` em qualquer navegador moderno:
 
 ### Volcano Plots 3D
 
-- **`Volcano_hsa00010_3D.html`** — Volcano 3D da via glicolítica (64 genes)
-- **`Volcano_hsa00020_3D.html`** — Volcano 3D do ciclo do ácido cítrico (29 genes)
-- **`Volcano_hsa00030_3D.html`** — Volcano 3D da via das pentoses fosfato (30 genes)
+| Arquivo | Via | Genes |
+|---------|-----|:-----:|
+| `Volcano_hsa00010_3D.html` | Glicólise / Gliconeogênese | 64 |
+| `Volcano_hsa00020_3D.html` | Ciclo do Ácido Cítrico (TCA) | 29 |
+| `Volcano_hsa00030_3D.html` | Via das Pentoses Fosfato | 30 |
 
-**Eixos:**
-- **X:** log₂(Fold Change) — KIRP vs. Normal Adjacente
-- **Y:** −log₁₀(FDR) — significância estatística
-- **Z:** AveExpr — expressão média do gene
+**Eixos:** X = log₂FC | Y = −log₁₀(FDR) | Z = AveExpr
 
-**Cores:** Azul (▲) = aumentado; Roxo (▼) = diminuído; Cinza = não significativo
+**Cores:** 🔵 Azul = aumentado | 🟣 Roxo = diminuído | ⚪ Cinza = NS
 
-**Interações:**
-- **Arrastar:** rotaciona a visualização
-- **Scroll:** zoom in/out
-- **Clique duplo:** reseta a visão
-- **Hover:** informações detalhadas do gene (log₂FC, FDR, IC 95%, expressão média)
+**Interações:** arrastar (rotacionar) | scroll (zoom) | duplo-clique (reset) | hover (detalhes)
 
-### Rede PPI / Coexpressão 3D
+### Rede de Coexpressão 3D
 
-- **`PPI_network_3D.html`** — Rede de coexpressão gênica dos 109 genes do metabolismo central do carbono
+| Arquivo | Método | Threshold |
+|---------|--------|:---------:|
+| `PPI_network_3D.html` | Pearson | \|r\| > 0,6 |
 
-**Método:** Correlação de Pearson entre todos os pares de genes (|r| > 0,6), layout Fruchterman-Reingold 3D com seed fixa.
-
-**Características:**
-- **Nós proporcionais ao degree** (número de conexões)
-- **Cores:** Azul = aumentado; Roxo = diminuído; Cinza = NS
-- **Arestas:** correlações |r| > 0,6 (935 arestas, 85 nós no componente gigante)
-
-> **Nota:** Os arquivos `*_files/` que acompanham os HTMLs contêm as bibliotecas JavaScript (plotly.js) e **devem ser mantidos junto com os HTMLs**. Não os delete nem os mova separadamente.
+- **85 nós** no componente gigante, **935 arestas**
+- Nós proporcionais ao degree | Cores por regulação
+- Layout Fruchterman-Reingold 3D (seed = 42, determinístico)
 
 ---
 
 ## Limitações
 
-### Limitações do desenho experimental
+### Desenho experimental
 
-1. **Tamanho amostral da análise pareada:** Apenas 32 pares tumor-adjacente. Pequenos efeitos (|log₂FC| < 1) podem não ser detectados por falta de poder estatístico. Efeitos com magnitude menor que 1,5 podem ter estimativas instáveis.
+1. **32 pares apenas:** pequenos efeitos (|log₂FC| < 1) podem não ser detectados.
+2. **Bulk RNA-seq:** não distingue tipos celulares. Redução de *ALDOB*, *FBP1*, *PCK1* pode refletir perda de células tubulares, não reprogramação metabólica. Sem deconvolução celular, esta hipótese concorrente não pode ser excluída.
+3. **Sem validação externa:** resultados específicos da coorte TCGA-KIRP.
 
-2. **Bulk RNA-seq:** Os dados são de RNA-seq de tecido total (*bulk*), que não distingue tipos celulares (células tumorais, imunes, estromais, tubulares normais). A redução de genes como *ALDOB*, *FBP1* e *PCK1* pode refletir perda de células epiteliais tubulares diferenciadas por substituição com células tumorais e estromais, e não reprogramação metabólica direcionada. **Sem estimativas de pureza tumoral ou deconvolução celular, esta hipótese concorrente não pode ser excluída.**
+### Medição
 
-3. **Ausência de validação externa:** Não há coorte de validação independente. Os resultados são específicos da coorte TCGA-KIRP analisada.
+4. **mRNA ≠ proteína ≠ atividade enzimática ≠ fluxo:** inferências sobre atividade metabólica são indiretas.
+5. **Dados pré-transformados:** escala log₂(norm_count + 1) fornecida pelo Xena.
+6. **Gene-level apenas:** inferências sobre isoformas (PKM1 vs PKM2) não suportadas.
 
-### Limitações da medição
+### Comparações entre coortes
 
-4. **mRNA ≠ proteína ≠ atividade enzimática ≠ fluxo metabólico:** A abundância de transcritos não equivale a proteína funcional, atividade enzimática ou fluxo através das vias metabólicas. Inferências sobre atividade metabólica a partir de dados transcriptômicos são indiretas e requerem validação ortogonal (proteômica, metabolômica).
+7. **Confundimento GTEx:** todos os tumores TCGA, todos os controles GTEx de autópsias. Efeito tumoral e de coorte são indissociáveis.
+8. **Controles não independentes:** análises pareada e TCGA-KIRP expandida compartilham os mesmos 32 controles. Concordância não é validação independente.
 
-5. **Dados pré-transformados:** A matriz do UCSC Xena é fornecida em escala log₂(norm_count + 1). A transformação logarítmica comprime diferenças em genes de baixa expressão. Genes com contagem normalizada < 1 têm valores negativos após transformação.
+### Generalização
 
-6. **Gene-level apenas:** Os dados são de expressão gênica total (*gene-level*), não de isoformas. Inferências sobre isoformas específicas (ex.: PKM1 vs. PKM2) não são suportadas.
+9. **Heterogeneidade do KIRP:** OMS 2022 não usa mais dicotomia tipo 1/2. Análise agrupada não captura diferenças entre subtipos.
+10. **Escopo restrito:** concordância avaliada apenas nos 106 genes destas três vias.
+11. **Não se aplica** a KIRC, KICH ou outros subtipos renais.
 
-### Limitações das comparações entre coortes
+### Computacionais
 
-7. **Confundimento condição-coorte (GTEx):** Todos os tumores KIRP provêm do TCGA; todos os controles GTEx são de autópsias. O efeito tumoral e o efeito de coorte (diferenças de coleta, processamento, idade, causa de morte, composição celular, isquemia, profundidade de sequenciamento) são perfeitamente confundidos e não separáveis. A análise com GTEx é **estritamente exploratória** e seus resultados devem ser interpretados com extrema cautela.
-
-8. **Controles não independentes:** As duas análises com tecido adjacente (pareada e não-pareada KIRP) compartilham os mesmos 32 controles. A concordância entre elas (CCC = 0,974) **não constitui validação independente**. O tecido adjacente pode apresentar alterações de campo, inflamação ou contaminação tumoral e não é necessariamente tecido renal completamente normal.
-
-### Limitações da generalização
-
-9. **Heterogeneidade molecular do KIRP:** O KIRP é molecularmente heterogêneo. A classificação OMS 2022 não utiliza mais a dicotomia tipo 1/tipo 2; entidades como carcinoma renal deficiente em fumarato hidratase (FH) são categorias distintas. A análise agrupada (*pooled*) não captura diferenças entre subtipos moleculares. Os resultados referem-se à média dos 288 tumores KIRP disponíveis e não devem ser generalizados para subtipos específicos.
-
-10. **Escopo restrito:** A concordância entre comparadores foi avaliada apenas para os 106 genes do metabolismo central do carbono. A generalização para outros conjuntos gênicos ou para o transcriptoma completo requer verificação independente para cada contexto.
-
-11. **Generalização para outros tipos de câncer renal:** Este estudo analisou exclusivamente KIRP. Os achados não se aplicam a carcinomas de células claras (KIRC), cromófobos (KICH) ou outros subtipos.
-
-### Limitações computacionais
-
-12. **Sensibilidade a parâmetros:** O resultado do teste camera para hsa00020 (FDR = 0,0012 com correlação predefinida de 0,01) não se manteve na análise de sensibilidade com correlação estimada por conjunto (FDR = 0,437 com `inter.gene.cor = NA`). A escolha do parâmetro de correlação intergênica afeta substancialmente as conclusões.
-
-13. **Dependência de anotações externas:** As anotações KEGG (release 119.0, julho/2026) foram congeladas em arquivo versionado. Atualizações futuras do KEGG podem alterar a composição dos conjuntos gênicos.
-
-14. **Reprodutibilidade dos HTMLs 3D:** As visualizações 3D dependem da biblioteca plotly.js (versão 2.25.2). Versões futuras podem alterar o comportamento de renderização. Os arquivos `*_files/` devem ser mantidos junto aos HTMLs.
+12. **Sensibilidade a parâmetros:** resultado do camera para TCA (FDR = 0,0012) não se manteve com *inter.gene.cor = NA* (FDR = 0,437).
+13. **Anotações KEGG:** congeladas na release 119.0 (julho/2026). Atualizações futuras podem alterar a composição dos conjuntos gênicos.
 
 ---
 
 ## Declaração de Uso de Inteligência Artificial
 
-Ferramentas de inteligência artificial generativa foram utilizadas como recursos de apoio ao longo do desenvolvimento deste projeto. Em nenhum momento as ferramentas substituíram o julgamento científico dos autores, a interpretação dos resultados ou a responsabilidade pela integridade acadêmica do trabalho. Todas as decisões metodológicas, análises estatísticas, interpretações biológicas e conclusões são de responsabilidade exclusiva dos autores.
+Ferramentas de IA generativa foram utilizadas como recursos de apoio, sem substituir o julgamento científico dos autores. Todas as decisões metodológicas, análises estatísticas, interpretações biológicas e conclusões são de responsabilidade exclusiva dos autores.
 
-### Sumário de uso de IA por etapa
+| Ferramenta | Fabricante | Etapas | Contribuição |
+|:-----------|:-----------|:-------|:-------------|
+| **ChatGPT-5.5** | OpenAI | Redação e revisão do manuscrito; estrutura argumentativa; ABNT/Vancouver | Assistência na redação científica. Nenhum dado ou análise foi gerado por esta ferramenta. |
+| **Codex** | OpenAI | Desenvolvimento e depuração de scripts R/Python; funções limma, ggplot2, plotly, igraph; visualizações 3D; auditoria | Geração de código sob supervisão. Todo código revisado, testado e validado pelos autores. |
+| **DeepSeek-v4-pro** | Hangzhou DeepSeek AI | Verificação cruzada de valores numéricos; auditoria de consistência manuscrito vs. outputs | Identificação de incongruências. Todas as correções validadas manualmente. |
+| **GitHub Copilot** | GitHub/Microsoft | Sugestões pontuais de código no IDE | Complementação de boilerplate. Nenhum bloco completo gerado exclusivamente. |
+| **Claude** | Anthropic | Revisão de estilo e clareza; conformidade com diretrizes de periódicos | Revisão de linguagem. |
 
-| Ferramenta de IA | Fabricante | Etapas de uso | Natureza da contribuição |
-|:---|:---|:---|:---|
-| **ChatGPT-5.5** | OpenAI | Redação e revisão do manuscrito; estruturação argumentativa; formatação ABNT/Vancouver; tradução | Assistência na redação científica, organização de seções, verificação de consistência textual e referencial. Nenhum dado, análise ou resultado foi gerado por esta ferramenta. |
-| **Codex (OpenAI)** | OpenAI | Desenvolvimento e depuração de scripts R e Python; implementação de funções do limma, ggplot2, plotly, igraph; criação de visualizações 3D; auditoria de código | Geração de código sob supervisão humana. Todo código foi revisado, testado e validado pelos autores antes da execução. O pipeline foi executado integralmente em ambiente controlado com sessão registrada. |
-| **DeepSeek-v4-pro** | Hangzhou DeepSeek Artificial Intelligence | Verificação de consistência referencial; revisão cruzada de valores numéricos entre scripts, resultados e manuscrito; sugestões de melhorias metodológicas | Auditoria de consistência entre manuscrito e outputs. Identificação de incongruências numéricas e sugestões de correção. Todas as alterações foram validadas pelos autores. |
-| **GitHub Copilot** | GitHub/Microsoft | Sugestões pontuais de código durante edição no IDE | Complementação de código boilerplate. Nenhum bloco completo de análise foi gerado exclusivamente por esta ferramenta. |
-| **Claude (Anthropic)** | Anthropic | Revisão de estilo e clareza do manuscrito; verificação de conformidade com diretrizes de periódicos | Revisão de linguagem e aderência a normas de publicação. |
-
-### Transparência adicional
-
-- **Nenhum dado foi gerado sinteticamente:** Todos os dados são públicos do TCGA/GTEx via UCSC Xena.
-- **Nenhuma análise estatística foi delegada à IA:** Modelos lineares (limma), testes de enriquecimento e métricas de concordância foram implementados em scripts R versionados, revisados e executados pelos autores.
-- **Sessão registrada:** O ambiente computacional completo está documentado em `results/v3/sessionInfo.txt` e `environment/packages.csv`.
-- **Código aberto e auditável:** Todos os scripts estão disponíveis neste repositório sob licença MIT.
+- ✅ Nenhum dado gerado sinteticamente
+- ✅ Nenhuma análise estatística delegada integralmente à IA
+- ✅ Sessão registrada: `results/v3/sessionInfo.txt`, `environment/packages.csv`, `renv.lock`
 
 ---
 
 ## Como Citar
 
-### Formato ABNT (NBR 6023:2018)
+### ABNT (NBR 6023:2018)
 
-LOUREIRO, Kamila da Conceição; SANTOS, Ryan de Paulo; FREITAS, Letícia Maria Dias; SILVA, Ivine Souza; PECLY, Maria Eduarda Peixoto Soares. **KIRP-Glycolysis-Transcriptomics**: perfil transcriptômico do metabolismo central do carbono no carcinoma renal papilar. Versão 3.1.0. [S. l.], 2026. Código-fonte. Disponível em: https://github.com/santosry/KIRP-Glycolysis-Transcriptomics. Acesso em: [data de acesso].
+LOUREIRO, Kamila da Conceição; SANTOS, Ryan de Paulo; FREITAS, Letícia Maria Dias; SILVA, Ivine Souza; PECLY, Maria Eduarda Peixoto Soares. **KIRP-Glycolysis-Transcriptomics**: perfil transcriptômico do metabolismo central do carbono no carcinoma renal papilar. Versão 3.1.0. [S. l.], 2026. Código-fonte. Disponível em: https://github.com/santosry/KIRP-Glycolysis-Transcriptomics. Acesso em: [data].
 
-### Formato sugerido (software)
+### Software
 
 Santos, R. P., Loureiro, K. C., Freitas, L. M. D., Silva, I. S., & Pecly, M. E. P. S. (2026). *KIRP-Glycolysis-Transcriptomics* (Version 3.1.0) [Computer software]. https://github.com/santosry/KIRP-Glycolysis-Transcriptomics
 
-### Metadados
-
-Consulte o arquivo [CITATION.cff](CITATION.cff) para metadados de citação no formato Citation File Format (CFF 1.2.0), compatível com GitHub, Zenodo e Zotero.
+Metadados completos em [CITATION.cff](CITATION.cff) (CFF 1.2.0, compatível com GitHub, Zenodo, Zotero).
 
 ---
 
 ## Referências
 
-As referências completas no formato ABNT (NBR 6023:2018) com DOI, link de acesso e data de acesso:
+Referências em formato **ABNT (NBR 6023:2018)** com DOI, link de acesso e data de acesso:
 
 1. LINEHAN, W. M. et al. Comprehensive molecular characterization of papillary renal-cell carcinoma. **New England Journal of Medicine**, v. 374, n. 2, p. 135-145, 2016. DOI: [10.1056/NEJMoa1505917](https://doi.org/10.1056/NEJMoa1505917). Disponível em: https://www.nejm.org/doi/full/10.1056/NEJMoa1505917. Acesso em: 11 jul. 2026.
 
@@ -564,7 +486,7 @@ As referências completas no formato ABNT (NBR 6023:2018) com DOI, link de acess
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT — veja o arquivo [LICENSE](LICENSE) para detalhes.
+MIT License. Veja [LICENSE](LICENSE).
 
 Copyright © 2026 Kamila da Conceição Loureiro, Ryan de Paulo Santos, Letícia Maria Dias Freitas, Ivine Souza Silva, Maria Eduarda Peixoto Soares Pecly.
 

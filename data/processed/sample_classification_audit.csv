@@ -1,4 +1,0 @@
-study,TCGA_GTEX_main_category,sample_type,n,proposed_condition,reason
-GTEX,GTEX Kidney,Normal Tissue,28,Normal_GTEx,GTEx normal kidney
-TCGA,"",Solid Tissue Normal,129,TCGA_Normal,TCGA-KIRP adjacent normal
-TCGA,TCGA Kidney Papillary Cell Carcinoma,Primary Tumor,288,KIRP,TCGA-KIRP primary tumor
