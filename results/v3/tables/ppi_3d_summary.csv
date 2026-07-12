@@ -1,0 +1,9 @@
+metric,value
+genes_total,109
+nodes_giant,85
+edges,935
+cor_threshold,0.6
+method,pearson_abs
+n_up,6
+n_down,20
+n_ns,59

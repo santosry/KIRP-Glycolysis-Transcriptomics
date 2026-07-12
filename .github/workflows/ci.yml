@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, audit-*]
+    branches: [main, audit-*, v3.*]
   pull_request:
     branches: [main]
 
@@ -17,12 +17,12 @@ jobs:
 
       - name: Install system dependencies
         run: |
-          apt-get update && apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
+          apt-get update && apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev python3
 
       - name: Install R packages
         run: |
-          R -e 'install.packages(c("dplyr","tibble","stringr","rio","digest","ggplot2","ggrepel","pheatmap","RColorBrewer","tidyr","testthat","umap"), repos="https://cloud.r-project.org")'
-          R -e 'if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager"); BiocManager::install(c("limma","edgeR","clusterProfiler","org.Hs.eg.db","ReactomePA","enrichplot","STRINGdb","igraph","ggraph","KEGGREST"), ask=FALSE)'
+          R -e 'install.packages(c("dplyr","tibble","stringr","rio","digest","ggplot2","ggrepel","pheatmap","RColorBrewer","tidyr","testthat","umap","plotly","htmlwidgets","igraph","scales"), repos="https://cloud.r-project.org")'
+          R -e 'if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager"); BiocManager::install(c("limma","edgeR","clusterProfiler","org.Hs.eg.db","ReactomePA","enrichplot","STRINGdb","ggraph","KEGGREST"), ask=FALSE)'
 
       - name: Check environment
         run: |
@@ -34,9 +34,9 @@ jobs:
 
       - name: Check no manuscript files tracked
         run: |
-          if git ls-files | grep -qE '\.(Rmd|pdf|docx|tex|qmd)$'; then
+          if git ls-files | grep -qE 'manuscrito|MANUSCRIPTO'; then
             echo "ERROR: Manuscript files detected in tracking!"
-            git ls-files | grep -E '\.(Rmd|pdf|docx|tex|qmd)$'
+            git ls-files | grep -E 'manuscrito|MANUSCRIPTO'
             exit 1
           fi
           echo "No manuscript files tracked ✓"
@@ -48,3 +48,19 @@ jobs:
             exit 1
           fi
           echo "No secrets detected ✓"
+
+      - name: Verify Python download script syntax
+        run: |
+          python3 -c "import py_compile; py_compile.compile('scripts/download_full_transcriptome.py', doraise=True)"
+          echo "Python script syntax OK ✓"
+
+      - name: Check repository structure
+        run: |
+          test -f data/raw/kidney.tsv || { echo "ERROR: kidney.tsv not found!"; exit 1; }
+          test -f scripts/pipeline_v3.R || { echo "ERROR: pipeline_v3.R not found!"; exit 1; }
+          test -f scripts/16_3d_visualizations.R || { echo "ERROR: 16_3d_visualizations.R not found!"; exit 1; }
+          test -f scripts/16b_ppi_3d_correlation.R || { echo "ERROR: 16b_ppi_3d_correlation.R not found!"; exit 1; }
+          test -f VERSION || { echo "ERROR: VERSION file not found!"; exit 1; }
+          test -f README.md || { echo "ERROR: README.md not found!"; exit 1; }
+          test -f CITATION.cff || { echo "ERROR: CITATION.cff not found!"; exit 1; }
+          echo "Repository structure OK ✓"

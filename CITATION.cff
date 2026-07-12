@@ -1,34 +1,45 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite it using the metadata below."
-title: "KIRP Glycolysis Transcriptomics"
+message: "Se você utilizar este repositório, cite-o conforme os metadados abaixo. / If you use this repository, please cite it using the metadata below."
+title: "KIRP-Glycolysis-Transcriptomics: perfil transcriptômico do metabolismo central do carbono no carcinoma renal papilar"
 type: software
 authors:
   - family-names: "Loureiro"
     given-names: "Kamila da Conceição"
-    affiliation: "Faculdade de Medicina de Campos"
+    affiliation: "Faculdade de Medicina de Campos, Campos dos Goytacazes, RJ, Brasil"
+    orcid: ""
   - family-names: "Santos"
     given-names: "Ryan de Paulo"
-    affiliation: "Instituto Federal de Educação, Ciência e Tecnologia Fluminense Campus Campos Guarus"
+    affiliation: "Instituto Federal de Educação, Ciência e Tecnologia Fluminense Campus Campos Guarus, Campos dos Goytacazes, RJ, Brasil"
+    orcid: ""
   - family-names: "Freitas"
     given-names: "Letícia Maria Dias"
-    affiliation: "Escola Técnica Estadual João Barcelos Martins"
-  - family-names: ""
-    given-names: "Ivine"
-    affiliation: "Universidade Federal do Rio de Janeiro, Campus Macaé"
+    affiliation: "Escola Técnica Estadual João Barcelos Martins, Campos dos Goytacazes, RJ, Brasil"
+    orcid: ""
+  - family-names: "Silva"
+    given-names: "Ivine Souza"
+    affiliation: "Universidade Federal do Rio de Janeiro, Campus Macaé, Macaé, RJ, Brasil"
+    orcid: ""
   - family-names: "Pecly"
-    given-names: "Maria Eduarda"
-    affiliation: "Instituto Federal de Educação, Ciência e Tecnologia Fluminense Campus Campos Guarus"
+    given-names: "Maria Eduarda Peixoto Soares"
+    affiliation: "Instituto Federal de Educação, Ciência e Tecnologia Fluminense Campus Campos Guarus, Campos dos Goytacazes, RJ, Brasil"
+    orcid: ""
 year: 2026
+version: "3.1.0"
+doi: ""
 license: MIT
 repository-code: "https://github.com/santosry/KIRP-Glycolysis-Transcriptomics"
-abstract: "Reproducible R pipeline for differential expression and PPI analysis of glycolysis/gluconeogenesis pathway genes (KEGG hsa00010) in papillary renal cell carcinoma (KIRP), using TCGA/GTEx data integrated via UCSC Xena."
+abstract: "Pipeline R reprodutível para análise transcriptômica de 106 genes do metabolismo central do carbono (glicólise, via das pentoses fosfato, ciclo do ácido cítrico) em carcinoma renal papilar (KIRP), utilizando análise pareada tumor-tecido adjacente (32 pares) como comparador primário, com métricas de concordância (CCC de Lin, Bland-Altman, MAE) entre diferentes tecidos de referência e visualizações 3D interativas."
 keywords:
   - transcriptomics
   - KIRP
+  - central-carbon-metabolism
   - glycolysis
-  - gluconeogenesis
+  - pentose-phosphate-pathway
+  - citrate-cycle
+  - paired-analysis
   - limma
-  - STRING
-  - genomic nursing
-  - precision health
-  - reproducible research
+  - camera
+  - concordance
+  - reproducibility
+  - 3d-visualization
+date-released: "2026-07-12"

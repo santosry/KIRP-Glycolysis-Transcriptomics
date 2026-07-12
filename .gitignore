@@ -54,16 +54,25 @@ rsconnect/
 # Manuscript files (NEVER publish on GitHub)
 manuscrito*
 *MANUSCRIPT*
+*manuscrito*
 manuscript/
 !docs/MANUSCRIPT_VERSION_LOG.md
 output/
+*.pdf
+*.docx
+*.tex
+!LICENSE
 
 # Private environment files
 .env
 .env.*
 
-# Compressed data placeholders (actual data in .tsv)
+# Large data files (not versioned; download separately)
 data/raw/*.gz
 data/raw/kidney_transcriptome.tsv
 data/raw/kidney_full.tsv
 data/raw/kidney_full.tsv.gz
+data/raw/kidney_tcga_kirp.tsv.gz
+
+# Plotly HTML dependency directories (generated, redundant with self-contained)
+results/v3/figures/*_files/
