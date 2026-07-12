@@ -50,6 +50,24 @@ Qual é o perfil transcriptômico dos genes do metabolismo central do carbono (g
 
 **Genes ausentes da matriz (n = 4):** *G6PC1*, *PRPS1L1*, *RPEL1*, *SUCLA2* — removidos durante a filtragem de baixa expressão (expressão ≤ 1 em > 90% das amostras). Verificação de sensibilidade: a remoção destes genes não afetou quaisquer conclusões.
 
+## Por que estas três vias?
+
+### Glicólise / Gliconeogênese (hsa00010) — o eixo central
+
+A via glicolítica é o ponto de partida do metabolismo central do carbono: converte glicose em piruvato, gerando ATP e intermediários biossintéticos que alimentam todas as demais vias metabólicas. A gliconeogênese, via reversa, é crítica no rim pois o túbulo proximal renal é um dos principais sítios gliconeogênicos do organismo humano. No câncer, o efeito Warburg — aumento da captação de glicose e fermentação a lactato mesmo na presença de oxigênio — é uma das alterações metabólicas mais bem documentadas (VANDER HEIDEN et al., 2009). Estudar esta via no KIRP é essencial por duas razões: (i) o rim normal expressa enzimas gliconeogênicas (*FBP1*, *PCK1*, *ALDOB*) em altíssimos níveis no túbulo proximal, e sua perda no tumor serve como marcador de desdiferenciação epitelial; (ii) isoenzimas glicolíticas como *HK2* e *PKM2* são alvos terapêuticos em múltiplos tipos de câncer e sua expressão no KIRP não havia sido sistematicamente caracterizada em análise pareada. Com 64 genes na matriz, é a maior das três vias e fornece o contexto transcriptômico principal.
+
+### Via das Pentoses Fosfato (hsa00030) — defesa redox e biossíntese
+
+A PPP ramifica-se da glicólise na glicose-6-fosfato e desempenha duas funções essenciais para a proliferação celular: (i) produção de NADPH, o principal redutor celular que sustenta a defesa antioxidante (glutationa, tiorredoxina) e a biossíntese de lipídeos; (ii) produção de ribose-5-fosfato, precursor da síntese de nucleotídeos (DNA, RNA). Em carcinomas renais, a PPP é particularmente relevante porque a enzima limitante G6PD é regulada pela via NRF2 — fator de transcrição frequentemente ativado em KIRP com deficiência de FH (KOPPULA et al., 2020; PATRA; HAY, 2014). Além disso, a produção de NADPH é crítica para a homeostase redox em um órgão exposto a alto estresse oxidativo como o rim. A inclusão desta via permite testar se há evidência transcriptômica de ativação coordenada do braço oxidativo da PPP no KIRP. Com 30 genes na matriz, a PPP complementa a via glicolítica com enzimas que determinam o destino do carbono entre oxidação (geração de NADPH) e biossíntese (geração de ribose).
+
+### Ciclo do Ácido Cítrico — TCA (hsa00020) — encruzilhada metabólica e tumorigênese
+
+O ciclo do ácido cítrico (ciclo de Krebs) é a encruzilhada central do metabolismo oxidativo: oxida acetil-CoA a CO₂, gerando equivalentes redutores (NADH, FADH₂) para a cadeia respiratória, e fornece intermediários para biossíntese de aminoácidos, lipídeos e heme. No contexto específico do KIRP, o TCA tem relevância única: mutações no gene *FH* (fumarato hidratase), que codifica uma enzima do ciclo, são a base molecular do subtipo hereditário de KIRP com deficiência de FH (HLRCC). O acúmulo de fumarato promove succinação de PTEN, conectando diretamente o TCA à tumorigênese neste subtipo (GE et al., 2022). Além disso, vários genes do ciclo (CS, ACO2, IDH2/3, OGDH, SDHA-D, MDH2) codificam enzimas mitocondriais cuja expressão pode refletir o conteúdo mitocondrial e o estado de diferenciação celular. A inclusão sistemática de todos os 29 genes do TCA disponíveis na matriz permite: (i) verificar se há alteração coordenada do ciclo como conjunto gênico — hipótese testada formalmente via *camera* — e (ii) contextualizar os achados de *FH*, *SDHs* e *IDHs* cujas mutações são recorrentes em neoplasias renais (SANCHEZ; SIMON, 2024).
+
+### Integração das três vias
+
+As três vias não operam isoladamente: a glicólise alimenta a PPP (via glicose-6-fosfato) e o TCA (via piruvato → acetil-CoA); a PPP fornece NADPH para biossíntese redutora e ribose-5-fosfato para nucleotídeos; o TCA fornece citrato para lipogênese e intermediários para aminoácidos. Analisar as três vias em conjunto — 106 genes extraídos *a posteriori* de um modelo transcriptômico único sobre 31.633 genes — permite capturar o estado coordenado do metabolismo central do carbono sem o viés de seleção que ocorreria ao restringir previamente o universo gênico apenas a essas vias (circularidade metodológica). A análise conjunta também revela genes compartilhados entre vias (7 dos 35 DEGs pertencem a duas ou três vias), evidenciando pontos de conexão metabólica potencialmente relevantes.
+
 ---
 
 ## Principais Achados (v3.1.0)
