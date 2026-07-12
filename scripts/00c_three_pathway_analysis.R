@@ -124,7 +124,7 @@ for (pw_id in names(pathways)) {
          subtitle = sprintf("%d genes | %d Up | %d Down (FDR<0.05, |logFC|>1)", n_genes, n_up, n_down),
          x = "log2(Fold Change)", y = "-log10(FDR)") +
     theme_minimal(14) +
-    theme(plot.background = element_rect(fill = "#FFF8DC", color = NA))
+    theme(plot.background = element_rect(fill = "white", color = NA))
   
   ggsave(file.path(repo_root, "results", "pathways", "figures", paste0("Volcano_", pw_id, ".png")),
          p_volc, width = 10, height = 8, dpi = 300)
@@ -222,7 +222,7 @@ for (pw_id in names(pathways)) {
               scale_color_gradient(low = "#8A2BE2", high = "#FFE135", trans = "log10", name = "FDR") +
               labs(title = paste0("KEGG ORA Down — ", pw_info$short), x = "Gene Count") +
               theme_minimal(12) +
-              theme(plot.background = element_rect(fill = "#FFF8DC", color = NA))
+              theme(plot.background = element_rect(fill = "white", color = NA))
             ggsave(file.path(repo_root, "results", "pathways", "figures", paste0("Dotplot_", pw_id, ".png")),
                    p_dot, width = 10, height = 7, dpi = 300)
           }
@@ -299,7 +299,7 @@ for (pw_id in names(pathways)) {
             labs(color = "Regulation", size = "Degree",
                  title = paste0("PPI Network \U2014 ", pw_info$short)) +
             theme_void(14) +
-            theme(plot.background = element_rect(fill = "#FFF8DC", color = NA))
+            theme(plot.background = element_rect(fill = "white", color = NA))
           
           ggsave(file.path(repo_root, "results", "pathways", "figures", paste0("PPI_", pw_id, ".png")),
                  p_ppi, width = 10, height = 8, dpi = 300)

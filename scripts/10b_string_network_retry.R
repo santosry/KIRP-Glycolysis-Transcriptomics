@@ -114,7 +114,7 @@ p_net <- ggraph(g_cc, layout = "fr") +
   scale_size(range = c(2, 8)) +
   geom_node_text(aes(label = gene_symbol), repel = TRUE, size = 3, max.overlaps = 50) +
   labs(color = "Regulation", size = "Degree") + theme_void(14) +
-  theme(plot.background = element_rect(fill = "#FFF8DC", color = NA))
+  theme(plot.background = element_rect(fill = "white", color = NA))
 ggsave(file.path(repo_root, "results", "figures", "PPI_network.png"), p_net, width = 10, height = 8, dpi = 300)
 
 message("\n✓ STRING network complete. Communities: ", n_comm, " | Modularity: ", round(mod_l, 4))

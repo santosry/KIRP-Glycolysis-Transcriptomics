@@ -91,7 +91,7 @@ plot_reactome <- function(df, direction, max_terms = 20) {
     scale_color_gradient(low = "#8A2BE2", high = "#FFE135", trans = "log10", name = "FDR") +
     labs(title = paste0("Reactome ORA — ", direction), x = "Gene Count", y = "") +
     theme_minimal(base_size = 12) +
-    theme(plot.background = element_rect(fill = "#FFF8DC", color = NA))
+    theme(plot.background = element_rect(fill = "white", color = NA))
 }
 
 if (!is.null(reactome_up)) {

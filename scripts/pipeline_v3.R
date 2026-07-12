@@ -449,7 +449,7 @@ for (pw_id in names(pw_names)) {
     labs(title = paste0(pw_names[[pw_id]], " (Paired, 32 pairs)"),
          subtitle = sprintf("%d genes | %d Up | %d Down", nrow(pw_out), n_up, n_down),
          x = "log2(Fold Change) KIRP vs Adjacent Normal", y = "-log10(FDR)") +
-    theme_minimal(14) + theme(plot.background = element_rect(fill = "#FFF8DC", color = NA))
+    theme_minimal(14) + theme(plot.background = element_rect(fill = "white", color = NA))
   
   ggsave(sprintf("results/v3/figures/Volcano_%s.png", pw_id), p, width = 10, height = 8, dpi = 300)
 }

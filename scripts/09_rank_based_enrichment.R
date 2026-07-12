@@ -61,7 +61,7 @@ if (!is.null(gsea_kegg) && nrow(gsea_kegg) > 0) {
     p_gk <- ggplot(dp_df, aes(NES, Description, size = setSize, color = p.adjust)) +
       geom_point() + scale_color_gradient(low = "#8A2BE2", high = "#FFE135", trans = "log10") +
       labs(title = "GSEA KEGG — Significant Gene Sets", x = "NES") +
-      theme_minimal(12) + theme(plot.background = element_rect(fill = "#FFF8DC", color = NA))
+      theme_minimal(12) + theme(plot.background = element_rect(fill = "white", color = NA))
     ggsave(file.path(repo_root, "results", "figures", "GSEA_KEGG_dotplot.png"), p_gk, width = 10, height = 7, dpi = 300)
   }
 }
@@ -93,7 +93,7 @@ if (!is.null(gsea_reactome) && nrow(gsea_reactome) > 0) {
     p_gr <- ggplot(dp_df, aes(NES, Description, size = setSize, color = p.adjust)) +
       geom_point() + scale_color_gradient(low = "#8A2BE2", high = "#FFE135", trans = "log10") +
       labs(title = "GSEA Reactome — Significant Gene Sets", x = "NES") +
-      theme_minimal(12) + theme(plot.background = element_rect(fill = "#FFF8DC", color = NA))
+      theme_minimal(12) + theme(plot.background = element_rect(fill = "white", color = NA))
     ggsave(file.path(repo_root, "results", "figures", "GSEA_Reactome_dotplot.png"), p_gr, width = 10, height = 7, dpi = 300)
   }
 }

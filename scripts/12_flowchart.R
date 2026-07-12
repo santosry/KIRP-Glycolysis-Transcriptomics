@@ -126,7 +126,7 @@ p_flow <- ggplot() +
   scale_fill_manual(values = phase_colors, guide = "none") +
   xlim(-0.5, 10.5) + ylim(-1.5, 11) +
   theme_void() +
-  theme(plot.background = element_rect(fill = banana_light, color = banana_dark, linewidth = 2),
+  theme(plot.background = element_rect(fill = "white", color = "grey80", linewidth = 1),
         plot.margin = margin(10, 10, 10, 10))
 
 ggsave(file.path(repo_root, "results", "figures", "Flowchart_pipeline.png"),

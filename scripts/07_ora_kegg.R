@@ -100,7 +100,7 @@ plot_ora <- function(df, dir_label) {
   ggplot(df, aes_string("Count", "Description", size = "Count", color = "p.adjust")) +
     geom_point() + scale_color_gradient(low = "#8A2BE2", high = "#FFE135", trans = "log10", name = "FDR") +
     labs(title = paste0("KEGG ORA — ", dir_label), x = "Gene Count") +
-    theme_minimal(12) + theme(plot.background = element_rect(fill = "#FFF8DC", color = NA))
+    theme_minimal(12) + theme(plot.background = element_rect(fill = "white", color = NA))
 }
 if (!is.null(kegg_up_sig)) ggsave(file.path(repo_root, "results", "figures", "KEGG_dotplot_Up.png"), plot_ora(kegg_up_sig, "Up"), width = 10, height = 7, dpi = 300)
 if (!is.null(kegg_down_sig)) ggsave(file.path(repo_root, "results", "figures", "KEGG_dotplot_Down.png"), plot_ora(kegg_down_sig, "Down"), width = 10, height = 7, dpi = 300)
