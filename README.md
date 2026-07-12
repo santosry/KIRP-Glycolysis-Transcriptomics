@@ -48,7 +48,7 @@ O estudo investiga **três vias do metabolismo central do carbono**, tratadas co
 | hsa00020 | Ciclo do Ácido Cítrico (TCA) | 30 | 29 |
 | **União (genes únicos)** | **Metabolismo Central do Carbono** | **110** | **106** |
 
-**Genes ausentes da matriz (n = 4):** *G6PC1*, *PRPS1L1*, *RPEL1*, *SUCLA2* — removidos durante a filtragem de baixa expressão (> 90% das amostras com expressão ≤ 1). Análise de sensibilidade confirmou que nenhum gene das três vias foi afetado exclusivamente por este critério.
+**Genes ausentes da matriz (n = 3):** *PDHA2*, *PGK2*, *PRPS1L1* — removidos durante a filtragem de baixa expressão (> 90% das amostras com expressão ≤ 1). Análise de sensibilidade confirmou que nenhum gene das três vias foi afetado exclusivamente por este critério. Matriz final: **107 genes**.
 
 > ⚠️ **Alcance da anotação KEGG hsa00010:** Aproximadamente 25 dos 64 genes desta via são álcool desidrogenases (ADH) e aldeído desidrogenases (ALDH), enzimas do metabolismo de etanol e detoxificação de aldeídos, co-anotadas porque o etanol pode entrar como acetil-CoA. Estes genes **não pertencem ao metabolismo central do carbono em sentido estrito**. São mantidos na análise por fidelidade à anotação KEGG *release* 119.0 (sem curadoria manual — decisão que privilegia reprodutibilidade). A discussão concentra-se nas enzimas *core* (HK2, ALDOB, FBP1, PCK1, G6PD, TKT, ENO2 e demais). Resultados completos de ADH/ALDH em Supplementary Table S1.
 
@@ -119,11 +119,11 @@ Dos 7 genes: 5 pertencem simultaneamente à glicólise e à PPP (ALDOA/B/C, FBP1
 
 | Via | NGenes | Direção | P | FDR |
 |-----|:------:|:-------:|:---:|:---:|
-| hsa00020 (TCA) | 29 | ↓ Down | 0,00039 | **0,0012** |
-| hsa00010 (Glicólise) | 64 | ↓ Down | 0,052 | 0,078 |
-| hsa00030 (PPP) | 30 | ↓ Down | 0,800 | 0,800 |
+| hsa00020 (TCA) | 29 | ↓ Down | 0,00039 | **0,147 (não significativo)** |
+| hsa00010 (Glicólise) | 64 | ↓ Down | 0,982 | 0,982 |
+| hsa00030 (PPP) | 30 | ↑ Up | 0,248 | 0,372 |
 
-> O TCA apresentou deslocamento coordenado no sentido de redução (FDR = 0,0012 com *inter.gene.cor = 0,01*). Este resultado não se manteve na análise de sensibilidade com correlação estimada por conjunto (*inter.gene.cor = NA*; FDR = 0,437).
+Nenhuma das três vias apresentou alteração coordenada estatisticamente significativa após correção para testes múltiplos. O TCA apresentou o menor valor nominal (FDR = 0,147).
 
 ### Concordância entre comparadores
 
@@ -209,15 +209,15 @@ KIRP-Glycolysis-Transcriptomics/
 │   ├── metadata/                         # Metadados de genes
 │   └── provenance/                       # Registro de proveniência
 │
+├── run_all.R                             # Executa pipeline completo (01→06)
 ├── scripts/
-│   ├── pipeline_v3.R                     # Pipeline principal v3
-│   ├── pipeline_v3_addendum.R            # Adendo: sensibilidade, concordância
-│   ├── 16_3d_visualizations.R            # Volcano plots 3D (HTML)
-│   ├── 16b_ppi_3d_correlation.R          # Rede de coexpressão 3D (HTML)
-│   ├── download_full_transcriptome.py    # Download do transcriptoma completo
-│   ├── download_full_matrix.py           # Download do painel reduzido
 │   ├── 00_environment.R                  # Verificação de dependências
-│   └── *.R                               # Scripts v2 (legado, mantidos para referência)
+│   ├── 01_load_data.R                    # Carrega kidney.tsv, filtra, metadados
+│   ├── 02_differential_expression.R      # limma: paired + TCGA + GTEx
+│   ├── 03_volcano_plots.R                # Volcano PNG + 3D HTML por via
+│   ├── 04_ppi_network.R                  # Rede coexpressão (PNG + 3D HTML)
+│   ├── 05_functional_enrichment.R        # camera + ORA KEGG (Up/Down)
+│   └── 06_concordance_and_tables.R       # CCC, Bland-Altman, tabelas S1/DEG
 │
 ├── results/
 │   └── v3/                               # Todos os outputs da versão 3
@@ -286,20 +286,13 @@ KIRP-Glycolysis-Transcriptomics/
 git clone https://github.com/santosry/KIRP-Glycolysis-Transcriptomics.git
 cd KIRP-Glycolysis-Transcriptomics
 
-# 2. Baixar transcriptoma completo (Python)
-python3 scripts/download_full_transcriptome.py
+# 2. O arquivo data/raw/kidney.tsv já está versionado (110 genes, 445 amostras)
+#    Para baixar do UCSC Xena, veja instruções na seção 'Dados'
 
-# 3. Executar pipeline v3 (análise pareada primária)
-Rscript scripts/pipeline_v3.R
+# 3. Executar pipeline completo
+Rscript run_all.R
 
-# 4. Adendo (sensibilidade, concordância)
-Rscript scripts/pipeline_v3_addendum.R
-
-# 5. 3D interativos
-Rscript scripts/16_3d_visualizations.R
-Rscript scripts/16b_ppi_3d_correlation.R
-
-# 6. Testes
+# 4. Testes
 R -e "testthat::test_dir('tests/testthat')"
 ```
 
@@ -329,12 +322,17 @@ sha256sum -c checksums_sha256.txt
 
 3. **Ordem de execução obrigatória:**
    ```
-   1. scripts/download_full_transcriptome.py  (Python — baixa dados)
-   2. scripts/00_environment.R                 (verifica dependências)
-   3. scripts/pipeline_v3.R                    (análise principal)
-   4. scripts/pipeline_v3_addendum.R           (sensibilidade)
-   5. scripts/16_3d_visualizations.R           (volcano 3D HTML)
-   6. scripts/16b_ppi_3d_correlation.R         (rede PPI 3D HTML)
+   1. scripts/00_environment.R                 (verifica dependências)
+   2. run_all.R                                (pipeline completo 01→06)
+   ```
+   Ou passo a passo:
+   ```
+   1. scripts/01_load_data.R
+   2. scripts/02_differential_expression.R
+   3. scripts/03_volcano_plots.R
+   4. scripts/04_ppi_network.R
+   5. scripts/05_functional_enrichment.R
+   6. scripts/06_concordance_and_tables.R
    ```
 
 4. **Dados obrigatórios:**
@@ -427,7 +425,7 @@ Abra os arquivos HTML em `results/v3/figures/` em qualquer navegador moderno:
 
 ### Computacionais
 
-12. **Sensibilidade a parâmetros:** resultado do camera para TCA (FDR = 0,0012) não se manteve com *inter.gene.cor = NA* (FDR = 0,437).
+12. **Sensibilidade a parâmetros:** resultado do camera para TCA (FDR = 0,147 (não significativo)) não se manteve com *inter.gene.cor = NA* (FDR = 0,437).
 13. **Anotações KEGG:** congeladas na release 119.0 (julho/2026). Atualizações futuras podem alterar a composição dos conjuntos gênicos.
 14. **Genes periféricos em hsa00010:** ~25 dos 64 genes da via glicolítica são ADH/ALDH (metabolismo de etanol/detoxificação), co-anotados na via KEGG mas funcionalmente não pertencentes ao metabolismo central do carbono. Sua inclusão decorre da estratégia de usar a anotação KEGG completa sem curadoria manual. Resultados relativos a estes genes devem ser interpretados com cautela quanto à relevância para o metabolismo energético tumoral.
 
